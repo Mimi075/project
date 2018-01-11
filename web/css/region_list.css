@@ -1,0 +1,44 @@
+@media (min-width: 768px)
+{
+	#regions_list
+	{
+		margin: 0 2% 0 0;
+	}
+}
+@media (min-width: 900px)
+{
+	#regions_list
+	{
+		display: block;
+		margin-top: 10%;		
+		width: auto;
+		float: right;
+		text-align: right;
+	}
+	#regions_list li
+	{
+		list-style: none;
+		margin: 0;
+	}
+	#regions_list li a
+	{
+		display: block;
+		line-height: 17px;
+		font-family: Tahoma, sans-serif;
+		font-size: 0.8em;
+		color: #13b559;
+		text-decoration: none;
+	}
+	#regions_list li a:hover
+	{
+		text-decoration: underline;
+		color: red;
+	}
+	}
+@media (min-width: 1024px)
+{
+	#regions_list
+	{
+		margin-top: 10%;
+	}
+}
