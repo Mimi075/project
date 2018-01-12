@@ -1,3 +1,4 @@
 /vendor/
 composer.phar
-/web/img
+/web/img/
+/web/false/
