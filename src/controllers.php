@@ -14,6 +14,18 @@ $app->get('/', function () use ($app) {
 ->bind('homepage')
 ;
 
+$app->get('/inscription', function () use ($app) {
+    return $app['twig']->render('inscription.html.twig', array());
+})
+->bind('inscription')
+;
+
+$app->get('/formulaireContact', function () use ($app) {
+    return $app['twig']->render('formulaireContact.html.twig', array());
+})
+->bind('formulaireContact')
+;
+
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
         return;
