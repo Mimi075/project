@@ -26,6 +26,11 @@ class Eleveur
     /**
      * @Column(type="string")
      */
+    private $motDePasse;
+    /**
+     * @Column(type="string")
+     */
+
     private $adresse;
     /**
      * @Column(type="string")
@@ -35,6 +40,10 @@ class Eleveur
      * @Column(type="string")
      */
     private $ville;
+    /**
+     * @Column(type="integer")
+     */
+    private $idRegion;
     /**
      * @Column(type="string")
      */
@@ -47,10 +56,7 @@ class Eleveur
      * @Column(type="datetime")
      */
     private $dateDerniereVisite;
-    /**
-     * @Column(type="string")
-     */
-    private $motDePasse;
+    
 
     public function getId()
     {
@@ -87,6 +93,26 @@ class Eleveur
         $this->adresseMail = $adresseMail;
     }
 
+    public function getMotDePasse()
+    {
+        return $this->motDePasse;
+    }
+
+    public function setMotDePasse($motDePasse)
+    {
+        $this->motDePasse = $motDePasse;
+    }
+
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+
     public function getCodePostal()
     {
         return $this->codePostal;
@@ -105,6 +131,16 @@ class Eleveur
     public function setVille($ville)
     {
         $this->ville = $ville;
+    }
+
+    public function getIdRegion()
+    {
+        return $this->idRegion;
+    }
+
+    public function setIdRegion($idRegion)
+    {
+        $this->idRegion = $idRegion;
     }
 
     public function getSiren()
@@ -135,15 +171,5 @@ class Eleveur
     public function setDateDerniereVisite($dateDerniereVisite)
     {
         $this->dateDerniereVisite = $dateDerniereVisite;
-    }
-
-    public function getMotDePasse()
-    {
-        return $this->motDePasse;
-    }
-
-    public function setMotDePasse($motDePasse)
-    {
-        $this->motDePasse = $motDePasse;
     }
 }
