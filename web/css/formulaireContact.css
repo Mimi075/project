@@ -1,0 +1,13 @@
+#Identification {
+border:solid 1px black;
+padding:20px;
+width:250px;
+color:midnightblue;
+font-family:verdana;
+}
+textarea {
+	width: 350px;
+	height: 200px;
+	resize: auto;
+	cursor: SE-Resize;
+}
