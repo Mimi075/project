@@ -15,10 +15,9 @@ $app->register(new TwigServiceProvider());
 $app->register(new HttpFragmentServiceProvider());
 $app['twig'] = $app->extend('twig', function ($twig, $app) {
     // add custom globals, filters, tags, ...
-
     return $twig;
 });
-
+//Debut attribution doctrine orm (EntityManager) dans $app['em']
 $isDevMode = true;
 $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/Entity"), $isDevMode);
 $conn = array(
@@ -28,5 +27,6 @@ $conn = array(
     'dbname'   => 'dcw_projet_final',
 );
 $app['em'] = EntityManager::create($conn, $config);
+//Fin attribution doctrine orm (EntityManager) dans $app['em']
 
 return $app;
