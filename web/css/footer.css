@@ -1,0 +1,15 @@
+#pied {	
+	background-color: #f9d9d9;
+	margin-top: 50px;
+	height :100px;
+	text-align: center;
+}
+.dcw {
+  position: relative;
+  float: right;
+  bottom: 60px;
+  color: #f1c40f;  
+}
+.dcw:visited {
+  color: #f1c40f;
+}
