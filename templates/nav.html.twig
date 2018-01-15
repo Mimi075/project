@@ -1,31 +1,27 @@
 {% block css %}
 	<link href="../css/nav.css" media="screen" rel="stylesheet" type="text/css" />
 {% endblock %}
-
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-	<a class="navbar-brand" href="{{ path('homepage') }}">Accueil</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active">
-				<a class="nav-link" href="#">Annonces<span class="sr-only">(current)</span></a>
+				<a class="navbar-brand" href="{{ path('homepage') }}">Accueil</a>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link propos" href="#">Annonces<span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="{{ path('AproposDeNous') }}">A propos de nous</a>
 			</li>
 		</ul>
-		
 		<form class="form-inline my-2 my-lg-0" method="post"  action="{{ path('inscription') }}">
-			<button class="btn btn-outline-dark my-2 my-sm-0" type="submit"> 
-				Inscription
+			<button class="btn btn-outline-dark my-2 my-sm-0" type="submit">
+			Inscription
 			</button>
 		</form>
-
 		<form class="form-inline my-2 my-lg-0" method="post"  action="{{ path('formulaireContact') }}">
-			<button class="btn btn-outline-dark my-2 my-sm-0" type="submit"> 
-				Connexion professionnels
+			<button class="btn btn-outline-dark my-2 my-sm-0" type="submit">
+			Connexion professionnels
 			</button>
 		</form>
 	</div>

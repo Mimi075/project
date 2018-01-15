@@ -6,3 +6,25 @@
 button {
 	margin-left: 5%;
 }
+nav ul li a{
+	border-radius: 7px;
+border: solid black 1px;	
+}
+nav ul li a:hover {
+background-color: #249CFF;
+text-decoration: none;
+border-radius: 7px;
+border: solid black 1px;
+}
+.navbar-brand {
+	padding-right: 6px;
+	padding-left: 6px;
+	margin-right: 4%;
+	margin-left: 5px;
+}
+.nav-link {
+	margin-left: 5px;
+}
+.nav-link propos {
+	margin-left: 10px;
+}
