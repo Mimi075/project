@@ -8,6 +8,9 @@
  *
  * Fork Me @ https://github.com/manifestinteractive/jqvmap
  */
+ .row {
+ 	padding-top: 5%;
+ }
 .jqvmap-label
 {
 	position: absolute;
@@ -53,5 +56,5 @@
   height: 500px;
 }
 #francemap {
-	padding-top: 10%;
+	padding-top: 18%;
 }
