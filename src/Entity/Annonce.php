@@ -15,31 +15,31 @@ class Annonce
     /**
      * @Column(type="integer")
      */
-    private $idEleveur;
+    private $farmer;
     /**
      * @Column(type="integer")
      */
-    private $idAnimal;
+    private $animal;
     /**
      * @Column(type="string")
      */
-    private $titre;
+    private $title;
     /**
      * @Column(type="string")
      */
-    private $contenue;
+    private $container;
     /**
      * @Column(type="integer")
      */
-    private $idRegion;
+    private $region;
     /**
      * @Column(type="integer")
      */
-    private $prix;
+    private $price;
     /**
      * @Column(type="datetime")
      */
-    private $dateDeCreation;
+   /* private $dateDeCreation;*/
        
 
     public function getId()
@@ -47,67 +47,67 @@ class Annonce
         return $this->id;
     }
 
-    public function getIdEleveur()
+    public function getFarmer()
     {
-        return $this->idEleveur;
+        return $this->farmer;
     }
 
-    public function setIdEleveur($idEleveur)
+    public function setFarmer($farmer)
     {
-        $this->idEleveur = $idEleveur;
+        $this->farmer = $farmer;
     }
 
-    public function getIdAnimal()
+    public function getAnimal()
     {
-        return $this->idAnimal;
+        return $this->animal;
     }
 
-    public function setIdAnimal($idAnimal)
+    public function setAnimal($animal)
     {
-        $this->idAnimal = $idAnimal;
+        $this->animal = $animal;
     }
 
-    public function getTitre()
+    public function getTitle()
     {
-        return $this->titre;
+        return $this->title;
     }
 
-    public function setTitre($titre)
+    public function setTitle($title)
     {
-        $this->titre = $titre;
+        $this->title = $title;
     }
 
-    public function getContenue()
+    public function getContainer()
     {
-        return $this->contenue;
+        return $this->container;
     }
 
-    public function setContenue($contenue)
+    public function setContainer($container)
     {
-        $this->contenue = $contenue;
+        $this->container = $container;
     }
 
-    public function getIdRegion()
+    public function getRegion()
     {
-        return $this->idRegion;
+        return $this->region;
     }
 
-    public function setIdRegion($idRegion)
+    public function setRegion($region)
     {
-        $this->idRegion = $idRegion;
+        $this->region = $region;
     }
 
-    public function getPrix()
+    public function getPrice()
     {
-        return $this->prix;
+        return $this->price;
     }
 
-    public function setPrix($prix)
+    public function setPrice($price)
     {
-        $this->prix = $prix;
+        $this->price = $price;
     }
 
-    public function getDateDeCreation()
+    /*public function getDateDeCreation()
     {
         return $this->dateDeCreation;
     }
@@ -115,5 +115,5 @@ class Annonce
     public function setDateDeCreation($dateDeCreation)
     {
         $this->dateDeCreation = $dateDeCreation;
-    }
+    }*/
 }

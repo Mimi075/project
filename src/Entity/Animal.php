@@ -15,34 +15,34 @@ class Animal
     /**
      * @Column(type="string")
      */
-    private $nom;
+    private $name;
     /**
      * @Column(type="integer")
      */
-    private $idCategorie;       
+    private $category;       
 
     public function getId()
     {
         return $this->id;
     }
 
-    public function getNom()
+    public function getName()
     {
-        return $this->nom;
+        return $this->name;
     }
 
-    public function setNom($nom)
+    public function setName($name)
     {
-        $this->nom = $nom;
+        $this->name = $name;
     }
 
-    public function getIdCategorie()
+    public function getCategory()
     {
-        return $this->idCategorie;
+        return $this->category;
     }
 
-    public function setIdCategorie($idCategorie)
+    public function setCategory($category)
     {
-        $this->idCategorie = $idCategorie;
+        $this->category = $category;
     }
 }
