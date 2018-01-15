@@ -1,19 +1,24 @@
 {% extends "layout.html.twig" %}
 
 {% block body %}
-	<form>
-    Nom<input type="text">
-    <br>
-    Prénom<input type="text">
-    Adresse postal<input type="text">
-    Code postal<input type="text">
-    Ville<input type="text">
-    Région<input type="text">
-    N° Siren<input type="text">
-    Adresse mail<input type="text">
-    Mot de passe<input type="text">
+
+{% if errors is defined  %}
+  {% for error in errors %}
+    <p>{{error}} </p>
+  {% endfor %} 
+{% endif %}
+  
+	<form method="post" action="{{ path('inscription') }}">
+    Nom<input name="lastname" type="text"><br>
+    Prénom<input name="firstname" type="text"><br>
+    Adresse postal<input name="adress" type="text"><br>
+    Code postal<input name="zip" type="text"><br>
+    Ville<input name="city" type="text"><br>
+    N° Siren<input name="siren" type="text"><br>
+    Adresse mail<input name="email" type="text"><br>
+    Mot de passe<input name="password" type="password"><br>
+    Confirmer mot de passe<input name="confPassword" type="password"><br>
     <input type="submit">
-    test
   </form>
 
 	<form>

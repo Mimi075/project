@@ -1,4 +1,5 @@
 <?php
+namespace Entity;
 /**
  * @Entity 
  * @Table(name="Categorie")

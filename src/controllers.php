@@ -14,16 +14,87 @@ $app->get('/', function () use ($app) {
 ->bind('homepage')
 ;
 
-$app->get('/inscription', function () use ($app) {
-    return $app['twig']->render('inscription.html.twig', array());
+$app->match('/inscription', function () use ($app) {
+    $dataInscription = array();
+    if (!empty($_POST)){
+        foreach($_POST as $key => $value){
+            //stockage dans un tableau des valeur reçu par $_POST avec neutralisation
+            $post[$key] = $value;
+        }
+        //initialisation du tableau des erreurs
+        $errors = array();
+
+        //différent test pour voir si il y'a des erreur
+        if(strlen($post['firstname']) < 3){
+            $errors[] = 'Le prénom doit comporter au moins 3 caractères';
+        }
+        if(strlen($post['lastname']) < 3){
+            $errors[] = 'Le nom doit comporter au moins 3 caractères';
+        }
+        if(strlen($post['adress']) < 3){
+            $errors[] = 'L\'adresse doit comporter au moins 3 caractères';
+        }
+        if(strlen($post['zip']) != 5 ){
+            $errors[] = 'Le code postale doit comporter 5 chiffres';
+        }
+        if(empty($post['city'])){
+            $errors[] = 'La ville ne peut être vide';
+        }
+        if(strlen($post['siren']) != 9 ){
+            $errors[] = 'Le n° siren doit comporter 9 chiffres';
+        }
+        if(!filter_var($post['email'], FILTER_VALIDATE_EMAIL)){
+            $errors[] = 'L\'adresse email est invalide';
+        }
+         if(strlen($post['password']) < 6 ){
+            $errors[] = 'Le mot de passe doit comporter au moins 6 caractères';
+        }
+         if($post['password'] != $post['confPassword']){
+            $errors[] = 'Les mot de passe ne sont pas identique';
+        }
+        if(count($errors) == 0){
+            // errors = 0 = insertion user
+            $eleveur = new Entity\Eleveur();
+            $eleveur->setLastName($post['lastname']);
+            $eleveur->setFirstName($post['firstname']);
+            $eleveur->setEmail($post['email']);
+            $eleveur->setPassword($post['password']);
+            $eleveur->setAdress($post['adress']);
+            $eleveur->setZip($post['zip']);
+            $eleveur->setCity($post['city']);
+            $eleveur->setSiren($post['siren']);
+            $app['em']->persist($eleveur);
+            $app['em']->flush();
+        }
+        if(!empty($errors)){
+                   $dataInscription = [
+                        'errors' => $errors
+                   ];
+        }
+    //sinon on affiche une erreur
+   
+    }
+        /*$dataInscription = [
+            "test" => "test : " . $_POST['lastName'],
+            "bonjour" => "Good!"
+        ];
+    }
+    else {
+        $dataInscription = [
+            "bonjour" => "Erreur"
+        ];
+    }*/
+    return $app['twig']->render('inscription.html.twig', $dataInscription);
 })
 ->bind('inscription')
+->method('GET|POST')
 ;
 
-$app->get('/formulaireContact', function () use ($app) {
+$app->match('/formulaireContact', function () use ($app) {
     return $app['twig']->render('formulaireContact.html.twig', array());
 })
 ->bind('formulaireContact')
+->method('GET|POST')
 ;
 
 $app->get('/formulaireAnnonce', function () use ($app) {

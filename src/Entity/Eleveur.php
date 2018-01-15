@@ -1,4 +1,5 @@
 <?php
+namespace Entity;
 /**
  * @Entity 
  * @Table(name="Eleveur")
@@ -14,36 +15,36 @@ class Eleveur
     /**
      * @Column(type="string")
      */
-    private $nom;
+    private $lastName;
     /**
      * @Column(type="string")
      */
-    private $prenom;
+    private $firstName;
     /**
      * @Column(type="string")
      */
-    private $adresseMail;
+    private $email;
     /**
      * @Column(type="string")
      */
-    private $motDePasse;
+    private $password;
     /**
      * @Column(type="string")
      */
 
-    private $adresse;
+    private $adress;
     /**
      * @Column(type="string")
      */
-    private $codePostal;
+    private $zip;
     /**
      * @Column(type="string")
      */
-    private $ville;
+    private $city;
     /**
      * @Column(type="integer")
      */
-    private $idRegion;
+    /*private $region;*/
     /**
      * @Column(type="string")
      */
@@ -51,11 +52,11 @@ class Eleveur
     /**
      * @Column(type="datetime")
      */
-    private $dateDinscription;
+    /*private $dateDinscription;*/
     /**
      * @Column(type="datetime")
      */
-    private $dateDerniereVisite;
+    /*private $dateDerniereVisite;*/
     
 
     public function getId()
@@ -63,85 +64,85 @@ class Eleveur
         return $this->id;
     }
 
-    public function getNom()
+    public function getLastName()
     {
-        return $this->nom;
+        return $this->lastName;
     }
 
-    public function setNom($nom)
+    public function setLastName($lastName)
     {
-        $this->nom = $nom;
+        $this->lastName = $lastName;
     }
 
-    public function getPrenom()
+    public function getFirstName()
     {
-        return $this->prenom;
+        return $this->firstName;
     }
 
-    public function setPrenom($prenom)
+    public function setFirstName($firstName)
     {
-        $this->prenom = $prenom;
+        $this->firstName = $firstName;
     }
 
-    public function getAdresseMail()
+    public function getEmail()
     {
-        return $this->adresseMail;
+        return $this->email;
     }
 
-    public function setAdresseMail($adresseMail)
+    public function setEmail($email)
     {
-        $this->adresseMail = $adresseMail;
+        $this->email = $email;
     }
 
-    public function getMotDePasse()
+    public function getPassword()
     {
-        return $this->motDePasse;
+        return $this->password;
     }
 
-    public function setMotDePasse($motDePasse)
+    public function setPassword($password)
     {
-        $this->motDePasse = $motDePasse;
+        $this->password = $password;
     }
 
-    public function getAdresse()
+    public function getAdress()
     {
-        return $this->adresse;
+        return $this->adress;
     }
 
-    public function setAdresse($adresse)
+    public function setAdress($adress)
     {
-        $this->adresse = $adresse;
+        $this->adress = $adress;
     }
 
-    public function getCodePostal()
+    public function getZip()
     {
-        return $this->codePostal;
+        return $this->zip;
     }
 
-    public function setCodePostal($codePostal)
+    public function setZip($zip)
     {
-        $this->codePostal = $codePostal;
+        $this->zip = $zip;
     }
 
-    public function getVille()
+    public function getCity()
     {
-        return $this->ville;
+        return $this->city;
     }
 
-    public function setVille($ville)
+    public function setCity($city)
     {
-        $this->ville = $ville;
+        $this->city = $city;
     }
 
-    public function getIdRegion()
+    /*public function getRegion()
     {
-        return $this->idRegion;
+        return $this->region;
     }
 
-    public function setIdRegion($idRegion)
+    public function setRegion($region)
     {
-        $this->idRegion = $idRegion;
-    }
+        $this->region = $region;
+    }*/
 
     public function getSiren()
     {
@@ -153,7 +154,7 @@ class Eleveur
         $this->siren = $siren;
     }
 
-    public function getDateDinscription()
+   /* public function getDateDinscription()
     {
         return $this->dateDinscription;
     }
@@ -171,5 +172,5 @@ class Eleveur
     public function setDateDerniereVisite($dateDerniereVisite)
     {
         $this->dateDerniereVisite = $dateDerniereVisite;
-    }
+    }*/
 }
