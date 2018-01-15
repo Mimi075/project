@@ -4,7 +4,8 @@ body {
 #Identification {
 border:solid 1px black;
 padding:20px;
-width:250px;
+width:28%;
+height: 50%;
 color:midnightblue;
 font-family:verdana;
 }
