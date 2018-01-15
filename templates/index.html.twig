@@ -1,5 +1,11 @@
 {% extends "layout.html.twig" %}
 
+{% block css %}
+	<link href="../css/jqvmap.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="../css/region_list.css" media="screen" rel="stylesheet" type="text/css" />
+
+{% endblock %}
+
 {% block body %}
 	{% include 'carte.html.twig' %}
 	{% include 'js.html.twig' %}

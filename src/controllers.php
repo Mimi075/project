@@ -26,6 +26,12 @@ $app->get('/formulaireContact', function () use ($app) {
 ->bind('formulaireContact')
 ;
 
+$app->get('/formulaireAnnonce', function () use ($app) {
+    return $app['twig']->render('formulaireAnnonce.html.twig', array());
+})
+->bind('formulaireAnnonce')
+;
+
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
         return;
