@@ -1,0 +1,5 @@
+.navbar, .navbar-expand-lg, .navbar-light, .bg-primary {
+	position: fixed;
+	width: 100%;
+	z-index: 20000;
+}
