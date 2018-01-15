@@ -28,5 +28,5 @@ $conn = array(
 );
 $app['em'] = EntityManager::create($conn, $config);
 //Fin attribution doctrine orm (EntityManager) dans $app['em']
-
+$app['googleKey'] = "AIzaSyCI9gyjXvzUW09sFa98eajpr6ZRUjqXF5o";
 return $app;
