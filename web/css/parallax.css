@@ -76,14 +76,14 @@ html, body {
   margin: 30px 0;
 }
 
-.at-twitter {
+.dcw {
   position: fixed;
   right: 20px;
   bottom: 20px;
   color: #f1c40f;
   z-index: 5000;
 }
-.at-twitter:visited {
+.dcw:visited {
   color: #f1c40f;
 }
 
