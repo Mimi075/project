@@ -32,6 +32,12 @@ $app->get('/formulaireAnnonce', function () use ($app) {
 ->bind('formulaireAnnonce')
 ;
 
+$app->get('/AproposDeNous', function () use ($app) {
+    return $app['twig']->render('parallax.html.twig', array());
+})
+->bind('AproposDeNous')
+;
+
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
         return;
