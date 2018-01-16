@@ -14,6 +14,31 @@ $app->get('/', function () use ($app) {
 ->bind('homepage')
 ;
 
+$app->get('/login', function (Request $request) use ($app) {
+    $username = $request->server->get('PHP_AUTH_USER', false);
+    $password = $request->server->get('PHP_AUTH_PW');
+
+    if ('igor' === $username && 'password' === $password) {
+        $app['session']->set('user', array('username' => $username));
+        return $app->redirect('/');
+    }
+
+    $response = new Response();
+    $response->headers->set('WWW-Authenticate', sprintf('Basic realm="%s"', 'site_login'));
+    $response->setStatusCode(401, 'Please sign in.');
+    return $response;
+})
+->bind('login');
+
+$app->get('/logout', function (Request $request) use ($app) {
+    
+    $request = $this->getRequest();
+   $session = $request->getSession();
+   $session->remove();
+    return $app->redirect('/');
+})
+->bind('logout');
+
 $app->match('/inscription', function () use ($app) {
     $dataInscription = array();
     if (!empty($_POST)){
@@ -71,19 +96,8 @@ $app->match('/inscription', function () use ($app) {
                         'errors' => $errors
                    ];
         }
-    //sinon on affiche une erreur
    
     }
-        /*$dataInscription = [
-            "test" => "test : " . $_POST['lastName'],
-            "bonjour" => "Good!"
-        ];
-    }
-    else {
-        $dataInscription = [
-            "bonjour" => "Erreur"
-        ];
-    }*/
     return $app['twig']->render('inscription.html.twig', $dataInscription);
 })
 ->bind('inscription')
