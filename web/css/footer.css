@@ -1,9 +1,11 @@
 #pied {	
 	background-color: #6ac4a7;
-	margin-top: 50px;
-	height :100px;
-	text-align: center;
-	
+	margin-top: 53px;
+    text-align: center;
+    overflow: auto;
+    padding-top:11px;
+    border:solid 1px;
+    width:100%;
 }
 .dcw {
   position: relative;
@@ -14,3 +16,4 @@
 .dcw:visited {
   color: #f1c40f;
 }
+ 
