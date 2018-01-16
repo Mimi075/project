@@ -3,15 +3,18 @@ body {
 }
 #Identification {
 border:solid 1px black;
-padding:20px;
-width:28%;
+padding:10px;
+width:80%;
 height: 50%;
 color:midnightblue;
 font-family:verdana;
 }
 textarea {
-	width: 350px;
-	height: 200px;
-	resize: auto;
+	width: 450px;
+	height: 200px;		
 	cursor: SE-Resize;
 }
+#contact {
+	margin-left: 100px;
+}
+

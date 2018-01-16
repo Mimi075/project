@@ -1,35 +1,55 @@
 {% extends "layout.html.twig" %}
-
 {% block css %}
 	<link href="../css/formulaireContact.css" media="screen" rel="stylesheet" type="text/css" />
 {% endblock %}
-
 {% block body %}
-<div align="center">
-	<h1>Formulaire de contact</h1><br>
-	<form action="view/action.php" target="blank" method="post">
-		<fieldset id="Identification">
-			<legend><strong><h3>Identification</h3></strong></legend>
-			<strong>Prénom :</strong><br>
-			<input type="text" name="prenom" value="" placeholder="Votre prénom"><br>
-			<strong>Nom :</strong><br>
-			<input type="text" name="nom" value="" placeholder="Votre nom"><br>			
-			<strong>Adresse e-mail :</strong><br>			
-			<label class="sr-only" for="inlineFormInputGroup">Username</label>
-  			<div class="input-group mb-2">
-    			<div class="input-group-prepend">
-      				<div class="input-group-text">@</div>        
-    				<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
-  				</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-6">
+				<h1>Formulaire de contact</h1><br>
+				<form action="view/action.php" target="blank" method="post">
+					<fieldset id="Identification">
+						<div id="contact">
+							<legend><strong><h3>Identification</h3></strong></legend>
+							<div class="row">
+								<div class="col-md-6">
+									<strong>Prénom :</strong>
+									<div class="input-group mb-2">
+										<input type="text" name="prenom" value="" placeholder="Votre prénom">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<strong>Nom :</strong><br>
+									<div class="input-group mb-2">
+										<input type="text" name="nom" value="" placeholder="Votre nom"><br>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<strong>Adresse email :</strong><br>
+									<div class="input-group mb-2">
+										<div class="input-group-prepend">
+											<div class="input-group-text">@</div>
+											<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Votre email">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset><br>
+					<div class="row">
+						<div class="col-md-6">
+							<strong>Votre message :</strong>
+						<textarea name="message" placeholder="Veuillez entrer votre message ..."></textarea></div>
+						<br>
+					</div>
+					<button type="submit" class="btn btn-primary">Envoyer</button><br>
+				</form>
 			</div>
-		</fieldset>
-		<br>			
-		<textarea name="message" placeholder="Veuillez entrer votre message ..."></textarea>		
-		<br>		
-		<button type="submit" class="btn btn-primary">Envoyer</button><br>
-	</form>
-</div>
+		</div>
+	</div>
 {% endblock %}
-
-
-
