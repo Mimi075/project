@@ -9,7 +9,7 @@ a:hover, a:focus {
   color: inherit;
   text-decoration: underline;
 }
-body {
-	background-color: #E1E4E6;
+body {	
 	overflow-x: hidden;
 }
+
