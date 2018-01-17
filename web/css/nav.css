@@ -1,4 +1,4 @@
-.navbar, .navbar-expand-lg, .navbar-light, .bg-primary {
+.navbar, .navbar-expand-lg, .navbar-light {
 	position: fixed;
 	width: 100%;
 	z-index: 20000;
@@ -27,4 +27,7 @@ border: solid black 1px;
 }
 .nav-link propos {
 	margin-left: 10px;
+}
+.perso {
+	background-color: #19c173;
 }
