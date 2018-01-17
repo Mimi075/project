@@ -5,8 +5,11 @@
 	</div>
 	<div class="col-4 col-sm-4 container">
 		<ul id="regions_list">
-			{% for region in regions %}
-							<li><a href="Petites-annonces-{{ reg }}-{{ region }}.htm">{{ region }}</a></li>
+			{% for region in regions|keys %}
+				<li><a href="Petites-annonces-{{ reg }}-{{ region }}.htm">{{ region }}</a></li>
+				{# {% for departement in region %}
+							<li><a href="Petites-annonces--{{ departement }}.htm">{{ departement }}</a></li>
+						{% endfor %} #}
 							{% set reg = reg + 1 %}
 						{% endfor %}
 		</ul>

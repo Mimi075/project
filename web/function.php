@@ -8,7 +8,30 @@ function departementListe(){
 };
 function regionList(){
     $regionList = [
-        'regions' => ['Alsace', 'Aquitaine', 'Auvergne', 'Basse Normandie', 'Bourgogne', 'Bretagne', 'Centre', 'Champagne Ardenne', 'Corse', 'Franche Comté', 'Haute Normandie', 'Ile de France', 'Languedoc Roussillon', 'Limousin', 'Lorraine', 'Midi Pyrenees', 'Nord Pas de Calais', 'Pays de la Loire', 'Picardie', 'Poitou Charentes', 'Provence Alpes Cote Azur', 'Rhone Alpes'],
+        'regions' => [
+            'Alsace' => ["Bas-rhin","Haut-rhin"], 
+            'Aquitaine' => ["Dordogne", "Gironde", "Landes", "Lot-et-Garonne", "Pyrénées-Atlantiques"], 
+            'Auvergne' => ["Allier", "Cantal", "Haute-Loire", "Puy-de-Dôme"], 
+            'Basse Normandie' => ["Calvados", "Manche", "Orne"], 
+            'Bourgogne' => ["Nièvre", "Saône-et-Loire", "Yonne"], 
+            'Bretagne' => ["Côtes d'Armor", "Finistère", "Ille-et-Vilaine", "Morbihan"], 
+            'Centre' => ["Cher", "Eure-et-Loir", "Indre", "Indre-et-Loire", " Loir-et-Cher", "Loiret"], 
+            'Champagne Ardenne' => ["Ardennes", "Aube", "Marne", "Haute-Marne"], 
+            'Corse' => ["Corse-du-Sud", "Haute-Corse"], 
+            'Franche Comté' => ["Doubs", "Jura", "Haute-Saône", "Territoire-de-Belfort"], 
+            'Haute Normandie' => ["Eure", " Seine-Maritime"], 
+            'Ile de France' => ["Paris", "  Seine-et-Marne", "Yvelines", "Essonne", "Hauts-de-Seine", "Seine-Saint-Denis", "Val-de-Marne"], 
+            'Languedoc Roussillon' => ["Aude", "Gard", "Hérault", "Lozère", "Pyrénées-Orientales"], 
+            'Limousin' => ["Corrèze", "Creuse", "Haute-Vienne"], 
+            'Lorraine' => ["Meurthe-et-Moselle", "Meuse", "Moselle", "Vosges"], 
+            'Midi Pyrenees' => ["Ariège", "Aveyron", "Haute-Garonne", "Gers", "Lot", "  Hautes-Pyrénées", "Tarn", "Tarn-et-Garonne"], 
+            'Nord Pas de Calais' => ["Nord", "  Pas-de-Calais"], 
+            'Pays de la Loire' => ["Loire-Atlantique", "Maine-et-Loire", "  Mayenne", "Sarthe", "Vendée"], 
+            'Picardie' => ["Aisne", "Oise", "Somme"], 
+            'Poitou Charentes' => ["Charente", "Charente-Maritime", "Deux-Sèvres", "Vienne"], 
+            'Provence Alpes Cote Azur' => ["Alpes", "Hautes-Alpes", "Alpes-Maritimes", "Bouches-du-Rhône", "Var", "Vaucluse"], 
+            'Rhone Alpes' => ["Ain", "Ardèche", "Drôme", "Isère", "Loire", "Rhône", "Savoie", "Haute-Savoie"]
+        ],
         'reg' => 1
     ];
     return $regionList;
@@ -22,4 +45,4 @@ function formulairecategory(){
     return $formulairecategory;
 };
 
-?>
+?> => []
