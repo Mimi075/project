@@ -9,12 +9,11 @@ a:hover, a:focus {
   color: inherit;
   text-decoration: underline;
 }
-body, {	
-	overflow-x: hidden;   
+body {	
+	overflow-x: hidden;
+	background-color: #E1E4E6;
 }
 #inscrit {
 	text-align: center;
 }
-body {
-	background-color: #E1E4E6;
-}
+
