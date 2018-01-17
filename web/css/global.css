@@ -12,4 +12,7 @@ a:hover, a:focus {
 body {	
 	overflow-x: hidden;
 }
+#inscrit {
+	text-align: center;
+}
 
