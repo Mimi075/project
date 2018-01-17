@@ -14,20 +14,20 @@
           <form id="needs-validation" novalidate method="post" action="{{ path('inscription') }}">
             <div class="form-row">
               <div class="col-md-4 mb-3">
-                <label for="validationCustom01" name="firstname">Prénom</label>
-                <input type="text" class="form-control" id="validationCustom01" placeholder="Votre prénom" required>
+                <label for="validationCustom01">Prénom</label>
+                <input type="text" class="form-control" name="firstname" id="validationCustom01" placeholder="Votre prénom" required>
               </div>
               <div class="col-md-4 mb-3">
-                <label for="validationCustom02" name="lastname">Nom</label>
-                <input type="text" class="form-control" id="validationCustom02" placeholder="Votre nom" required>
+                <label for="validationCustom02">Nom</label>
+                <input type="text" class="form-control" name="lastname" id="validationCustom02" placeholder="Votre nom" required>
               </div>
               <div class="col-md-4 mb-3">
-                <label for="validationCustomUsername" name="email">Adresse Mail</label>
+                <label for="validationCustomUsername">Adresse Mail</label>
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                   </div>
-                  <input type="text" class="form-control" id="validationCustomUsername" placeholder="Votre adresse email" aria-describedby="inputGroupPrepend" required>
+                  <input type="text" class="form-control" name="email" id="validationCustomUsername" placeholder="Votre adresse email" aria-describedby="inputGroupPrepend" required>
                 </div>
               </div>
             </div>
