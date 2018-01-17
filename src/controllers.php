@@ -7,9 +7,25 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
+function regionList(){
+    $regionList = [
+        'regions' => ['Alsace', 'Aquitaine', 'Auvergne', 'Basse Normandie', 'Bourgogne', 'Bretagne', 'Centre', 'Champagne Ardenne', 'Corse', 'Franche Comté', 'Haute Normandie', 'Ile de France', 'Languedoc Roussillon', 'Limousin', 'Lorraine', 'Midi Pyrenees', 'Nord Pas de Calais', 'Pays de la Loire', 'Picardie', 'Poitou Charentes', 'Provence Alpes Cote Azur', 'Rhone Alpes'],
+        'reg' => 1
+    ];
+    return $regionList;
+};
+
+function formulairecategory(){
+        $formulairecategory = [
+    'category' => ['Bovins', 'Equins', 'Ovins', 'Caprins', 'Volailles', 'Rongeurs', 'Poissons', 'Oiseaux', 'Félinx', 'Canins', 'Réptiles', 'Autre'],
+    'val' => 1
+    ];
+    return $formulairecategory;
+};
 
 $app->get('/', function () use ($app) {
-    return $app['twig']->render('index.html.twig', array());
+
+    return $app['twig']->render('index.html.twig', regionList());
 })
 ->bind('homepage')
 ;
@@ -112,13 +128,10 @@ $app->match('/formulaireContact', function () use ($app) {
 ;
 
 $app->match('/formulaireAnnonce', function () use ($app) {
-    $formulairecategory = [
-    'category' => ['Bovins', 'Equins', 'Ovins', 'Caprins', 'Volailles', 'Rongeurs', 'Poissons', 'Oiseaux', 'Félinx', 'Canins', 'Réptiles', 'Autre'],
-    'val' => 1
-    ];
+
     include 'upload.php';
 
-    return $app['twig']->render('formulaireAnnonce.html.twig', $formulairecategory);
+    return $app['twig']->render('formulaireAnnonce.html.twig', formulairecategory());
 })
 ->bind('formulaireAnnonce')
 ->method('GET|POST')
