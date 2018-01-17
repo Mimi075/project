@@ -112,7 +112,12 @@ $app->match('/formulaireContact', function () use ($app) {
 ;
 
 $app->get('/formulaireAnnonce', function () use ($app) {
-    return $app['twig']->render('formulaireAnnonce.html.twig', array());
+    $formulairecategory = [
+    'category' => ['Bovins', 'Equins', 'Ovins', 'Caprins', 'Volailles', 'Rongeurs', 'Poissons', 'Oiseaux', 'Félinx', 'Canins', 'Réptiles', 'Autre'],
+    'val' => 1
+    ];
+
+    return $app['twig']->render('formulaireAnnonce.html.twig', $formulairecategory);
 })
 ->bind('formulaireAnnonce')
 ;

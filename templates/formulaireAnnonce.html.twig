@@ -4,7 +4,9 @@
 	<link href="../css/formulaireAnnonce.css" media="screen" rel="stylesheet" type="text/css" />
 {% endblock %}
 
+
 {% block body %}
+
 	<h1>Rentrez votre annonce</h1><br>
 	<div class="container-fluid" id="Formulaire">
 		<form method="post" action="#">
@@ -17,18 +19,12 @@
 					<label class="mr-sm-2" for="inlineFormCustomSelect">Catégorie :</label>
 					<select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
 						<option selected>Choisir...</option>
-						<option value="1">Bovins</option>
-						<option value="2">Equins</option>
-						<option value="3">Ovins</option>
-						<option value="4">Caprins</option>
-						<option value="5">Volailles</option>
-						<option value="6">Rongeurs</option>
-						<option value="7">Poissons</option>
-						<option value="8">Oiseaux</option>
-						<option value="9">Félinx</option>
-						<option value="10">Canins</option>
-						<option value="11">Réptiles</option>
-						<option value="12">Autre</option>
+						{% for categorys in category %}
+							<option value="category{{ val }}">{{ categorys }}</option>
+							{% set val = val + 1 %}
+
+						{% endfor %}
+		
 					</select>
 				</div>
 				<div class="form-group">
