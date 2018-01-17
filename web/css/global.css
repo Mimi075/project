@@ -11,10 +11,9 @@ a:hover, a:focus {
 }
 body {	
 	overflow-x: hidden;
+	background-color: #E1E4E6;
 }
 #inscrit {
 	text-align: center;
 }
-body {
-	background-color: #E1E4E6;
-}
+
