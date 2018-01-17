@@ -9,8 +9,7 @@
 
 	<h1>Rentrez votre annonce</h1><br>
 	<div class="container-fluid" id="Formulaire">
-		<form method="post" action="#">
-			<form>
+		<form method="post" action="#" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="formGroupExampleInput">Titre de l'annonce :</label>
 					<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Entrez votre titre">
@@ -33,10 +32,7 @@
 				</div>
 				<div class="form-group">
 					<label for="formGroupExampleInput">Choisir une image un telecharger :</label><br>
-					<form action="{{ path('formulaireAnnonce') }}" method="post" enctype="multipart/form-data">
 					    <input type="file" name="fileToUpload" id="fileToUpload">
-					    <input type="submit" class="btn btn-outline-success" value="Telecharger Image" name="submit">
-					</form>
 				</div>
 				
 				<div class="form-group">
