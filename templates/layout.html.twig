@@ -4,13 +4,16 @@
         {% include 'head.html.twig'%}        
         {% include 'css.html.twig'%}
         {% block css %}{% endblock %}
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        {% include 'js.html.twig' %}  
     </head>
-    <body>        
+    <body>
         {% include 'nav.html.twig' %}
         <div id="bottom">
-        {% block body %}{% endblock %}         
+        {% block body %}{% endblock %} 
+        {% block js %}{% endblock %}         
         </div>     
         {% include 'footer.html.twig' %}
+
     </body>
 </html>
