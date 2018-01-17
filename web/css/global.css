@@ -9,8 +9,8 @@ a:hover, a:focus {
   color: inherit;
   text-decoration: underline;
 }
-body {	
-	overflow-x: hidden;
+body, {	
+	overflow-x: hidden;   
 }
 #inscrit {
 	text-align: center;
