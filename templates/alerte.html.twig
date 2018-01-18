@@ -69,48 +69,23 @@
 			<div>
 				<p>
 					<select id="form_dep" name="reg" class="select_form">
-						<option value="0">Toutes régions</option>
-						<option value="1">Alsace</option>
-						<option value="2">Aquitaine</option>
-						<option value="3">Auvergne</option>
-						<option value="4">Basse-Normandie</option>
-						<option value="5">Bourgogne</option>
-						<option value="6">Bretagne</option>
-						<option value="7">Centre</option>
-						<option value="8">Champagne-Ardenne</option>
-						<option value="9">Corse</option>
-						<option value="10">Franche-Comté</option>
-						<option value="11">Haute-Normandie</option>
-						<option value="12">Ile-de-France</option>
-						<option value="13">Languedoc-Roussillon</option>
-						<option value="14">Limousin</option>
-						<option value="15">Lorraine</option>
-						<option value="16">Midi-Pyrénées</option>
-						<option value="17">Nord-Pas-de-Calais</option>
-						<option value="18">Pays de la Loire</option>
-						<option value="19">Picardie</option>
-						<option value="20">Poitou-Charentes</option>
-						<option value="21">Provence-Alpes-Côte-d'Azur</option>
-						<option value="22">Rhône-Alpes</option>
+						<option selected>Choisir...</option>
+
+							{% for region in regions|keys %}
+								<option value="regi{{ reg }}">{{ region }}</option>
+								{% set reg = reg + 1 %}
+							{% endfor %}
 					</select>
 				</p>
 			</div>
 
 			<p>
 				<select id="options" name="cat" class="select_form">
-					<option value="0">Toutes catégories</option>
-					<option value="Bov">Bovins</option>
-					<option value="Eq">Equins</option>
-					<option value="Ov">Ovins</option>
-					<option value="Cap">Caprins</option>
-					<option value="Vol">Volailles</option>
-					<option value="Ron">Rongeurs</option>
-					<option value="Poi">Poissons</option>
-					<option value="Ois">Oiseaux</option>
-					<option value="Fel">Félinx</option>
-					<option value="Can">Canins</option>
-					<option value="Rept">Réptiles</option>
-					<option value="Autre<">Autre</option>
+					<option selected>Choisir...</option>
+					{% for categorys in category %}
+						<option value="category{{ val }}">{{ categorys }}</option>
+						{% set val = val + 1 %}
+					{% endfor %}
 				</select>
 			</p>
 
