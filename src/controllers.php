@@ -149,6 +149,23 @@ $app->get('/AproposDeNous', function () use ($app) {
 ->bind('AproposDeNous')
 ;
 //----------------------------------------------------------------------------------------------------
+$app->get('/alerte', function () use ($app) {
+    $category = formulairecategory();
+    $region = regionList();
+    $alerte = [
+        'category' => $category['category'],
+        'val' => $category['val'],
+        'regions' => $region['regions'],
+        'reg' => $region['reg'] 
+    ];
+
+    return $app['twig']->render('alerte.html.twig', $alerte);
+
+})
+->bind('alerte')
+;
+//----------------------------------------------------------------------------------------------------
+
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     
     if ($app['debug']) {
