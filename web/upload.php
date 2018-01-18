@@ -1,8 +1,11 @@
 <?php
 
 if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"] != ""){
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    foreach ($_FILES["fileToUpload"]["name"] as $key => $value) {
+
+    $target_dir = "img/";
+    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$key]);
+    echo $target_file;
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     // Check if image file is a actual image or fake image
@@ -28,7 +31,7 @@ if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"] != ""){
     }
 
     // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
+    if ($_FILES["fileToUpload"]["size"][$key] > 500000) {
         echo "Désolé, votre fichier est trop volumineux.";
         $uploadOk = 0;
     }
@@ -48,18 +51,20 @@ if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"] != ""){
 
     else {
 
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " telechargement réussi.";
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$key], $target_file)) {
+            rename($target_file, $target_dir . $key .'.'. $imageFileType);
+            echo "The file ". basename( $_FILES["fileToUpload"]["name"][$key]). " telechargement réussi.";
         }
 
         else {
             echo "Désolé, une erreur s'est produite lors du téléchargement de votre fichier.";
         }
     }
+    }
 }
 
 //Test de la condition
 
-// else {
-//     echo "sa bug";
-// }
+else {
+    echo "sa bug";
+}

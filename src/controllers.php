@@ -133,7 +133,6 @@ $app->match('/formulaireContact', function () use ($app) {
 ;
 //----------------------------------------------------------------------------------------------------
 $app->match('/formulaireAnnonce', function () use ($app) {
-
     include 'upload.php';
 
     return $app['twig']->render('formulaireAnnonce.html.twig', formulairecategory());
