@@ -2,51 +2,7 @@
 	<link href="../css/alerte.css" media="screen" rel="stylesheet" type="text/css" />	
 {% endblock %}
 
-<form method="get" id="menu_recherche" action="#">
-	<input type="hidden" name="tri" value=""/>
-	<input type="text" class="input_recherche" name="keywords" placeholder="Tapez votre recherche" value="" />
-	<input type="text" class="input_recherche" name="zip_code" placeholder="Code postal (ex:61000)" value="" />
-	<select id="dep" name="reg" class="select_recherche">
-			<option selected>Choisir...</option>
 
-					{% for region in regions|keys %}
-						<option value="regi{{ reg }}">{{ region }}</option>
-						{% set reg = reg + 1 %}
-					{% endfor %}
-	</select>
-
-	<select id="opt" name="cat" class="select_recherche">
-		<option selected>Choisir...</option>
-					{% for categorys in category %}
-						<option value="category{{ val }}">{{ categorys }}</option>
-						{% set val = val + 1 %}
-					{% endfor %}
-	</select>
-
-	<div class="title_checkbox"><p class="p_recherche_unique">Uniquement dans</p></div>
-	<div id="left_checkbox_recherche_search_top">
-		<p class="p_checkbox_recherche">
-			<input type="checkbox" class="input_checkbox" id="titre" name="titre" value="1"/>
-			&nbsp;<label for="titre">Titre</label>
-		</p>
-
-		<p class="p_checkbox_recherche">
-			<input type="checkbox" class="input_checkbox" id="photo" name="photo" value="1"/>
-			&nbsp;<label for="photo">Avec photo</label>
-		</p>
-
-		<p class="p_checkbox_recherche">
-			<input type="checkbox" class="input_checkbox" id="echanges" name="echanges" value="1"/>
-			&nbsp;<label for="echanges">Échanges</label>
-		</p>
-
-		<p class="p_checkbox_recherche">
-			<input type="checkbox" class="input_checkbox" id="recherches" name="recherches" value="1"/>
-			&nbsp;<label for="recherches">Recherches</label>
-		</p>
-	</div>
-	<input class="bouton_search" type="submit" value="Lancer la recherche" />
-</form>
 
 <div class="barre_info">
 	<p class="p_barre_info_left">
