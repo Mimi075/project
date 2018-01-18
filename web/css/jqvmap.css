@@ -26,17 +26,18 @@
 {
   cursor: pointer;
 }
+
 .jqvmap-ajax_response
 {
   width: 100%;
   height: 500px;
 }
+
 #francemap {
 	padding-top: 18%;
 	color: #E1E4E6;	
 }
+
 element.style { 
   background-color: #E1E4E6; 
 }
-
-

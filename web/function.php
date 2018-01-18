@@ -6,6 +6,7 @@ function departementListe(){
     ];
     return $departementListe;
 };
+
 function regionList(){
     $regionList = [
         'regions' => [
