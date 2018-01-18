@@ -9,14 +9,13 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 //Request::setTrustedProxies(array('127.0.0.1'));
 
 include '../web/function.php';
-
+//----------------------------------------------------------------------------------------------------
 $app->get('/', function () use ($app) {
-
     return $app['twig']->render('index.html.twig', regionList());
 })
 ->bind('homepage')
 ;
-
+//----------------------------------------------------------------------------------------------------
 $app->get('/login', function (Request $request) use ($app) {
     $username = $request->server->get('PHP_AUTH_USER', false);
     $password = $request->server->get('PHP_AUTH_PW');
@@ -32,7 +31,7 @@ $app->get('/login', function (Request $request) use ($app) {
     return $response;
 })
 ->bind('login');
-
+//----------------------------------------------------------------------------------------------------
 $app->get('/logout', function (Request $request) use ($app) {
     
     $request = $this->getRequest();
@@ -41,7 +40,7 @@ $app->get('/logout', function (Request $request) use ($app) {
     return $app->redirect('/');
 })
 ->bind('logout');
-
+//----------------------------------------------------------------------------------------------------
 $app->match('/inscription', function () use ($app) {
     $dataInscription = array();
     if (!empty($_POST)){
@@ -106,14 +105,14 @@ $app->match('/inscription', function () use ($app) {
 ->bind('inscription')
 ->method('GET|POST')
 ;
-
+//----------------------------------------------------------------------------------------------------
 $app->match('/formulaireContact', function () use ($app) {
     return $app['twig']->render('formulaireContact.html.twig', array());
 })
 ->bind('formulaireContact')
 ->method('GET|POST')
 ;
-
+//----------------------------------------------------------------------------------------------------
 $app->match('/formulaireAnnonce', function () use ($app) {
 
     include 'upload.php';
@@ -123,13 +122,13 @@ $app->match('/formulaireAnnonce', function () use ($app) {
 ->bind('formulaireAnnonce')
 ->method('GET|POST')
 ;
-
+//----------------------------------------------------------------------------------------------------
 $app->get('/AproposDeNous', function () use ($app) {
     return $app['twig']->render('parallax.html.twig', array());
 })
 ->bind('AproposDeNous')
 ;
-
+//----------------------------------------------------------------------------------------------------
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
         return;
