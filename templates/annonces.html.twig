@@ -7,18 +7,21 @@
 <form method="get" id="menu_recherche" action="#">
 	<input type="hidden" name="tri" value=""/>
 	<input type="text" class="input_recherche" name="keywords" placeholder="Tapez votre recherche" value="" />
-	<input type="text" class="input_recherche" name="zip_code" placeholder="Code postal (ex:61000)" value="" />
+	
 	<select id="dep" name="reg" class="select_recherche">
-			<option selected>Choisir...</option>
+			<option selected>La région</option>
 
 					{% for region in regions|keys %}
 						<option value="regi{{ reg }}">{{ region }}</option>
 						{% set reg = reg + 1 %}
 					{% endfor %}
 	</select>
-
+	
+	<input type="text" class="input_recherche" name="zip_code" placeholder="Code postal (ex:61000)" value="" />
+	
 	<select id="opt" name="cat" class="select_recherche">
-		<option selected>Choisir...</option>
+		<option selected>La catégorie</option>
+		
 					{% for categorys in category %}
 						<option value="category{{ val }}">{{ categorys }}</option>
 						{% set val = val + 1 %}
