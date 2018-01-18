@@ -3,6 +3,7 @@
 	<div class="col-4 col-sm-4 container">
 		<div id="francemap" style="width: 500px; height: 500px;"></div>
 	</div>
+
 	<div class="col-4 col-sm-4 container">
 		<ul id="regions_list">
 			{% for region in regions|keys %}
@@ -10,8 +11,8 @@
 				{# {% for departement in region %}
 							<li><a href="Petites-annonces--{{ departement }}.htm">{{ departement }}</a></li>
 						{% endfor %} #}
-							{% set reg = reg + 1 %}
-						{% endfor %}
+				{% set reg = reg + 1 %}
+			{% endfor %}
 		</ul>
 	</div>
 </div>
