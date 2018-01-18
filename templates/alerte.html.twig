@@ -1,0 +1,132 @@
+<form method="get" id="menu_recherche" action="#">
+	<input type="hidden" name="tri" value=""/>
+	<input type="text" class="input_recherche" name="keywords" placeholder="Tapez votre recherche" value="" />
+	<input type="text" class="input_recherche" name="zip_code" placeholder="Code postal (ex:61000)" value="" />
+	<select id="dep" name="reg" class="select_recherche">
+		<option value="0">Toutes régions</option>
+		<option value="1">Alsace</option>
+		<option value="2">Aquitaine</option>
+		<option value="3">Auvergne</option>
+		<option value="4">Basse-Normandie</option>
+		<option value="5">Bourgogne</option>
+		<option value="6">Bretagne</option>
+		<option value="7">Centre</option>
+		<option value="8">Champagne-Ardenne</option>
+		<option value="9">Corse</option>
+		<option value="10">Franche-Comté</option>
+		<option value="11">Haute-Normandie</option>
+		<option value="12">Ile-de-France</option>
+		<option value="13">Languedoc-Roussillon</option>
+		<option value="14">Limousin</option>
+		<option value="15">Lorraine</option>
+		<option value="16">Midi-Pyrénées</option>
+		<option value="17">Nord-Pas-de-Calais</option>
+		<option value="18">Pays de la Loire</option>
+		<option value="19">Picardie</option>
+		<option value="20">Poitou-Charentes</option>
+		<option value="21">Provence-Alpes-Côte-d'Azur</option>
+		<option value="22">Rhône-Alpes</option>
+	</select>
+	<select id="opt" name="cat" class="select_recherche">
+		<option value="0">Toutes catégories</option>
+		<option value="Bov">Bovins</option>
+		<option value="Eq">Equins</option>
+		<option value="Ov">Ovins</option>
+		<option value="Cap">Caprins</option>
+		<option value="Vol">Volailles</option>
+		<option value="Ron">Rongeurs</option>
+		<option value="Poi">Poissons</option>
+		<option value="Ois">Oiseaux</option>
+		<option value="Fel">Félinx</option>
+		<option value="Can">Canins</option>
+		<option value="Rept">Réptiles</option>
+		<option value="Autre">Autre</option>
+	</select>
+	<div class="title_checkbox"><p class="p_recherche_unique">Uniquement dans</p></div>
+	<div id="left_checkbox_recherche_search_top">
+		<p class="p_checkbox_recherche">
+			<input type="checkbox" class="input_checkbox" id="titre" name="titre" value="1"/>
+			&nbsp;<label for="titre">Titre</label>
+		</p>
+		<p class="p_checkbox_recherche">
+			<input type="checkbox" class="input_checkbox" id="photo" name="photo" value="1"/>
+			&nbsp;<label for="photo">Avec photo</label>
+		</p>
+		<p class="p_checkbox_recherche">
+			<input type="checkbox" class="input_checkbox" id="echanges" name="echanges" value="1"/>
+			&nbsp;<label for="echanges">Échanges</label>
+		</p>
+		<p class="p_checkbox_recherche">
+			<input type="checkbox" class="input_checkbox" id="recherches" name="recherches" value="1"/>
+			&nbsp;<label for="recherches">Recherches</label>
+		</p>
+	</div>
+	<input class="bouton_search" type="submit" value="Lancer la recherche" />
+</form>
+<div class="barre_info">
+	<p class="p_barre_info_left">
+		<a href="">Créer une alerte email</a>
+	</p>
+	<div id="bloc_info_right">
+		<p class="p_barre_info_right">
+		</p>
+	</div>
+</div>
+<div class="bloc_center">
+	<div class="middle_bloc_center">
+		<form action="" id="corps" method="post">
+			<p>
+				<input type="text" id="email" class="av_input" name="email" placeholder="Votre adresse email" value="" />
+			</p>
+			<div>
+				<p>
+					<select id="form_dep" name="reg" class="select_form">
+						<option value="0">Toutes régions</option>
+						<option value="1">Alsace</option>
+						<option value="2">Aquitaine</option>
+						<option value="3">Auvergne</option>
+						<option value="4">Basse-Normandie</option>
+						<option value="5">Bourgogne</option>
+						<option value="6">Bretagne</option>
+						<option value="7">Centre</option>
+						<option value="8">Champagne-Ardenne</option>
+						<option value="9">Corse</option>
+						<option value="10">Franche-Comté</option>
+						<option value="11">Haute-Normandie</option>
+						<option value="12">Ile-de-France</option>
+						<option value="13">Languedoc-Roussillon</option>
+						<option value="14">Limousin</option>
+						<option value="15">Lorraine</option>
+						<option value="16">Midi-Pyrénées</option>
+						<option value="17">Nord-Pas-de-Calais</option>
+						<option value="18">Pays de la Loire</option>
+						<option value="19">Picardie</option>
+						<option value="20">Poitou-Charentes</option>
+						<option value="21">Provence-Alpes-Côte-d'Azur</option>
+						<option value="22">Rhône-Alpes</option>
+					</select>
+				</p>
+			</div>
+			<p>
+				<select id="options" name="cat" class="select_form">
+					<option value="0">Toutes catégories</option>
+					<option value="Bov">Bovins</option>
+					<option value="Eq">Equins</option>
+					<option value="Ov">Ovins</option>
+					<option value="Cap">Caprins</option>
+					<option value="Vol">Volailles</option>
+					<option value="Ron">Rongeurs</option>
+					<option value="Poi">Poissons</option>
+					<option value="Ois">Oiseaux</option>
+					<option value="Fel">Félinx</option>
+					<option value="Can">Canins</option>
+					<option value="Rept">Réptiles</option>
+					<option value="Autre<">Autre</option>
+				</select>
+			</p>
+		</div>
+		<p><input type="text" id="word1" class="av_input" name="word1" placeholder="Mot clé n°1" value="" /></p>
+		<p><input type="text" id="word2" class="av_input" name="word2" placeholder="Mot clé n°2" value="" /></p>
+		<p><input type="text" id="word3" class="av_input" name="word3" placeholder="Mot clé n°3" value="" /></p>
+		<p><input type="submit" class="bouton_form" value="Valider"/></p>
+	</form>
