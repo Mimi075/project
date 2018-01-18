@@ -23,7 +23,7 @@
 					enableZoom: true,
 					showTooltip: true,
 					onRegionClick: function(element, code, region){
-						window.location.href = 'accueil.php?dep=' + region;
+						window.location.href = '{{ path("annonces") }}?dep=' + region;
 					}
 				});
 			});
