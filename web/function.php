@@ -1,7 +1,7 @@
 <?php
 function departementListe(){
     $departementListe = [
-        'departements' => ["Ain", "Aisne", "Allier", "Alpes-de-Haute-Provence", "Hautes-alpes", "Alpes-maritimes", "Ardèche", "Ardennes", "Ariège", "Aube", "Aude", "Aveyron", "Bouches-du-Rhône", "Calvados", "Cantal", "Charente", "Charente-maritime", "Cher", "Corrèze", "Corse-du-sud", "Haute-Corse", "Côte-d'Or", "Côtes-d'Armor", "Creuse", "Dordogne", "Doubs", "Drôme", "Eure", "Eure-et-loir", "Finistère", "Gard", "Haute-garonne", "Gers", "Gironde", "Hérault", "Ille-et-vilaine", "Indre", "Indre-et-loire", "Isère", "Jura", "Landes", "Loir-et-cher", "Loire", "Haute-loire", "Loire-atlantique", "Loiret", "Lot", "Lot-et-garonne", "Lozère", "Maine-et-loire", "Manche", "Marne", "Haute-marne", "Mayenne", "Meurthe-et-moselle", "Meuse", "Morbihan", "Moselle", "Nièvre", "Nord", "Oise", "Orne", "Pas-de-calais", "Puy-de-dôme", "Pyrénées-atlantiques", "Hautes-Pyrénées", "Pyrénées-orientales", "Bas-rhin", "Haut-rhin", "Rhône", "Haute-saône", "Saône-et-loire", "Sarthe", "Savoie", "Haute-savoie", "Paris", "Seine-maritime", "Seine-et-marne", "Yvelines", "Deux-sèvres", "Somme", "Tarn", "Tarn-et-garonne", "Var", "Vaucluse", "Vendée", "Vienne", "Haute-vienne", "Vosges", "Yonne", "Territoire de belfort", "Essonne", "Hauts-de-seine", "Seine-Saint-Denis", "Val-de-marne", "Val-d'oise"],
+        'departements' => ["01-Ain", "02-Aisne", "03-Allier", "04-Alpes-de-Haute-Provence", "05-Hautes-alpes", "06-Alpes-maritimes", "07-Ardèche", "08-Ardennes", "09-Ariège", "10-Aube", "11-Aude", "12-Aveyron", "13-Bouches-du-Rhône", "14-Calvados", "15-Cantal", "16-Charente", "17-Charente-maritime", "18-Cher", "19-Corrèze", "2A-Corse-du-sud", "2B-Haute-Corse", "21-Côte-d'Or", "22-Côtes-d'Armor", "23-Creuse", "24-Dordogne", "25-Doubs", "26-Drôme", "27-Eure", "28-Eure-et-loir", "29-Finistère", "30-Gard", "31-Haute-Garonne", "32-Gers", "33-Gironde", "34-Hérault", "35-Ille-et-vilaine", "36-Indre", "37-Indre-et-loire", "38-Isère", "39-Jura", "40-Landes", "41-Loir-et-cher", "42-Loire", "43-Haute-Loire", "44-Loire-atlantique", "45-Loiret", "46-Lot", "47-Lot-et-garonne", "48-Lozère", "49-Maine-et-loire", "50-Manche", "51-Marne", "52-Haute-marne", "53-Mayenne", "54-Meurthe-et-moselle", "55-Meuse", "56-Morbihan", "57-Moselle", "58-Nièvre", "59-Nord", "60-Oise", "61-Orne", "62-Pas-de-Calais", "63-Puy-de-dôme", "64-Pyrénées-atlantiques", "65-Hautes-Pyrénées", "66-Pyrénées-orientales", "67-Bas-rhin", "68-Haut-rhin", "69-Rhône", "70-Haute-saône", "71-Saône-et-loire", "72-Sarthe", "73-Savoie", "74-Haute-Savoie", "75-Paris", "76-Seine-maritime", "77-Seine-et-marne", "78-Yvelines", "79-Deux-Sèvres", "80-Somme", "81-Tarn", "82-Tarn-et-garonne", "83-Var", "84-Vaucluse", "85-Vendée", "86-Vienne", "87-Haute-vienne", "88-Vosges", "89-Yonne", "90-Territoire de belfort", "91-Essonne", "92-Hauts-de-seine", "93-Seine-SAint-Denis", "94-Val-de-marne", "95-Val-d'oise"],
         'dep' => 1
     ];
     return $departementListe;
@@ -9,28 +9,28 @@ function departementListe(){
 function regionList(){
     $regionList = [
         'regions' => [
-            'Alsace' => ["Bas-rhin","Haut-rhin"], 
-            'Aquitaine' => ["Dordogne", "Gironde", "Landes", "Lot-et-Garonne", "Pyrénées-Atlantiques"], 
-            'Auvergne' => ["Allier", "Cantal", "Haute-Loire", "Puy-de-Dôme"], 
-            'Basse Normandie' => ["Calvados", "Manche", "Orne"], 
-            'Bourgogne' => ["Nièvre", "Saône-et-Loire", "Yonne"], 
-            'Bretagne' => ["Côtes d'Armor", "Finistère", "Ille-et-Vilaine", "Morbihan"], 
-            'Centre' => ["Cher", "Eure-et-Loir", "Indre", "Indre-et-Loire", " Loir-et-Cher", "Loiret"], 
-            'Champagne Ardenne' => ["Ardennes", "Aube", "Marne", "Haute-Marne"], 
-            'Corse' => ["Corse-du-Sud", "Haute-Corse"], 
-            'Franche Comté' => ["Doubs", "Jura", "Haute-Saône", "Territoire-de-Belfort"], 
-            'Haute Normandie' => ["Eure", " Seine-Maritime"], 
-            'Ile de France' => ["Paris", "  Seine-et-Marne", "Yvelines", "Essonne", "Hauts-de-Seine", "Seine-Saint-Denis", "Val-de-Marne"], 
-            'Languedoc Roussillon' => ["Aude", "Gard", "Hérault", "Lozère", "Pyrénées-Orientales"], 
-            'Limousin' => ["Corrèze", "Creuse", "Haute-Vienne"], 
-            'Lorraine' => ["Meurthe-et-Moselle", "Meuse", "Moselle", "Vosges"], 
-            'Midi Pyrenees' => ["Ariège", "Aveyron", "Haute-Garonne", "Gers", "Lot", "  Hautes-Pyrénées", "Tarn", "Tarn-et-Garonne"], 
-            'Nord Pas de Calais' => ["Nord", "  Pas-de-Calais"], 
-            'Pays de la Loire' => ["Loire-Atlantique", "Maine-et-Loire", "  Mayenne", "Sarthe", "Vendée"], 
-            'Picardie' => ["Aisne", "Oise", "Somme"], 
-            'Poitou Charentes' => ["Charente", "Charente-Maritime", "Deux-Sèvres", "Vienne"], 
-            'Provence Alpes Cote Azur' => ["Alpes", "Hautes-Alpes", "Alpes-Maritimes", "Bouches-du-Rhône", "Var", "Vaucluse"], 
-            'Rhone Alpes' => ["Ain", "Ardèche", "Drôme", "Isère", "Loire", "Rhône", "Savoie", "Haute-Savoie"]
+            'Alsace' => ["67-Bas-rhin","68-Haut-rhin"], 
+            'Aquitaine' => ["24-Dordogne", "33-Gironde", "40-Landes", "47-Lot-et-Garonne", "64-Pyrénées-Atlantiques"], 
+            'Auvergne' => ["03-Allier", "15-Cantal", "43-Haute-Loire", "63-Puy-de-Dôme"], 
+            'Basse Normandie' => ["14-Calvados", "50-Manche", "61-Orne"], 
+            'Bourgogne' => ["58-Nièvre", "71-Saône-et-Loire", "89-Yonne"], 
+            'Bretagne' => ["22-Côtes-d'Armor", "29-Finistère", "35-Ille-et-vilaine", "56-Morbihan"], 
+            'Centre' => ["18-Cher", "28-Eure-et-Loir", "36-Indre", "37-Indre-et-Loire", " 41-Loir-et-Cher", "45-Loiret"], 
+            'Champagne Ardenne' => ["08-Ardennes", "10-Aube", "51-Marne", "52-Haute-Marne"], 
+            'Corse' => ["2A-Corse-du-Sud", "2B-Haute-Corse"], 
+            'Franche Comté' => ["25-Doubs", "39-Jura", "70-Haute-Saône", "90-Territoire-de-Belfort"], 
+            'Haute Normandie' => ["27-Eure", " 76-Seine-Maritime"], 
+            'Ile de France' => ["75-Paris", "77-Seine-et-Marne", "78-Yvelines", "91-Essonne", "92-Hauts-de-Seine", "93-Seine-SAint-Denis", "94-Val-de-Marne"], 
+            'Languedoc Roussillon' => ["11-Aude", "30-Gard", "34-Hérault", "48-Lozère", "66-Pyrénées-Orientales"], 
+            'Limousin' => ["19-Corrèze", "23-Creuse", "87-Haute-Vienne"], 
+            'Lorraine' => ["54-Meurthe-et-Moselle", "55-Meuse", "57-Moselle", "88-Vosges"], 
+            'Midi Pyrenees' => ["09-Ariège", "12-Aveyron", "31-Haute-Garonne", "32-Gers", "46-Lot", "65-Hautes-Pyrénées", "81-Tarn", "82-Tarn-et-Garonne"], 
+            'Nord Pas de Calais' => ["59-Nord", "62-Pas-de-Calais"], 
+            'Pays de la Loire' => ["44-Loire-Atlantique", "49-Maine-et-Loire", "53-Mayenne", "72-Sarthe", "85-Vendée"], 
+            'Picardie' => ["02-Aisne", "60-Oise", "80-Somme"], 
+            'Poitou Charentes' => ["16-Charente", "17-Charente-Maritime", "79-Deux-Sèvres", "86-Vienne"], 
+            'Provence Alpes Cote Azur' => ["04-Alpes-de-Haute-Provence", "05-Hautes-alpes", "06-Alpes-Maritimes", "13-Bouches-du-Rhône", "83-Var", "84-Vaucluse"], 
+            'Rhone Alpes' => ["01-Ain", "07-Ardèche", "26-Drôme", "38-Isère", "42-Loire", "69-Rhône", "73-Savoie", "74-Haute-Savoie"]
         ],
         'reg' => 1
     ];
