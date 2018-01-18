@@ -7,13 +7,3 @@
     border:solid 1px;
     width:100%;
 }
-.dcw {
-  position: relative;
-  float: right;
-  bottom: 60px;
-  color: #f1c40f;  
-}
-.dcw:visited {
-  color: #f1c40f;
-}
- 

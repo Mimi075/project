@@ -21,28 +21,7 @@
 	font-size: smaller;
 	padding: 3px;
 }
-.jqvmap-zoomin, .jqvmap-zoomout
-{
-	position: absolute;
-	left: 10px;	
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	background: #000000;
-	color: white;
-	width: 10px;
-	height: 10px;
-	cursor: pointer;
-	line-height: 7px;
-	text-align: center;
-}
-.jqvmap-zoomin
-{
-	top: 10px;
-}
-.jqvmap-zoomout
-{
-	top: 30px;
-}
+
 .jqvmap-region
 {
   cursor: pointer;
