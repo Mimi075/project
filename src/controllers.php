@@ -11,7 +11,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 include '../web/function.php';
 //----------------------------------------------------------------------------------------------------
 $app->get('/', function () use ($app) {
-    var_dump($app['session']->get('user')) ;
     return $app['twig']->render('index.html.twig', regionList());
 
 })
@@ -20,21 +19,22 @@ $app->get('/', function () use ($app) {
 //----------------------------------------------------------------------------------------------------
 $app->match('/login', function (Request $request) use ($app) {
 
-    var_dump($app['session']->get('user')) ;
+    /*var_dump($app['session']->get('user')) ;*/
     if (!empty($_POST)) {
-        echo "test";
+        /*echo "test";
         echo gettype($app['session']);
-        echo "<br>";
+        echo "<br>";*/
         $username = $request->get('connectEmail');
         $password = $request->get('connectPassword');
-        var_dump($app['session']->get('user')) ;
+        /*var_dump($app['session']->get('user')) ;*/
 
         if ('jason@vasseur.fr' === $username && 'password' === $password) {
             $app['session']->set('user', array('username' => $username));
+            $app['global.userName'] = "Bienvenue " . $app['session']->get('user')['username'];
         }
     }
     else {
-        echo "Probleme";
+        echo "";
     }
     return $app['twig']->render('login.html.twig',array());
 })
