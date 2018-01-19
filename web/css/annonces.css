@@ -1,0 +1,18 @@
+.item_image {	
+	width:65%;
+	margin-top: 10px;
+	margin-left: 50px;
+}
+.container {
+	margin-top: 200px;	
+	border: solid 1px black;
+	padding: 10px;
+	border-radius: 10px;
+}
+b {
+
+	margin-left: 50px;
+}
+.miniAnnonce {
+	background-color: #8C8C8C;
+}
