@@ -11,37 +11,40 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 include '../web/function.php';
 //----------------------------------------------------------------------------------------------------
 $app->get('/', function () use ($app) {
-
+    var_dump($app['session']->get('user')) ;
     return $app['twig']->render('index.html.twig', regionList());
+
 })
 ->bind('homepage')
 ;
 //----------------------------------------------------------------------------------------------------
-$app->get('/login', function (Request $request) use ($app) {
+$app->match('/login', function (Request $request) use ($app) {
 
-    $username = $request->server->get('PHP_AUTH_USER', false);
-    $password = $request->server->get('PHP_AUTH_PW');
+    var_dump($app['session']->get('user')) ;
+    if (!empty($_POST)) {
+        echo "test";
+        echo gettype($app['session']);
+        echo "<br>";
+        $username = $request->get('connectEmail');
+        $password = $request->get('connectPassword');
+        var_dump($app['session']->get('user')) ;
 
-    if ('igor' === $username && 'password' === $password) {
-        $app['session']->set('user', array('username' => $username));
-        return $app->redirect('/');
+        if ('jason@vasseur.fr' === $username && 'password' === $password) {
+            $app['session']->set('user', array('username' => $username));
+        }
     }
-
-    $response = new Response();
-    $response->headers->set('WWW-Authenticate', sprintf('Basic realm="%s"', 'site_login'));
-    $response->setStatusCode(401, 'Please sign in.');
-
-    return $response;
+    else {
+        echo "Probleme";
+    }
+    return $app['twig']->render('login.html.twig',array());
 })
 ->bind('login')
+->method('GET|POST')
 ;
 //----------------------------------------------------------------------------------------------------
 $app->get('/logout', function (Request $request) use ($app) {
     
-    $request = $this->getRequest();
-    $session = $request->getSession();
-    $session->remove();
-    
+    $app['session']->clear();
     return $app->redirect('/');
 })
 ->bind('logout');
