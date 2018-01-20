@@ -16,7 +16,7 @@ $app->register(new HttpFragmentServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
 
 if (null !== $app['session']->get('user')) {
-	$app['global.userName'] = "Bienvenue " . $app['session']->get('user')['username'];
+	$app['global.userName'] = "Bienvenue " . $app['session']->get('user')['firstname'] . ' ' . $app['session']->get('user')['lastname'] ;
 }
 else{
 	$app['global.userName'] = '';

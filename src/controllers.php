@@ -28,9 +28,12 @@ $app->match('/login', function (Request $request) use ($app) {
         $password = $request->get('connectPassword');
         /*var_dump($app['session']->get('user')) ;*/
 
-        if ('jason@vasseur.fr' === $username && 'password' === $password) {
-            $app['session']->set('user', array('username' => $username));
-            $app['global.userName'] = "Bienvenue " . $app['session']->get('user')['username'];
+        $repository = $app['em']->getRepository(Entity\Eleveur::class);
+        $query = $repository->findOneBy([
+            'email' => $username]);
+        if ($query->getEmail() === $username && $query->getPassword() === $password) {
+            $app['session']->set('user', array('firstname' => $query->getFirstName(), 'lastname' => $query->getLastName()));
+            $app['global.userName'] = "Bienvenue " . $app['session']->get('user')['firstname'] . ' ' . $app['session']->get('user')['lastname'] ;
         }
     }
     else {
