@@ -17,14 +17,22 @@
 				<a class="navbar-brand" href="{{ path('AproposDeNous') }}">A propos de nous</a>
 			</li>
 		</ul>
-			{{ userName }}
-				
-		<form class="form-inline my-2 my-lg-0" method="post"  action="{{ path('inscription') }}">
-			<button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Inscription</button>
-		</form>
 
-		<form class="form-inline my-2 my-lg-0" method="get"  action="{{ path('login') }}">
-			<button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Connexion professionnels</button>
-		</form>
+		{{ userName }}
+			
+		{% if userName == '' %}	
+			<form class="form-inline my-2 my-lg-0" method="post"  action="{{ path('inscription') }}">
+				<button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Inscription</button>
+			</form>
+
+			<form class="form-inline my-2 my-lg-0" method="get"  action="{{ path('login') }}">
+				<button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Connexion professionnels</button>
+			</form>
+		{% endif %}
+		{% if userName != '' %}	
+			<form class="form-inline my-2 my-lg-0" method="post"  action="{{ path('logout') }}">
+				<button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Déconnexion</button>
+			</form>
+		{% endif %}
 	</div>
 </nav>

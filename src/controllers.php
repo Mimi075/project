@@ -45,7 +45,7 @@ $app->match('/login', function (Request $request) use ($app) {
 ->method('GET|POST')
 ;
 //----------------------------------------------------------------------------------------------------
-$app->get('/logout', function (Request $request) use ($app) {
+$app->post('/logout', function (Request $request) use ($app) {
     
     $app['session']->clear();
     return $app->redirect('/');
