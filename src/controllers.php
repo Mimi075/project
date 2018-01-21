@@ -26,7 +26,10 @@ $app->match('/login', function (Request $request) use ($app) {
         $query = $repository->findOneBy(['email' => $username]);
 
         if ($query->getEmail() === $username && $query->getPassword() === $password) {
-            $app['session']->set('user', array('firstname' => $query->getFirstName(), 'lastname' => $query->getLastName()));
+            $app['session']->set('user', array('firstname' => $query->getFirstName(), 
+                                                'lastname' => $query->getLastName(),
+                                                'email' => $query->getEmail()
+                                                ));
             $app['global.userName'] = "Bienvenue " . $app['session']->get('user')['firstname'] . ' ' . $app['session']->get('user')['lastname'] ;
         }
     }

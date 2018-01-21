@@ -1,12 +1,22 @@
 <?php
-
-if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["name"][0] != ""){
-    echo "<pre>";
+/*var_dump($_FILES["fileToUpload"]["name"]);*/
+if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["name"] ){
+ /*   echo "<pre>";
     var_dump($_FILES["fileToUpload"]["name"]);
-    echo "</pre>";
+    echo "</pre> <br>";*/
+
+    $target_dir = "img/". $app['session']->get('user')['email'] . "/";
+ 
+    if (file_exists($target_dir)) {
+        echo "Le fichier $filename existe.<br>";
+    } 
+    else {
+        echo "Le fichier $filename n'existe pas.<br>";
+        mkdir($target_dir, 0700);
+    }
+
     foreach ($_FILES["fileToUpload"]["name"] as $key => $value) {
 
-    $target_dir = "img/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$key]);
     echo $target_file;
     $uploadOk = 1;
