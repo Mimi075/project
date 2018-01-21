@@ -152,7 +152,7 @@ $app->get('/AproposDeNous', function () use ($app) {
 ;
 //----------------------------------------------------------------------------------------------------
 $app->get('/annonces', function () use ($app) {
-     $category = formulairecategory();
+    $category = formulairecategory();
     $region = regionList();
     $alerte = [
         'category' => $category['category'],
@@ -160,6 +160,19 @@ $app->get('/annonces', function () use ($app) {
         'regions' => $region['regions'],
         'reg' => $region['reg'] 
     ];
+
+
+    $annonce = '<a class="row" href="#">
+                <div class="col-3">
+                    <img class="item_image" src="img/loup.jpg" alt="loup"/>
+                </div>
+                <div class="col-9"> 
+                    <h5>Vends loup volant (très rare)</h5>
+                    <p>Oiseaux-canins</p>
+                    <p>Basse-Normandie</p> 
+                    <p>prix : 25000 €</p>
+                </div>
+            </a>                ';
 
     return $app['twig']->render('annonces.html.twig', $alerte);
 })
