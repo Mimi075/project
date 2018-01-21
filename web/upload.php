@@ -1,6 +1,9 @@
 <?php
 
-if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"] != ""){
+if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["name"][0] != ""){
+    echo "<pre>";
+    var_dump($_FILES["fileToUpload"]["name"]);
+    echo "</pre>";
     foreach ($_FILES["fileToUpload"]["name"] as $key => $value) {
 
     $target_dir = "img/";
@@ -61,10 +64,4 @@ if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"] != ""){
         }
     }
     }
-}
-
-//Test de la condition
-
-else {
-    echo "sa bug";
 }

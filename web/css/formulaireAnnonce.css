@@ -6,3 +6,14 @@ h1 {
 	margin: 0 auto 0 auto;
 	width: 60%;
 }
+
+.image-upload > input
+{
+    display: none;
+}
+
+.image-upload img
+{
+    width: 150px;
+    cursor: pointer;
+}

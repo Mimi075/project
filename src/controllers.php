@@ -12,30 +12,25 @@ include '../web/function.php';
 //----------------------------------------------------------------------------------------------------
 $app->get('/', function () use ($app) {
     return $app['twig']->render('index.html.twig', regionList());
-
 })
 ->bind('homepage')
 ;
 //----------------------------------------------------------------------------------------------------
 $app->match('/login', function (Request $request) use ($app) {
 
-    /*var_dump($app['session']->get('user')) ;*/
     if (!empty($_POST)) {
-        /*echo "test";
-        echo gettype($app['session']);
-        echo "<br>";*/
         $username = $request->get('connectEmail');
         $password = $request->get('connectPassword');
-        /*var_dump($app['session']->get('user')) ;*/
 
         $repository = $app['em']->getRepository(Entity\Eleveur::class);
-        $query = $repository->findOneBy([
-            'email' => $username]);
+        $query = $repository->findOneBy(['email' => $username]);
+
         if ($query->getEmail() === $username && $query->getPassword() === $password) {
             $app['session']->set('user', array('firstname' => $query->getFirstName(), 'lastname' => $query->getLastName()));
             $app['global.userName'] = "Bienvenue " . $app['session']->get('user')['firstname'] . ' ' . $app['session']->get('user')['lastname'] ;
         }
     }
+
     else {
         echo "";
     }
@@ -58,7 +53,6 @@ $app->match('/inscription', function () use ($app) {
     
     if (!empty($_POST)){
         foreach($_POST as $key => $value){
-            //stockage dans un tableau des valeur reçu par $_POST avec neutralisation
             $post[$key] = $value;
         }
         
