@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 include '../web/function.php';
 //----------------------------------------------------------------------------------------------------
 $app->get('/', function () use ($app) {
-    include 'switch.php';
+    
     return $app['twig']->render('index.html.twig', regionList());
 })
 ->bind('homepage')
@@ -22,23 +22,20 @@ $app->match('/login', function (Request $request) use ($app) {
     if (!empty($_POST)) {
         $username = $request->get('connectEmail');
         $password = $request->get('connectPassword');
-
         $repository = $app['em']->getRepository(Entity\Eleveur::class);
         $query = $repository->findOneBy(['email' => $username]);
 
-        if ($query->getEmail() === $username && $query->getPassword() === $password) {
+        if ($query != null && $query->getPassword() === $password) {
             $app['session']->set('user', array('firstname' => $query->getFirstName(), 
                                                 'lastname' => $query->getLastName(),
                                                 'email' => $query->getEmail(),
                                                 'id' => $query->getId()
                                                 ));
             $app['global.userName'] = "Bienvenue " . $app['session']->get('user')['firstname'] . ' ' . $app['session']->get('user')['lastname'] ;
+            return $app['twig']->render('congrulation.html.twig',array());
         }
     }
 
-    else {
-        echo "";
-    }
     return $app['twig']->render('login.html.twig',array());
 })
 ->bind('login')
@@ -100,6 +97,8 @@ $app->match('/inscription', function () use ($app) {
          if($post['password'] != $post['confPassword']){
             $errors[] = 'Les mot de passe ne sont pas identique';
         }
+
+        include 'switch.php';
         
         if(count($errors) == 0){
             // errors = 0 = insertion user
@@ -112,6 +111,7 @@ $app->match('/inscription', function () use ($app) {
             $eleveur->setZip($post['zip']);
             $eleveur->setCity($post['city']);
             $eleveur->setSiren($post['siren']);
+            $eleveur->setRegion($region);
             $app['em']->persist($eleveur);
             $app['em']->flush();
         }
@@ -205,6 +205,13 @@ $app->get('/alerte', function () use ($app) {
 ;
 //----------------------------------------------------------------------------------------------------
 
+$app->get('/congrulation', function () use ($app) {
+    return $app['twig']->render('congrulation.html.twig', regionList());
+})
+->bind('congrulation')
+;
+//----------------------------------------------------------------------------------------------------
+
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     
     if ($app['debug']) {
@@ -218,6 +225,7 @@ $app->error(function (\Exception $e, Request $request, $code) use ($app) {
         'errors/'.substr($code, 0, 1).'xx.html.twig',
         'errors/default.html.twig',
     );
+
 
     return new Response($app['twig']->resolveTemplate($templates)->render(array('code' => $code)), $code);
 });

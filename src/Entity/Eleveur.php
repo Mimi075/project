@@ -50,7 +50,7 @@ class Eleveur
     private $city;
 
     /**
-     * @Column(type="integer")
+     * @Column(type="string")
      */
     private $region;
 
@@ -58,7 +58,7 @@ class Eleveur
      * @Column(type="string")
      */
     private $siren;
-    
+
     /**
      * @Column(type="datetime")
      */
