@@ -57,6 +57,14 @@ class Eleveur
      * @Column(type="datetime")
      */
     /*private $dateDerniereVisite;*/
+
+
+     /**
+     * Eleveur linked to this Annonce
+     *
+     * @OneToMany(targetEntity="Entity\Annonce", mappedBy="eleveur")
+     */
+    private $annonces;
     
 
     public function getId()
@@ -132,6 +140,16 @@ class Eleveur
     public function setCity($city)
     {
         $this->city = $city;
+    }
+
+    public function getAnnonce()
+    {
+        return $this->annonce;
+    }
+
+    public function setAnnonce($annonce)
+    {
+        $this->annonce = $annonce;
     }
 
     /*public function getRegion()

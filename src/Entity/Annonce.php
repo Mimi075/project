@@ -17,10 +17,6 @@ class Annonce
      */
     private $farmer;
     /**
-     * @Column(type="integer")
-     */
-    private $animal;
-    /**
      * @Column(type="string")
      */
     private $title;
@@ -40,7 +36,22 @@ class Annonce
      * @Column(type="datetime")
      */
    /* private $dateDeCreation;*/
-       
+
+
+   /**
+     * Eleveur linked to this Annonce
+     *
+     * @ManyToOne(targetEntity="Entity\Eleveur", inversedBy="annonces")
+     */   
+    private $eleveur;
+
+   /**
+     * Animal linked to this Annonce
+     *
+     * @ManyToOne(targetEntity="Entity\Animal", inversedBy="annonces")
+     */
+    private $animal;
+
 
     public function getId()
     {
@@ -55,16 +66,6 @@ class Annonce
     public function setFarmer($farmer)
     {
         $this->farmer = $farmer;
-    }
-
-    public function getAnimal()
-    {
-        return $this->animal;
-    }
-
-    public function setAnimal($animal)
-    {
-        $this->animal = $animal;
     }
 
     public function getTitle()
@@ -105,6 +106,25 @@ class Annonce
     public function setPrice($price)
     {
         $this->price = $price;
+    }
+
+    public function getEleveur()
+    {
+        return $this->eleveur;
+    }
+
+    public function setEleveur($eleveur)
+    {
+        $this->eleveur = $eleveur;
+    }
+
+    public function getAnimal()
+    {
+        return $this->animal;
+    }
+    public function setAnimal($animal)
+    {
+        $this->animal = $animal;
     }
 
     /*public function getDateDeCreation()

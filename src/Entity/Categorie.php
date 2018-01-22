@@ -15,7 +15,14 @@ class Categorie
     /**
      * @Column(type="string")
      */
-    private $nom;      
+    private $nom;
+      /**
+     * Animal linked to this Categorie
+     *
+     * @OneToMany(targetEntity="Entity\Animal", mappedBy="categorie")
+     */
+    private $animal;
+
 
     public function getId()
     {
@@ -30,5 +37,15 @@ class Categorie
     public function setNom($nom)
     {
         $this->nom = $nom;
+    }
+
+     public function getAnimal()
+    {
+        return $this->animal;
+    }
+
+    public function setAnimal($animal)
+    {
+        $this->animal = $animal;
     }
 }
