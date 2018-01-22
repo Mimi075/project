@@ -16,10 +16,21 @@ class Animal
      * @Column(type="string")
      */
     private $name;
+
     /**
-     * @Column(type="integer")
+     * Animal linked to this Annonce
+     *
+     * @OneToMany(targetEntity="Entity\Annonce", mappedBy="animal")
      */
-    private $category;       
+    private $annonces;
+
+    /**
+     * Animal linked to this Categorie
+     *
+     * @ManyToOne(targetEntity="Entity\Categorie", inversedBy="animal")
+     */
+    private $category;
+
 
     public function getId()
     {
@@ -35,6 +46,17 @@ class Animal
     {
         $this->name = $name;
     }
+
+    public function getaAnnonce()
+    {
+        return $this->annonce;
+    }
+
+    public function setAnnonce($annonce)
+    {
+        $this->annonce = $annonce;
+    }
+
 
     public function getCategory()
     {
