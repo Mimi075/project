@@ -9,9 +9,7 @@ $pattern_ = $delimiter . $pattern . $delimiter . $option;
 
 $j = preg_match($pattern_, $subject);
 $k = $subject[0] . $subject[1];
-echo "subject" . ($subject)."<br>";
-echo "pattern:" .($pattern)."<br>";
-echo $j;
+
 if ($j == 1) {
 
     switch ($k) {
