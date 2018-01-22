@@ -12,52 +12,62 @@ class Eleveur
      * @GeneratedValue()
      */
     private $id;
+
     /**
      * @Column(type="string")
      */
     private $lastName;
+
     /**
      * @Column(type="string")
      */
     private $firstName;
+
     /**
      * @Column(type="string")
      */
     private $email;
+
     /**
      * @Column(type="string")
      */
     private $password;
+
     /**
      * @Column(type="string")
      */
 
     private $adress;
+
     /**
      * @Column(type="string")
      */
     private $zip;
+
     /**
      * @Column(type="string")
      */
     private $city;
+
     /**
      * @Column(type="integer")
      */
-    /*private $region;*/
+    private $region;
+
     /**
      * @Column(type="string")
      */
     private $siren;
+    
     /**
      * @Column(type="datetime")
      */
     /*private $dateDinscription;*/
+
     /**
      * @Column(type="datetime")
      */
     /*private $dateDerniereVisite;*/
-
 
      /**
      * Eleveur linked to this Annonce
@@ -152,7 +162,7 @@ class Eleveur
         $this->annonce = $annonce;
     }
 
-    /*public function getRegion()
+    public function getRegion()
     {
         return $this->region;
     }
@@ -160,7 +170,7 @@ class Eleveur
     public function setRegion($region)
     {
         $this->region = $region;
-    }*/
+    }
 
     public function getSiren()
     {

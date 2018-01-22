@@ -28,7 +28,8 @@ $app->match('/login', function (Request $request) use ($app) {
         if ($query->getEmail() === $username && $query->getPassword() === $password) {
             $app['session']->set('user', array('firstname' => $query->getFirstName(), 
                                                 'lastname' => $query->getLastName(),
-                                                'email' => $query->getEmail()
+                                                'email' => $query->getEmail(),
+                                                'id' => $query->getId()
                                                 ));
             $app['global.userName'] = "Bienvenue " . $app['session']->get('user')['firstname'] . ' ' . $app['session']->get('user')['lastname'] ;
         }
@@ -136,6 +137,7 @@ $app->match('/formulaireContact', function () use ($app) {
 ;
 //----------------------------------------------------------------------------------------------------
 $app->match('/formulaireAnnonce', function () use ($app) {
+    /*include 'testAnnonce.php';*/
     include 'upload.php';
 
     return $app['twig']->render('formulaireAnnonce.html.twig', formulairecategory());
