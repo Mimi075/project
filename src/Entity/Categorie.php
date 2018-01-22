@@ -4,7 +4,7 @@ namespace Entity;
  * @Entity 
  * @Table(name="Annonce")
  **/
-class Annonce
+class Categorie
 {
     /**
      * @Id ()
@@ -16,36 +16,21 @@ class Annonce
     /**
      * @Column(type="string")
      */
-    private $title;
+    private $name;
 
     /**
-     * @Column(type="string")
-     */
-    private $container;
-
-    /**
-     * @Column(type="integer")
-     */
-    private $price;
-
-   /**
-     * Eleveur linked to this Eleveur
+     * Eleveur linked to this Annonce
      *
-     * @ManyToOne(targetEntity="Entity\Eleveur", inversedBy="ad")
-     */   
-    private $farmer;
-
-    /**
-     * Eleveur linked to this Categorie
-     *
-     * @ManyToOne(targetEntity="Entity\Categorie", inversedBy="ad")
-     */   
-    private $category;
-
-    /**
-     * @Column(type="datetime")
+     * @OneToMany(targetEntity="Entity\Annonce", mappedBy="category")
      */
-   /* private $dateDeCreation;*/
+    private $ad;
+
+    /**
+     * Eleveur linked to this Annonce
+     *
+     * @OneToMany(targetEntity="Entity\Annonce", mappedBy="category")
+     */
+    private $animal;
 
     public function getId()
     {

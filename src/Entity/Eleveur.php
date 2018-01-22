@@ -72,9 +72,9 @@ class Eleveur
      /**
      * Eleveur linked to this Annonce
      *
-     * @OneToMany(targetEntity="Entity\Annonce", mappedBy="eleveur")
+     * @OneToMany(targetEntity="Entity\Annonce", mappedBy="farmer")
      */
-    private $annonces;
+    private $ad;
     
 
     public function getId()
@@ -152,14 +152,14 @@ class Eleveur
         $this->city = $city;
     }
 
-    public function getAnnonce()
+    public function getAd()
     {
-        return $this->annonce;
+        return $this->ad;
     }
 
-    public function setAnnonce($annonce)
+    public function setAd($ad)
     {
-        $this->annonce = $annonce;
+        $this->ad= $ad;
     }
 
     public function getRegion()
