@@ -179,6 +179,12 @@ $app->get('/annonces', function () use ($app) {
 ->bind('annonces')
 ;
 //----------------------------------------------------------------------------------------------------
+$app->get('/annonceDetail', function () use ($app) {
+    return $app['twig']->render('annonceDetail.html.twig', regionList());
+})
+->bind('annonceDetail')
+;
+// ----------------------------------------------------------------------------------------------------
 $app->get('/alerte', function () use ($app) {
     $category = formulairecategory();
     $region = regionList();
