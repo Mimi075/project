@@ -11,7 +11,8 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 include '../web/function.php';
 //----------------------------------------------------------------------------------------------------
 $app->get('/', function () use ($app) {
-    
+    $now = date("d.m.Y H:i:s"); 
+    echo $now;
     return $app['twig']->render('index.html.twig', regionList());
 })
 ->bind('homepage')
