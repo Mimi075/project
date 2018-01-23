@@ -152,11 +152,8 @@ function regionList(){
 };
 
 function formulairecategory(){
-    $formulairecategory = [
-        'category' => ['Animaux de compagnie', 'Animaux de basse-cour', 'Animaux de pacage (bÃ©tail)', 'Animaux aquatique'],
-        'val' => 1
-    ];
-    return $formulairecategory;
+    $category = ['Animaux de compagnie', 'Animaux de basse-cour', 'Animaux de pacage (bÃ©tail)', 'Animaux aquatique'];
+    return $category;
 };
 
 ?> 

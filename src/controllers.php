@@ -276,7 +276,19 @@ $app->match('/formulaireContact', function () use ($app) {
 $app->match('/formulaireAnnonce', function () use ($app) {
     include 'testAnnonce.php';
 
-    return $app['twig']->render('formulaireAnnonce.html.twig', formulairecategory());
+    $dataAnnonce = ["category" => formulairecategory()];
+
+    if(!empty($errors)){
+      $dataAnnonce['errors'] = $errors;
+    }
+
+    if (isset($render) && $render == 1) {
+      return $app['twig']->render('congrulationAnnonce.html.twig',array());
+    }
+
+    else{
+      return $app['twig']->render('formulaireAnnonce.html.twig', $dataAnnonce);
+    }
 })
 ->bind('formulaireAnnonce')
 ->method('GET|POST')

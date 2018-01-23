@@ -5,6 +5,15 @@
 
 {% block body %}
 <div id="formAnn">
+
+	{% if errors is defined  %}
+
+    	{% for error in errors %}
+      		<p>{{error}} </p>
+    	{% endfor %}
+  
+  	{% endif %}
+
 	<h1>Rentrez votre annonce</h1> <br>
 	<div class="container-fluid" id="Formulaire">
 		<form method="post" action="#" enctype="multipart/form-data">
@@ -19,7 +28,6 @@
 					<option selected>Choisir...</option>
 					{% for categorys in category %}
 						<option value="{{ categorys }}">{{ categorys }}</option>
-						{% set val = val + 1 %}
 					{% endfor %}
 				</select>
 			</div>
@@ -71,7 +79,7 @@
 			</div>
 	</div>
 
-				<p id="debug">debug</p>
+				<!-- <p id="debug">debug</p> -->
 		</form>
 </div>		
 		<script type="text/javascript">

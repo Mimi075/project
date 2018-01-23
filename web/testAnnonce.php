@@ -1,8 +1,5 @@
 <?php
 
-    //On déclare le tableaux qui servira pour le rendu de twig
-    $dataAnnonce = array();
-    
     //Test si $_POST n'est pas vide
     if (!empty($_POST)){
         //si il est pas vide, on rentre les données de $_POST dans le tableaux $post
@@ -136,13 +133,6 @@
                     }
                 }
             }
-
-        }
-
-        //Sinon on rentre les erreurs dans le tableaux pour les afficher avec twig
-        else{
-            $dataInscription = [
-                'errors' => $errors
-            ];
+            $render = 1;
         }
     }
