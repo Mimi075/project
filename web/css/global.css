@@ -28,4 +28,11 @@ body {
 
 .jumbotron {
   color: #002325;
+  background-color: #E1E4E6;
+}
+.youpi {
+  text-align: center;
+  width: 45em;
+  height: auto; 
+  margin: auto;
 }
