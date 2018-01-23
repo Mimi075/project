@@ -2,7 +2,7 @@
 namespace Entity;
 /**
  * @Entity 
- * @Table(name="Category")
+ * @Table(name="Categorie")
  **/
 class Categorie
 {

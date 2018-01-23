@@ -2,7 +2,7 @@
 namespace Entity;
 /**
  * @Entity 
- * @Table(name="SousCategory")
+ * @Table(name="SousCategorie")
  **/
 class SousCategorie
 {
