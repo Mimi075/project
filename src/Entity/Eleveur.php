@@ -62,12 +62,7 @@ class Eleveur
     /**
      * @Column(type="datetime")
      */
-    /*private $dateDinscription;*/
-
-    /**
-     * @Column(type="datetime")
-     */
-    /*private $dateDerniereVisite;*/
+    private $dateDinscription;
 
      /**
      * Eleveur linked to this Annonce
@@ -182,7 +177,7 @@ class Eleveur
         $this->siren = $siren;
     }
 
-   /* public function getDateDinscription()
+    public function getDateDinscription()
     {
         return $this->dateDinscription;
     }
@@ -192,13 +187,4 @@ class Eleveur
         $this->dateDinscription = $dateDinscription;
     }
 
-    public function getDateDerniereVisite()
-    {
-        return $this->dateDerniereVisite;
-    }
-
-    public function setDateDerniereVisite($dateDerniereVisite)
-    {
-        $this->dateDerniereVisite = $dateDerniereVisite;
-    }*/
 }

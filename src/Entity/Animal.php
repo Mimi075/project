@@ -19,11 +19,11 @@ class Animal
     private $name;
 
     /**
-     * Animal linked to this Categorie
+     * Animal linked to this SousCategorie
      *
-     * @ManyToOne(targetEntity="Entity\Categorie", inversedBy="animal")
+     * @ManyToOne(targetEntity="Entity\SousCategorie", inversedBy="animal")
      */
-    private $category;
+    private $subCategory;
  
 
     public function getId()
@@ -41,14 +41,14 @@ class Animal
         $this->name = $name;
     }
 
-    public function getCategory()
+    public function getSubCategory()
     {
-        return $this->category;
+        return $this->subCategory;
     }
  
-    public function setCategory($category)
+    public function setSubCategory($subCategory)
     {
-        $this->category = $category;
+        $this->subCategory = $subCategory;
     }
  
    
