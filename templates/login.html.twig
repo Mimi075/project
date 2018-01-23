@@ -1,4 +1,8 @@
 {% extends "layout.html.twig" %}
+{% block css %}
+	<link href="../css/login.css" media="screen" rel="stylesheet" type="text/css" />
+{% endblock %}
+
 {% block body %}
 	<div class="container-fluid">
 		<div class="row">
@@ -17,7 +21,7 @@
 							placeholder="Mot de passe">
 						</div>
 						<div class="col-auto my-1">
-							<button type="submit" class="btn btn-outline-success">Connexion</button>
+							<button type="submit" class="btnConnecter">Connexion</button>
 						</div>
 					</form>
 				</div>
