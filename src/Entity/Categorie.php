@@ -2,7 +2,7 @@
 namespace Entity;
 /**
  * @Entity 
- * @Table(name="Annonce")
+ * @Table(name="Category")
  **/
 class Categorie
 {
@@ -26,9 +26,9 @@ class Categorie
     private $ad;
 
     /**
-     * Eleveur linked to this Annonce
+     * Eleveur linked to this Animal
      *
-     * @OneToMany(targetEntity="Entity\Annonce", mappedBy="category")
+     * @OneToMany(targetEntity="Entity\Animal", mappedBy="category")
      */
     private $animal;
 
@@ -37,53 +37,33 @@ class Categorie
         return $this->id;
     }
 
-    public function getTitle()
+    public function getName()
     {
-        return $this->title;
+        return $this->name;
     }
 
-    public function setTitle($title)
+    public function setName($name)
     {
-        $this->title = $title;
+        $this->name = $name;
     }
 
-    public function getContainer()
+    public function getAd()
     {
-        return $this->container;
+        return $this->ad;
     }
 
-    public function setContainer($container)
+    public function setAd($ad)
     {
-        $this->container = $container;
+        $this->ad = $ad;
     }
 
-    public function getPrice()
+    public function getAnimal()
     {
-        return $this->price;
+        return $this->animal;
     }
 
-    public function setPrice($price)
+    public function setAnimal($animal)
     {
-        $this->price = $price;
+        $this->animal = $animal;
     }
-
-    public function getFarmer()
-    {
-        return $this->farmer;
-    }
-
-    public function setFarmer($farmer)
-    {
-        $this->farmer = $farmer;
-    }
-
-    /*public function getDateDeCreation()
-    {
-        return $this->dateDeCreation;
-    }
-
-    public function setDateDeCreation($dateDeCreation)
-    {
-        $this->dateDeCreation = $dateDeCreation;
-    }*/
 }

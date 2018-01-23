@@ -2,7 +2,7 @@
 namespace Entity;
 /**
  * @Entity 
- * @Table(name="Annonce")
+ * @Table(name="Animal")
  **/
 class Animal
 {
