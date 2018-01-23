@@ -12,32 +12,7 @@ include '../web/function.php';
 //----------------------------------------------------------------------------------------------------
 $app->get('/', function () use ($app) {
     $cat = generereCatAni();
-    foreach ($cat as $key => $value) {
-        
-            $category = new Entity\Categorie();
-            $category->setName($key);
-            $app['em']->persist($category);
-            $app['em']->flush();
-        
-        
-        foreach ($cat[$key] as $key2 => $value2) {
-            
-                $subCategory = new Entity\SousCategorie();
-                $subCategory->setName($key2);
-                $app['em']->persist($subCategory);
-                $app['em']->flush();
-            
-
-            foreach ($cat[$key][$key2] as $key3 => $value3) {
-
-                    $animal = new Entity\Animal();
-                    $animal->setName($value3);
-                    $app['em']->persist($animal);
-                    $app['em']->flush();
-
-            }
-        }
-    }
+    
     return $app['twig']->render('index.html.twig', regionList());
 })
 ->bind('homepage')
