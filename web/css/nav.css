@@ -13,10 +13,9 @@ nav ul li a{
 }
 
 nav ul li a:hover {
-background-color: #249CFF;
+background-color: #00ccc5;
 text-decoration: none;
-border-radius: 7px;
-border: solid black 1px;
+
 }
 
 .navbar-brand {
