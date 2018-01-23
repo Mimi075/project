@@ -153,7 +153,7 @@ function regionList(){
 
 function formulairecategory(){
     $formulairecategory = [
-        'category' => ['Bovins', 'Equins', 'Ovins', 'Caprins', 'Volailles', 'Rongeurs', 'Poissons', 'Oiseaux', 'Félinx', 'Canins', 'Réptiles', 'Autre'],
+        'category' => ['Animaux de compagnie', 'Animaux de basse-cour', 'Animaux de pacage (bÃ©tail)', 'Animaux aquatique'],
         'val' => 1
     ];
     return $formulairecategory;

@@ -35,8 +35,7 @@ $app->get('/', function () use ($app) {
 
       if($query === null){
         $repository = $app['em']->getRepository(Entity\Categorie::class);
-        $query = $repository->findOneBy(['name' => $keyCat]);
-        /*$query = $query->getId();*/
+        $query = $repository->findOneBy(['email' => $keyCat]);
 
         $subCategory = new Entity\SousCategorie();
         $subCategory->setName($keySubCat);
@@ -275,8 +274,7 @@ $app->match('/formulaireContact', function () use ($app) {
 ;
 //----------------------------------------------------------------------------------------------------
 $app->match('/formulaireAnnonce', function () use ($app) {
-    /*include 'testAnnonce.php';*/
-    include 'upload.php';
+    include 'testAnnonce.php';
 
     return $app['twig']->render('formulaireAnnonce.html.twig', formulairecategory());
 })
