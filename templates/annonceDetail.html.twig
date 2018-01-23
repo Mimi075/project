@@ -1,7 +1,9 @@
 {% extends "layout.html.twig" %}
+
 {% block css %}
 	<link href="../css/alerte.css" media="screen" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="../css/annonces.css">
+
 {% endblock %}
 {% block body %}
 	<div id="annonces">
@@ -51,7 +53,7 @@
 			</div>
 			<div class="col-6">
 				<div class="interstitial hidden" id="adview_interstitial">
-					<div class="container">
+					<div class="container mincont">
 						<p class="mbl">Contactez le vendeur pour plus d'informations :</p>
 						<button id="buttonTel" data-href="">Voir le numéro</button><br>
 						<a id="email" rel="nofollow" href="#">Envoyer un email</a>

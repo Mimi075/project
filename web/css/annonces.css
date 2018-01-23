@@ -10,7 +10,6 @@
 	border-radius: 10px;
 }
 b {
-
 	margin-left: 50px;
 }
 .miniAnnonce {
@@ -49,7 +48,7 @@ h3 {
 	text-align: center;
 	margin-top: 10px;
 }
-.container {
+.mincont {
 	width: 75%;
 	margin-right: 100px;
 	margin-top: 150px;
