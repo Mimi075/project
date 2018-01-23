@@ -31,6 +31,11 @@ h1 {
 	color: #fff;
 	border: 2px solid #002423;
 }
+#btnEnvoyer:hover {
+	background-color: #003536;
+	color: #fff;
+	border: 2px solid #002423;
+}
 #formContact {
 	margin-top: 5%;
 	background-color: #8C8C8C;
