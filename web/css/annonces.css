@@ -16,3 +16,54 @@ b {
 .miniAnnonce {
 	background-color: #8C8C8C;
 }
+
+/*---------------------------------------------------------------------*/
+/*ANNONCE DETAIL*/
+
+body {	
+    font-size: 1.3em;    
+    color: #1a1a1a;
+    font-family: "OpenSans",sans-serif;
+    line-height: 1,5;
+}
+#annonces {
+	margin-top: 20px;
+}
+h3 {
+	text-align: center;
+}
+.image {
+	margin-left: 30px;
+}
+.carousel-item img {      
+	width: 25em;
+	height: 22em;
+}
+#demo {
+	width: 25em;
+	height: 22em;
+	margin: 0 auto;
+	top: 10px;
+}
+.item_photo {
+	text-align: center;
+	margin-top: 10px;
+}
+.container {
+	width: 75%;
+	margin-right: 100px;
+	margin-top: 150px;
+}
+#buttonTel, #email {
+	margin-left: 140px;
+}
+
+#contenu {
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+
+
+
+

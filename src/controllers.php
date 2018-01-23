@@ -264,7 +264,7 @@ $app->get('/annonces', function () use ($app) {
 ;
 //----------------------------------------------------------------------------------------------------
 $app->get('/annonceDetail', function () use ($app) {
-    return $app['twig']->render('annonceDetail.html.twig', regionList());
+    return $app['twig']->render('annonceDetail.html.twig');
 })
 ->bind('annonceDetail')
 ;

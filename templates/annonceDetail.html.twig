@@ -1,9 +1,82 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Detail des annonces</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "layout.html.twig" %}
+{% block css %}
+	<link href="../css/alerte.css" media="screen" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="../css/annonces.css">
+{% endblock %}
+{% block body %}
+	<div id="annonces">
+		<h3 class="no-border" itemprop="name">
+		Vend loup volant extrèmement rare
+		</h3>
+		<div class="row">
+			<div class="col-6">
+				<div id="demo" class="carousel slide" data-ride="carousel">
+					<!-- Indicators -->
+					<ul class="carousel-indicators">
+						<li data-target="#demo" data-slide-to="0" class="active"></li>
+						<li data-target="#demo" data-slide-to="1"></li>
+						<li data-target="#demo" data-slide-to="2"></li>
+						<li data-target="#demo" data-slide-to="3"></li>
+						<li data-target="#demo" data-slide-to="4"></li>
+					</ul>
+					
+					<!-- The slideshow -->
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img src="img/loup1.jpg" alt="loup1">
+						</div>
+						<div class="carousel-item">
+							<img src="img/loup2.jpg" alt="loup2">
+						</div>
+						<div class="carousel-item">
+							<img src="img/loup3.jpg" alt="loup3">
+						</div>
+						<div class="carousel-item">
+							<img src="img/loup4.jpg" alt="loup4">
+						</div>
+						<div class="carousel-item">
+							<img src="img/loup5.jpg" alt="loup5">
+						</div>
+					</div>
+					
+					<!-- Left and right controls -->
+					<a class="carousel-control-prev" href="#demo" data-slide="prev">
+						<span class="carousel-control-prev-icon"></span>
+					</a>
+					<a class="carousel-control-next" href="#demo" data-slide="next">
+						<span class="carousel-control-next-icon"></span>
+					</a>
+				</div>
+				<p class="item_photo">5 photos disponibles</p>
+			</div>
+			<div class="col-6">
+				<div class="interstitial hidden" id="adview_interstitial">
+					<div class="container">
+						<p class="mbl">Contactez le vendeur pour plus d'informations :</p>
+						<button id="buttonTel" data-href="">Voir le numéro</button><br>
+						<a id="email" rel="nofollow" href="#">Envoyer un email</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="contenu">
+		<p class="line line_pro">Mise en ligne le 23 janvier à 15:00</p>
+		<div class="line">
+			<h2 class="item_price clearfix" itemprop="price" content="450">
+			<span class="property">Prix :</span>
+			<meta itemprop="priceCurrency" content="EUR">
+			<span class="value">25000€</span>
+			</h2>
+		</div>
+		<h2 class="clearfix">
+		<span class="property">
+			<span class="fl">Ville :</span>
+		</span>
+		<span class="value" itemprop="address">Alençon (61000)
+		</span>
+		</h2>
+		<U><p class="property semibold">Description :</p></U>
+		<p class="value" itemprop="description">Bonjour,<br>Je vend un loup d'une extrème rareté, très bien élevé, canet de vaccination à jour. Prévoir 5 kg chair humaine par jour, bras, jambe, cervelle, ce que vous voulez.<br><br>Premier contact par email ou SMS<br><br>Prix 25000Euros<br>Merci, cordialement.</p>
+	</div>
+{% endblock %}
