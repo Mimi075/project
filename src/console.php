@@ -134,27 +134,42 @@ $console
 
 		foreach ($cat as $key => $value) {
         
-            /*$category = new Entity\Categorie();
-            $category->setName($key);
-            $app['em']->persist($category);
-            $app['em']->flush();*/
-        	echo $key;
+			$repository = $app['em']->getRepository(Entity\Categorie::class);
+        	$query = $repository->findOneBy(['name' => $key]);
+
+        	if($query === null){
+            	$category = new Entity\Categorie();
+            	$category->setName($key);
+            	$app['em']->persist($category);
+            	$app['em']->flush();
+        	}
+        	/*echo $key;*/
         
         	foreach ($cat[$key] as $key2 => $value2) {
             
-                /*$subCategory = new Entity\SousCategorie();
-                $subCategory->setName($key2);
-                $app['em']->persist($subCategory);
-                $app['em']->flush();*/
-            	echo $key2;
+        		$repository = $app['em']->getRepository(Entity\SousCategorie::class);
+        		$query = $repository->findOneBy(['name' => $key2]);
+
+        		if($query === null){
+	                $subCategory = new Entity\SousCategorie();
+	                $subCategory->setName($key2);
+	                $app['em']->persist($subCategory);
+	                $app['em']->flush();
+	            }
+            	/*echo $key2;*/
 
             	foreach ($cat[$key][$key2] as $key3 => $value3) {
 
-                    /*$animal = new Entity\Animal();
-                    $animal->setName($value3);
-                    $app['em']->persist($animal);
-                    $app['em']->flush();*/
-                    echo $value3;
+            		$repository = $app['em']->getRepository(Entity\Animal::class);
+        			$query = $repository->findOneBy(['name' => $value3]);
+
+        			if($query === null){
+                    	$animal = new Entity\Animal();
+                    	$animal->setName($value3);
+                    	$app['em']->persist($animal);
+                    	$app['em']->flush();
+                    }
+                    /*echo $value3;*/
             	}
         	}
     	}

@@ -11,7 +11,61 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 include '../web/function.php';
 //----------------------------------------------------------------------------------------------------
 $app->get('/', function () use ($app) {
-    $cat = generereCatAni();
+
+  $cat = generereCatAni();
+
+  foreach ($cat as $keyCat => $valCat) {
+        
+    $repository = $app['em']->getRepository(Entity\Categorie::class);
+    $query = $repository->findOneBy(['name' => $keyCat]);
+    /*echo $query->getId();*/
+
+    if($query === null){
+      $category = new Entity\Categorie();
+      $category->setName($keyCat);
+      $app['em']->persist($category);
+      $app['em']->flush();
+    }
+    /*echo $key;*/
+        
+    foreach ($cat[$keyCat] as $keySubCat => $valSubCat) {
+          
+      $repository = $app['em']->getRepository(Entity\SousCategorie::class);
+      $query = $repository->findOneBy(['name' => $keySubCat]);
+
+      if($query === null){
+        $repository = $app['em']->getRepository(Entity\Categorie::class);
+        $query = $repository->findOneBy(['name' => $keyCat]);
+        /*$query = $query->getId();*/
+
+        $subCategory = new Entity\SousCategorie();
+        $subCategory->setName($keySubCat);
+        $subCategory->setCategory($query);
+        $app['em']->persist($subCategory);
+        $app['em']->flush();
+      }
+      /*echo $key2;*/
+
+      foreach ($cat[$keyCat][$keySubCat] as $keyAni => $valAni) {
+
+        $repository = $app['em']->getRepository(Entity\Animal::class);
+        $query = $repository->findOneBy(['name' => $valAni]);
+
+        if($query === null){
+          $repository = $app['em']->getRepository(Entity\SousCategorie::class);
+          $query = $repository->findOneBy(['name' => $keySubCat]);
+          /*$query = $query->getId();*/
+
+          $animal = new Entity\Animal();
+          $animal->setName($valAni);
+          $animal->setSubCategory($query);
+          $app['em']->persist($animal);
+          $app['em']->flush();
+        }
+                  /*echo $value3;*/
+      }
+    }
+  }
     
     return $app['twig']->render('index.html.twig', regionList());
 })
