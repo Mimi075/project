@@ -3,59 +3,30 @@
 	<link href="../css/formulaireContact.css" media="screen" rel="stylesheet" type="text/css" />
 {% endblock %}
 {% block body %}
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-3"></div>
-			<div class="col-sm-6">
-				<h1>Formulaire de contact</h1><br>
-				<form action="" target="blank" method="post">
-					<fieldset id="Identification">
-						<div id="contact">
-							<legend><strong><h3>Identification</h3></strong></legend>
-							<div class="row">
-								<div class="col-sm-3"></div>
-								<div class="col-md-6">
-									<strong>Prénom :</strong>
-									<div class="input-group mb-2">
-										<input type="text" name="prenom" value="" placeholder="Votre prénom">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-3"></div>
-								<div class="col-md-6">
-									<strong>Nom :</strong><br>
-									<div class="input-group mb-2">
-										<input type="text" name="nom" value="" placeholder="Votre nom"><br>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-3"></div>
-								<div class="col-md-6">
-									<strong>Adresse email :</strong><br>
-									<div class="input-group mb-2">
-										<div class="input-group-prepend">
-											<div class="input-group-text">@</div>
-											<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Votre email">
-											
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</fieldset><br>
-					
-					<div class="row">
-						<div class="col-md-6">
-							<strong>Votre message :</strong>
-						<textarea name="message" placeholder="Veuillez entrer votre message ..."></textarea></div>
-						<br>
-					</div>
-					<button type="submit" class="btn btn-primary">Envoyer</button><br>
-				</form>
-			</div>
-			<div class="col-sm-3"></div>
-		</div>
-	</div>
+    <div class="container-fluid">
+      <div class="row">
+        <div id="erreur" class="col-4">
+			{# {% include 'contact.php' %}  #}
+    </div>
+    
+    <div class="col-4">
+      <h1>Formulaire De Contact</h1>
+      <hr>
+      <form method="post" action=" #">
+        
+        <p>Votre nom et prénom: <input class="form-control" type="text" name="nom" size="30" /></p>
+        
+        <p>Votre email: <span id="etoile">*</span><input class="form-control" type="text" name="email" size="30" /></p>
+        
+        <p>Message :<span id="etoile">*</span></p>
+        <textarea class="form-control" name="message" cols="60" rows="10"></textarea>
+        <br>
+        <p>Combien font 1+3: <span id="etoile">*</span><input type="text" name="captcha" size="2" /></p>
+        <p><input class="form-control" type="submit" name="submit" value="Envoyer" /></p>
+        
+      </form>
+    </div>
+    <div class="col-4"></div>
+  </div>
+</div>
 {% endblock %}

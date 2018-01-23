@@ -1,9 +1,9 @@
-#pied {	
-	  background-color: #19c173;
-	  margin-top: 53px;
+#pied {
+    background-color: #002423;
+    margin-top: 53px;
     text-align: center;
     overflow: auto;
-    padding-top:11px;
-    border:solid 1px;
-    width:100%;
+    padding-top: 11px;
+    border: solid 1px black;
+    width: 100%;
 }

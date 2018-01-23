@@ -9,8 +9,7 @@ button {
 }
 
 nav ul li a{
-	border-radius: 7px;
-border: solid black 1px;	
+	border-radius: 7px;	
 }
 
 nav ul li a:hover {
@@ -27,6 +26,9 @@ border: solid black 1px;
 	margin-left: 5px;
 }
 
+.navbar-light .navbar-brand {
+    color: #fff;
+}
 .nav-link {
 	margin-left: 5px;
 }
@@ -36,5 +38,11 @@ border: solid black 1px;
 }
 
 .perso {
-	background-color: #19c173;
+    background-color: #002423;
+}
+.btn-outline-dark {
+    color: #ffffff;
+    background-color: transparent;
+    background-image: none;
+    border-color: #ffffff;
 }
