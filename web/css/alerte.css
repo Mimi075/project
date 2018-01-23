@@ -569,7 +569,7 @@ a.lien_info_ann:hover
 	float: left;
 	width: 100%;
 	height: 37px;
-	background: linear-gradient(#73AE57, #65A646);
+	background: linear-gradient(#00e6de, #00ccc5);
 	border: none;
 	border-radius: none;
 	font-family: Arial, sans-serif;
@@ -582,7 +582,7 @@ a.lien_info_ann:hover
 
 .bouton_search:hover
 {
-	background: linear-gradient(#65A646, #73AE57);
+	background: linear-gradient(#00ccc5, #00e6de);
 }
 
 #menu_recherche .bouton_search
@@ -605,7 +605,7 @@ a.lien_info_ann:hover
 	}
 
 	#menu_recherche {
-		background-color: #B2C662
+		background-color: #003635;
 	}
 }
 

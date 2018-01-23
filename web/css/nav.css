@@ -13,9 +13,10 @@ nav ul li a{
 }
 
 nav ul li a:hover {
-background-color: #00BDB9;
+background-color: #249CFF;
 text-decoration: none;
-
+border-radius: 7px;
+border: solid black 1px;
 }
 
 .navbar-brand {
@@ -37,8 +38,7 @@ text-decoration: none;
 }
 
 .perso {
-    background-color: #003635;
-
+    background-color: #002423;
 }
 .btn-outline-dark {
     color: #ffffff;
