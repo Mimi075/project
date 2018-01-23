@@ -211,7 +211,7 @@ a.lien_info_ann:hover
     color: #395597;
 }
 
-/*  ----- FRAMEWORK CENTER -----  */
+  /*----- FRAMEWORK CENTER -----*/  
 
 .bloc_center
 {
@@ -277,7 +277,7 @@ a.lien_info_ann:hover
 	}
 }
 
-/*  ----- SEARCH DESIGN -----  */
+ /* ----- SEARCH DESIGN -----*/  
 
 #corps_recherche_index
 {   
@@ -494,8 +494,8 @@ a.lien_info_ann:hover
 	margin: 13px 0 5px 17px;
 }
 
-/*  ----- SEARCH STYLE -----  */
-
+  /*----- SEARCH STYLE -----  
+*/
 .input_recherche					
 {
 	margin: 0 0 14px 4%;

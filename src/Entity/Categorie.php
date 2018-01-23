@@ -2,7 +2,7 @@
 namespace Entity;
 /**
  * @Entity 
- * @Table(name="Category")
+ * @Table(name="Categorie")
  **/
 class Categorie
 {
@@ -26,11 +26,11 @@ class Categorie
     private $ad;
 
     /**
-     * Eleveur linked to this Animal
+     * Eleveur linked to this SousCategorie
      *
-     * @OneToMany(targetEntity="Entity\Animal", mappedBy="category")
+     * @OneToMany(targetEntity="Entity\SousCategorie", mappedBy="category")
      */
-    private $animal;
+    private $subCategory;
 
     public function getId()
     {
@@ -57,13 +57,13 @@ class Categorie
         $this->ad = $ad;
     }
 
-    public function getAnimal()
+    public function getSubCategory()
     {
-        return $this->animal;
+        return $this->subCategory;
     }
 
-    public function setAnimal($animal)
+    public function setSubCategory($subCategory)
     {
-        $this->animal = $animal;
+        $this->subCategory = $subCategory;
     }
 }

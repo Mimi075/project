@@ -33,8 +33,6 @@ $dataAnnonce = array();
             $annonce->setFarmer($app['session']->get('user')['id']);
             $annonce->setTitle($post['title']);
             $annonce->setPrice($post['price']);
-            $annonce->setEmail($post['email']);
-            $annonce->setPassword($post['password']);
             $app['em']->persist($eleveur);
             $app['em']->flush();
         }

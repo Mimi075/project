@@ -43,9 +43,16 @@ class Annonce
     private $category;
 
     /**
+     * Eleveur linked to this Photo
+     *
+     * @OneToMany(targetEntity="Entity\Photo", mappedBy="ad")
+     */
+    private $picture;
+
+    /**
      * @Column(type="datetime")
      */
-   /* private $dateDeCreation;*/
+    private $dateDeCreation;
 
     public function getId()
     {
@@ -102,7 +109,7 @@ class Annonce
         $this->category = $category;
     }
 
-    /*public function getDateDeCreation()
+    public function getDateDeCreation()
     {
         return $this->dateDeCreation;
     }
@@ -110,5 +117,15 @@ class Annonce
     public function setDateDeCreation($dateDeCreation)
     {
         $this->dateDeCreation = $dateDeCreation;
-    }*/
+    }
+
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+    }
 }

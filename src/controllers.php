@@ -11,8 +11,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 include '../web/function.php';
 //----------------------------------------------------------------------------------------------------
 $app->get('/', function () use ($app) {
-    $now = date("d.m.Y H:i:s"); 
-    echo $now;
     return $app['twig']->render('index.html.twig', regionList());
 })
 ->bind('homepage')
@@ -113,6 +111,7 @@ $app->match('/inscription', function () use ($app) {
             $eleveur->setCity($post['city']);
             $eleveur->setSiren($post['siren']);
             $eleveur->setRegion($region);
+            $eleveur->setDateDinscription(new \DateTime());
             $app['em']->persist($eleveur);
             $app['em']->flush();
         }
@@ -265,7 +264,7 @@ $app->get('/annonces', function () use ($app) {
 ;
 //----------------------------------------------------------------------------------------------------
 $app->get('/annonceDetail', function () use ($app) {
-    return $app['twig']->render('annonceDetail.html.twig', regionList());
+    return $app['twig']->render('annonceDetail.html.twig');
 })
 ->bind('annonceDetail')
 ;
