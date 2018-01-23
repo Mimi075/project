@@ -1,0 +1,20 @@
+body {
+	color: #002423;
+}
+button {
+	background-color: #002423;
+	color: #fff;
+	border: 2px solid #002423;
+}
+
+button:hover {
+	background-color: #003536;
+	color: #fff;
+	border: 2px solid #002423;
+}
+.row {
+	margin-top: 5%;
+}
+#pied {
+	margin-top: 300px !important;
+}
