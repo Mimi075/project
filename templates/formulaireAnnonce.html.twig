@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block body %}
+<div id="formAnn">
 	<h1>Rentrez votre annonce</h1> <br>
 	<div class="container-fluid" id="Formulaire">
 		<form method="post" action="#" enctype="multipart/form-data">
@@ -66,12 +67,13 @@
 			</div>
 			
 			<div class="col-auto my-1">
-				<button type="submit" class="btn btn-outline-success">Mise en ligne</button>
+				<button type="submit" class="btn btn-success">Mise en ligne</button>
 			</div>
+	</div>
 
 				<p id="debug">debug</p>
 		</form>
-		
+</div>		
 		<script type="text/javascript">
 
 			var	i = 1;
