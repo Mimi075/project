@@ -592,7 +592,7 @@ a.lien_info_ann:hover
 	margin: 10px 0 0 0;
 }
 
-@media (min-width: 1025px) /* 1025 pour affichage sur ipad 
+@media (min-width: 1025px) /* 1025 pour affichage sur ipad */
 {
 	#menu_recherche .bouton_search
 	{
