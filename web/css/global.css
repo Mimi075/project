@@ -19,6 +19,7 @@ a:hover, a:focus {
 body {	
 	overflow-x: hidden;
 	background-color: #E1E4E6;
+	color: #fff;
 }
 
 #inscrit {
