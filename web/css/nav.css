@@ -38,8 +38,43 @@ border: solid black 1px;
 }
 
 .perso {
-    background-color: #002423;
-}
+ 
+	margin: left 0%;
+	padding:auto;
+	text-align:center;
+    border: 2px solid black;
+    color:white; 
+     
+     animation: colorchange 15s; /* animation-name followed by duration in seconds*/
+         /* you could also use milliseconds (ms) or something like 2.5s */
+     -webkit-animation: colorchange 15s; /* Chrome and Safari */
+
+     animation-iteration-count: infinite;
+     -webkit-animation-iteration-count: infinite;
+   }
+
+ @keyframes colorchange
+  {
+   0%   {background: #002423;}
+   20%   {background: #003331;}
+   40%   {background: #004d4a;}
+   60%  {background: #004d4a;}
+   80%  {background: #003331;}
+   100% {background: #002423;}
+ }
+ @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+ 
+ {
+   0%   {background: #002423;}
+   20%   {background: #003331;}
+   40%   {background: #004d4a;}
+   60%  {background: #004d4a;}
+   80%  {background: #003331;}
+   100% {background: #002423;}
+ }
+
+    
+
 .btn-outline-dark {
     color: #ffffff;
     background-color: transparent;
