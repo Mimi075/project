@@ -1,6 +1,6 @@
 <?php
 
-function générereCatAni(){
+function generereCatAni(){
 
     $cat = array(
         'Animaux de compagnie' => array (
@@ -108,19 +108,8 @@ function générereCatAni(){
             )
         )
     );
-
-    $eleveur = new Entity\Eleveur();
-            $eleveur->setLastName($post['lastname']);
-            $eleveur->setFirstName($post['firstname']);
-            $eleveur->setEmail($post['email']);
-            $eleveur->setPassword($post['password']);
-            $eleveur->setAdress($post['adress']);
-            $eleveur->setZip($post['zip']);
-            $eleveur->setCity($post['city']);
-            $eleveur->setSiren($post['siren']);
-            $eleveur->setRegion($region);
-            $app['em']->persist($eleveur);
-            $app['em']->flush();
+    
+return $cat;
 }
 
 function departementListe(){
