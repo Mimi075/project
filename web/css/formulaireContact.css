@@ -1,3 +1,6 @@
+body {
+	color: #002423;
+}
 #Identification {
 border:solid 1px black;
 text-align: center;
@@ -14,7 +17,7 @@ textarea {
 	height: 200px;	
 }
 h1 {
-	color:blue;
+	color:#002423;
 	text-align: center;
 }
 
@@ -23,3 +26,14 @@ h1 {
 }
 
 
+#btnEnvoyer {
+	background-color: #00ccc5;
+	color: #fff;
+	border: 2px solid white;
+}
+#formContact {
+	margin-top: 5%;
+	background-color: #8C8C8C;
+	border-radius: 15px;
+	border:2px solid #002423;
+}
