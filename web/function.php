@@ -40,7 +40,7 @@ function regionList(){
 
 function formulairecategory(){
     $formulairecategory = [
-        'category' => ['Bovins', 'Equins', 'Ovins', 'Caprins', 'Volailles', 'Rongeurs', 'Poissons', 'Oiseaux', 'Félinx', 'Canins', 'Réptiles', 'Autre'],
+        'category' => ['Bovins', 'Equins', 'Ovins', 'Caprins', 'Volailles', 'Porcins', 'Rongeurs', 'Poissons', 'Oiseaux', 'Félinx', 'Canins', 'Réptiles', 'Autre'],
         'val' => 1
     ];
     return $formulairecategory;
