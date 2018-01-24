@@ -248,11 +248,10 @@ $app->get('/AproposDeNous', function () use ($app) {
 ;
 //----------------------------------------------------------------------------------------------------
 $app->get('/annonces', function () use ($app) {
-    $category = formulairecategory();
+    $category = generereCatAni();
     $region = regionList();
     $alerte = [
-        'category' => $category['category'],
-        'val' => $category['val'],
+        'categories' => $category,
         'regions' => $region['regions'],
         'reg' => $region['reg'] 
     ];

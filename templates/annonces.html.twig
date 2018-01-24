@@ -16,12 +16,19 @@
 		</select>
 		<input type="text" class="input_recherche" name="zip_code" placeholder="Code postal (ex:61000)" value="" />
 		<select id="opt" name="cat" class="select_recherche">
-			<option selected>La catégorie</option>
-			{% for categorys in category %}
-				<option value="category{{ val }}">{{ categorys }}</option>
-				{% set val = val + 1 %}
-			{% endfor %}
-		</select>
+					<option selected>Choisir...</option>
+					{% for category_key, category_value in categories %}
+						<optgroup label="{{ category_key }}">
+						{% for subcategory_key, subcategory_value in category_value %}
+							<optgroup label="---{{ subcategory_key }}---">
+								{% for animal in subcategory_value %}
+									<option value="{{ animal }}">{{ animal }}</option>
+								{% endfor %}
+							</optgroup>
+						{% endfor %}
+						</optgroup>
+					{% endfor %}
+				</select>
 		<input class="bouton_search" type="submit" value="Lancer la recherche" />
 	</form>
 	<div class="container miniAnnonce">
