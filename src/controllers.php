@@ -35,7 +35,7 @@ $app->get('/', function () use ($app) {
 
       if($query === null){
         $repository = $app['em']->getRepository(Entity\Categorie::class);
-        $query = $repository->findOneBy(['email' => $keyCat]);
+        $query = $repository->findOneBy(['name' => $keyCat]);
 
         $subCategory = new Entity\SousCategorie();
         $subCategory->setName($keySubCat);
