@@ -36,6 +36,7 @@ $conn = array(
     'user'     => 'root',
     'password' => '',
     'dbname'   => 'dcw_projet_final',
+    'charset'  => 'utf8',
 );
 $app['em'] = EntityManager::create($conn, $config);
 //Fin attribution doctrine orm (EntityManager) dans $app['em']
