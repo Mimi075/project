@@ -15,7 +15,7 @@ if ($j == 1) {
     switch ($k) {
         case "67":
         case "68":
-            $region = "Auvergne";
+            $region = "Alsace";
             break;
         case "24":
         case "33":
