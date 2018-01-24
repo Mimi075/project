@@ -255,18 +255,30 @@ $app->get('/annonces', function () use ($app) {
         'regions' => $region['regions'],
     ];
 
+    /*if (!empty($_GET)) {
+        echo "<pre>";
+        var_dump($_GET);
+        echo "</pre>";
 
-    $annonce = '<a class="row" href="#">
-                <div class="col-3">
-                    <img class="item_image" src="img/loup.jpg" alt="loup"/>
-                </div>
-                <div class="col-9"> 
-                    <h5>Vends loup volant (très rare)</h5>
-                    <p>Oiseaux-canins</p>
-                    <p>Basse-Normandie</p> 
-                    <p>prix : 25000 €</p>
-                </div>
-            </a>                ';
+        echo "<pre>";
+        echo 'reg :' . $_GET['reg'] ;
+        echo "</pre>";
+        $repository = $app['em']->getRepository(Entity\Eleveur::class);
+        $queryRegion = $repository->findBy(['region' => $_GET['reg']]);
+
+        foreach ($queryRegion as $key => $value) {
+            $repository = $app['em']->getRepository(Entity\Annonce::class);
+            $queryAnnonce = $repository->findBy(['farmer' => $value]);
+            $tabAnnonce[] = [
+                "title" => $queryAnnonce[0]->getTitle(),
+                "container" => $queryAnnonce[0]->getContainer(),
+                "date" => $queryAnnonce[0]->getDateDeCreation()
+            ];
+            echo "<pre>";
+            var_dump($tabAnnonce);
+            echo "</pre>";
+        }
+    }*/
 
     return $app['twig']->render('annonces.html.twig', $alerte);
 })

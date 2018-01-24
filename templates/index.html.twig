@@ -23,7 +23,7 @@
 					enableZoom: true,
 					showTooltip: true,
 					onRegionClick: function(element, code, region){
-						window.location.href = '{{ path("annonces") }}?reg=' + region;
+						window.location.href = '{{ path("annonces") }}?tri=&keywords=&reg=' + region +'&zip_code=&cat=Choisir...';
 					}
 				});
 			});
