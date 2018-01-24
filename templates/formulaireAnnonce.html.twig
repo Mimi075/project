@@ -112,15 +112,17 @@
 				if (input.files && input.files[0]) {
 					var reader = new FileReader();
 					var profileImgTag = '#' + id + '-img';
-					console.log(profileImgTag);
 					reader.onload = function (e) { $(profileImgTag).attr('src', e.target.result); }
 					reader.readAsDataURL(input.files[0]);
 				}
 			}
-			$(".profile-img").change(function(){ readURL(this, this.id); });
-			$(".profile-img").click(function(){ console.log(this.id+'-img');
-			 document.getElementById(this.id+'-img').src = "../img/plus.png"});
+			$(".profile-img").change(function(){ 
+				readURL(this, this.id); 
+			});
+			$(".profile-img").click(function(){
+				document.getElementById(this.id+'-img').src = "../img/plus.png"
+			});
 
 		</script>
-	</div>
+	
 {% endblock %}
