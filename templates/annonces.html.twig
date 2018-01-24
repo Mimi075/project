@@ -10,8 +10,7 @@
 		<select id="dep" name="reg" class="select_recherche">
 			<option selected>La région</option>
 			{% for region in regions|keys %}
-				<option value="regi{{ reg }}">{{ region }}</option>
-				{% set reg = reg + 1 %}
+				<option value="{{ region }}">{{ region }}</option>
 			{% endfor %}
 		</select>
 		<input type="text" class="input_recherche" name="zip_code" placeholder="Code postal (ex:61000)" value="" />

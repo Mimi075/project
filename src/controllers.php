@@ -253,7 +253,6 @@ $app->get('/annonces', function () use ($app) {
     $alerte = [
         'categories' => $category,
         'regions' => $region['regions'],
-        'reg' => $region['reg'] 
     ];
 
 
