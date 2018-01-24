@@ -24,10 +24,18 @@
 
 			<div class="col-auto my-1">
 				<label class="mr-sm-2" for="inlineFormCustomSelect">Catégorie :</label>
-				<select class="custom-select mr-sm-2" name="category" id="inlineFormCustomSelect">
+				<select class="custom-select mr-sm-2" name="animal" id="inlineFormCustomSelect">
 					<option selected>Choisir...</option>
-					{% for categorys in category %}
-						<option value="{{ categorys }}">{{ categorys }}</option>
+					{% for category_key, category_value in categories %}
+						<optgroup label="{{ category_key }}">
+						{% for subcategory_key, subcategory_value in category_value %}
+							<optgroup label="---{{ subcategory_key }}---">
+								{% for animal in subcategory_value %}
+									<option value="{{ animal }}">{{ animal }}</option>
+								{% endfor %}
+							</optgroup>
+						{% endfor %}
+						</optgroup>
 					{% endfor %}
 				</select>
 			</div>

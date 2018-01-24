@@ -222,7 +222,7 @@ $app->match('/formulaireContact', function () use ($app) {
 $app->match('/formulaireAnnonce', function () use ($app) {
     include 'testAnnonce.php';
 
-    $dataAnnonce = ["category" => formulairecategory()];
+    $dataAnnonce = ["categories" => generereCatAni()];
 
     if(!empty($errors)){
       $dataAnnonce['errors'] = $errors;

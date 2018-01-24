@@ -18,7 +18,7 @@
         }
         
         //Test si category correspond a autre chose que 'Choisir...'
-        if($post['category'] == "Choisir..."){
+        if($post['animal'] == "Choisir..."){
             $errors[] = 'Vous devez choisir autre chose que "Choisir..."';
         }
         
@@ -76,14 +76,14 @@
             $email = $repository->findOneBy(['email' => $email]);
 
             //requete doctrine pour récupérer la catégorie choisi
-            $repository = $app['em']->getRepository(Entity\Categorie::class);
-            $category = $repository->findOneBy(['name' => $post['category']]);
+            $repository = $app['em']->getRepository(Entity\Animal::class);
+            $animal = $repository->findOneBy(['name' => $post['animal']]);
 
             //création de d'un objet annonce pour doctrine
             $annonce = new Entity\Annonce();
             //atribution
             $annonce->setFarmer($email);
-            $annonce->setCategory($category);
+            $annonce->setAnimal($animal);
             $annonce->setTitle($post['title']);
             $annonce->setContainer($post['textAnnonce']);
             $annonce->setPrice($post['price']);
