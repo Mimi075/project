@@ -19,13 +19,6 @@ class Categorie
     private $name;
 
     /**
-     * Eleveur linked to this Annonce
-     *
-     * @OneToMany(targetEntity="Entity\Annonce", mappedBy="category")
-     */
-    private $ad;
-
-    /**
      * Eleveur linked to this SousCategorie
      *
      * @OneToMany(targetEntity="Entity\SousCategorie", mappedBy="category")
@@ -45,16 +38,6 @@ class Categorie
     public function setName($name)
     {
         $this->name = $name;
-    }
-
-    public function getAd()
-    {
-        return $this->ad;
-    }
-
-    public function setAd($ad)
-    {
-        $this->ad = $ad;
     }
 
     public function getSubCategory()

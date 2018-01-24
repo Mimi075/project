@@ -1,126 +1,115 @@
 <?php
 
-function générereCatAni(){
+function generereCatAni(){
 
     $cat = array(
-        'Animaux de compagnie' => array (
-            'Carnivores' => array(
-                'Chien',
-                'Chat',
-                'Furet',
-                'Autre'
+            'Animaux de compagnie' => array (
+                'Carnivores' => array(
+                    'Chien',
+                    'Chat',
+                    'Furet',
+                    'Autre'
+                ),
+                'Equidés' => array(
+                    'Cheval',
+                    'Ane',
+                    'Autre'
+                ),
+                'Oiseaux' => array(
+                    'Perruche',
+                    'Perroquet',
+                    'Canari',
+                    'Serin',
+                    'Pigeon',
+                    'Tourterelle',
+                    'Autre'
+                ),
+                'Aquariophilie' => array(
+                    'Poisson rouge',
+                    'Guppy',
+                    'Autre'
+                ),
+                'NAC' => array(
+                    'Iguane',
+                    'Chinchilla',
+                    'Gerbille',
+                    'Autre'
+                )
             ),
-            'Equidés' => array(
-                'Cheval',
-                'Ane',
-                'Autre'
+            'Animaux de basse-cour' => array(
+                'Aviculture' => array(
+                    'Poule',
+                    'Dinde',
+                    'Canard',
+                    'Oie',
+                    'Pigeon',
+                    'Caille',
+                    'Faisan',
+                    'Autre'
+                ),
+                'Lapin et rongeur' => array(
+                    'Lapin',
+                    "Cochon d'inde",
+                    'Rat',
+                    'Autre'
+                )
             ),
-            'Oiseaux' => array(
-                'Perruche',
-                'Perroquet',
-                'Canari',
-                'Serin',
-                'Pigeon',
-                'Tourterelle',
-                'Autre'
-            ),
-            'Aquariophilie' => array(
-                'Poisson rouge',
-                'Guppy',
-                'Autre'
-            ),
-            'NAC' => array(
-                'Iguane',
-                'Chinchilla',
-                'Gerbille',
-                'Autre'
-            )
-        ),
-        'Animaux de basse-cour' => array(
-            'Aviculture' => array(
-                'Poule',
-                'Dinde',
-                'Canard',
-                'Oie',
-                'Pigeon',
-                'Caille',
-                'Faisan',
-                'Autre'
-            ),
-            'Lapin et rongeur' => array(
-                'Lapin',
-                "Cochon d'inde",
-                'Rat',
-                'Autre'
-            )
-        ),
-        'Animaux de pacage (bétail)' =>array(
-            'Bovins' => array(
-                'Vache',
-                'Buffle',
-                'Bison',
-                'Yack',
-                'Autre'
-            ),
-            'Ovins' => array(
-                'Mouton',
-                'Autre'
-            ),
-            'Caprins' => array(
-                'Chèvre',
-                'Autre'
-            ),
-            'Porcins' => array(
-                'Cochon',
-                'Sanglier',
-                'Autre'
-            ),
-            'Camélidés' => array(
-                'Chameau',
-                'Dromadaire',
-                'Lama',
-                'Alpaga',
-                'Autre'
-            ),
-            'Cervidés' => array(
-                'Renne',
-                'Cerf',
-                'Autre'
-            )
+            'Animaux de pacage (bétail)' =>array(
+                'Bovins' => array(
+                    'Vache',
+                    'Buffle',
+                    'Bison',
+                    'Yack',
+                    'Autre'
+                ),
+                'Ovins' => array(
+                    'Mouton',
+                    'Autre'
+                ),
+                'Caprins' => array(
+                    'Chèvre',
+                    'Autre'
+                ),
+                'Porcins' => array(
+                    'Cochon',
+                    'Sanglier',
+                    'Autre'
+                ),
+                'Camélidés' => array(
+                    'Chameau',
+                    'Dromadaire',
+                    'Lama',
+                    'Alpaga',
+                    'Autre'
+                ),
+                'Cervidés' => array(
+                    'Renne',
+                    'Cerf',
+                    'Autre'
+                )
 
-        ),
-        'Animaux aquatique' => array(
-            'Pisciculture' => array(
-                'Pisciculture marine',
-                "Pisciculture d'étang",
-                "Pisciculture d'eau douce",
-                'Autre'
             ),
-            'Conchyliculture' => array(
-                'Ostréiculture',
-                'Mytiliculture',
-                'Autre'
-            ),
-            'Crustacés' => array(
-                'Astaciculture',
-                'Crevetticulture',
-                'Autre'
+            'Animaux aquatique' => array(
+                'Pisciculture' => array(
+                    'Pisciculture marine',
+                    "Pisciculture d'étang",
+                    "Pisciculture d'eau douce",
+                    'Autre'
+                ),
+                'Conchyliculture' => array(
+                    'Ostréiculture',
+                    'Mytiliculture',
+                    'Autre'
+                ),
+                'Crustacés' => array(
+                    'Astaciculture',
+                    'Crevetticulture',
+                    'Autre'
+                )
             )
-        )
-    );
-
-    $eleveur = new Entity\Eleveur();
-            $eleveur->setLastName($post['lastname']);
-            $eleveur->setFirstName($post['firstname']);
-            $eleveur->setEmail($post['email']);
-            $eleveur->setPassword($post['password']);
-            $eleveur->setAdress($post['adress']);
-            $eleveur->setZip($post['zip']);
-            $eleveur->setCity($post['city']);
-            $eleveur->setSiren($post['siren']);
-            $eleveur->setRegion($region);
-            $app['em']->persist($eleveur);
-            $app['em']->flush();
+        );
+    
+return $cat;
 }
 
 function departementListe(){
@@ -160,14 +149,6 @@ function regionList(){
         'reg' => 1
     ];
     return $regionList;
-};
-
-function formulairecategory(){
-    $formulairecategory = [
-        'category' => ['Bovins', 'Equins', 'Ovins', 'Caprins', 'Volailles', 'Rongeurs', 'Poissons', 'Oiseaux', 'Félinx', 'Canins', 'Réptiles', 'Autre'],
-        'val' => 1
-    ];
-    return $formulairecategory;
 };
 
 ?> 

@@ -36,11 +36,11 @@ class Annonce
     private $farmer;
 
     /**
-     * Eleveur linked to this Categorie
+     * Eleveur linked to this Animal
      *
-     * @ManyToOne(targetEntity="Entity\Categorie", inversedBy="ad")
+     * @ManyToOne(targetEntity="Entity\Animal", inversedBy="ad")
      */   
-    private $category;
+    private $animal;
 
     /**
      * Eleveur linked to this Photo
@@ -99,14 +99,14 @@ class Annonce
         $this->farmer = $farmer;
     }
 
-    public function getCategory()
+    public function getAnimal()
     {
-        return $this->category;
+        return $this->animal;
     }
 
-    public function setCategory($category)
+    public function setAnimal($animal)
     {
-        $this->category = $category;
+        $this->animal = $animal;
     }
 
     public function getDateDeCreation()

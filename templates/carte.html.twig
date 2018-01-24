@@ -7,11 +7,10 @@
 	<div class="col-4 col-sm-4 container">
 		<ul id="regions_list">
 			{% for region in regions|keys %}
-				<li><a href="{{ path('annonces') }}?dep={{ region }}">{{ region }}</a></li>											
+				<li><a href="{{ path('annonces') }}?reg={{ region }}">{{ region }}</a></li>											
 				{# {% for departement in region %}
 							<li><a href="Petites-annonces--{{ departement }}.htm">{{ departement }}</a></li>
 						{% endfor %} #}
-				{% set reg = reg + 1 %}
 			{% endfor %}
 		</ul>
 	</div>

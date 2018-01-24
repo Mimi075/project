@@ -5,6 +5,15 @@
 
 {% block body %}
 <div id="formAnn">
+
+	{% if errors is defined  %}
+
+    	{% for error in errors %}
+      		<p>{{error}} </p>
+    	{% endfor %}
+  
+  	{% endif %}
+
 	<h1>Rentrez votre annonce</h1> <br>
 	<div class="container-fluid" id="Formulaire">
 		<form method="post" action="#" enctype="multipart/form-data">
@@ -15,11 +24,18 @@
 
 			<div class="col-auto my-1">
 				<label class="mr-sm-2" for="inlineFormCustomSelect">Catégorie :</label>
-				<select class="custom-select mr-sm-2" name="category" id="inlineFormCustomSelect">
+				<select class="custom-select mr-sm-2" name="animal" id="inlineFormCustomSelect">
 					<option selected>Choisir...</option>
-					{% for categorys in category %}
-						<option value="category{{ val }}">{{ categorys }}</option>
-						{% set val = val + 1 %}
+					{% for category_key, category_value in categories %}
+						<optgroup label="{{ category_key }}">
+						{% for subcategory_key, subcategory_value in category_value %}
+							<optgroup label="---{{ subcategory_key }}---">
+								{% for animal in subcategory_value %}
+									<option value="{{ animal }}">{{ animal }}</option>
+								{% endfor %}
+							</optgroup>
+						{% endfor %}
+						</optgroup>
 					{% endfor %}
 				</select>
 			</div>
@@ -29,33 +45,33 @@
 				<textarea class="form-control" name="textAnnonce" id="exampleFormControlTextarea1" rows="5" cols="20" placeholder="Tapez votre annonce..."></textarea>
 			</div>
 
-<!-- .......................................A AMELIORER .................................................................. -->
+<!-- ......................................................................................................... -->
 			
 			<div id="image-upload" class="image-upload">
 
-    			<label for="1-file-input">
+    			<label id="label1" for="1-file-input">
         			<img src="../img/plus.png"/ id="1-file-input-img">
     			</label>
    		 		<input type="file" name="fileToUpload[]" id="1-file-input" class="profile-img" />
 
-   		 		<label for="2-file-input">
-   		 							<img src="../img/plus.png"/ id="2-file-input-img">
-   		 						</label>
+   		 		<label id="label2" for="2-file-input">
+					<img src="../img/plus.png"/ id="2-file-input-img">
+				</label>
    		 		<input type="file" name="fileToUpload[]" id="2-file-input" class="profile-img" />
    		 		
-   		 						<label for="3-file-input">
-   		 							<img src="../img/plus.png"/ id="3-file-input-img">
-   		 						</label>
+				<label id="label3" for="3-file-input">
+					<img src="../img/plus.png"/ id="3-file-input-img">
+				</label>
    		 		<input type="file" name="fileToUpload[]" id="3-file-input" class="profile-img" />
    		 		
-   		 						<label for="4-file-input">
-   		 							<img src="../img/plus.png"/ id="4-file-input-img">
-   		 						</label>
+				<label id="label4" for="4-file-input">
+					<img src="../img/plus.png"/ id="4-file-input-img">
+				</label>
    		 		<input type="file" name="fileToUpload[]" id="4-file-input" class="profile-img" />
    		 		
-   		 						<label for="5-file-input">
-   		 							<img src="../img/plus.png"/ id="5-file-input-img">
-   		 						</label>
+				<label id="label5" for="5-file-input">
+					<img src="../img/plus.png"/ id="5-file-input-img">
+				</label>
    		 		<input type="file" name="fileToUpload[]" id="5-file-input" class="profile-img" />
 			</div>
 		
@@ -71,35 +87,42 @@
 			</div>
 	</div>
 
-				<p id="debug">debug</p>
 		</form>
 </div>		
 		<script type="text/javascript">
 
-			var	i = 1;
+			$(function(){
+        		$("#label2, #label3, #label4, #label5").hide();
+    		});
+
+    		$("#label1").click(function(){
+					    $("#label2").show();
+					});
+    		$("#label2").click(function(){
+					    $("#label3").show();
+					});
+    		$("#label3").click(function(){
+					    $("#label4").show();
+					});
+    		$("#label4").click(function(){
+					    $("#label5").show();
+					});
 			
 			function readURL(input, id) {
 				if (input.files && input.files[0]) {
 					var reader = new FileReader();
 					var profileImgTag = '#' + id + '-img';
-					console.log(profileImgTag);
 					reader.onload = function (e) { $(profileImgTag).attr('src', e.target.result); }
 					reader.readAsDataURL(input.files[0]);
-					/*if (i < 1) {
-						i++;
-						document.getElementById('image-upload').innerHTML += 
-						'<label for="'+i+'-file-input">'+
-							'<img src="../img/plus.png"/ id="'+i+'-file-input-img">'+
-						'</label>'+
-						'<input type="file" name="fileToUpload[]" id="'+i+'-file-input" class="profile-img" />';
-						$(".profile-img").change(function(){ readURL(this, this.id); });
-					}
-					console.log(i);*/
 				}
 			}
-			$(".profile-img").change(function(){ readURL(this, this.id); });
-			$(".profile-img").click(function(){ console.log(this.id+'-img'); document.getElementById(this.id+'-img').src = "../img/plus.png"});
+			$(".profile-img").change(function(){ 
+				readURL(this, this.id); 
+			});
+			$(".profile-img").click(function(){
+				document.getElementById(this.id+'-img').src = "../img/plus.png"
+			});
 
 		</script>
-	</div>
+	
 {% endblock %}

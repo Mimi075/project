@@ -11,6 +11,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 include '../web/function.php';
 //----------------------------------------------------------------------------------------------------
 $app->get('/', function () use ($app) {
+    
     return $app['twig']->render('index.html.twig', regionList());
 })
 ->bind('homepage')
@@ -219,10 +220,21 @@ $app->match('/formulaireContact', function () use ($app) {
 ;
 //----------------------------------------------------------------------------------------------------
 $app->match('/formulaireAnnonce', function () use ($app) {
-    /*include 'testAnnonce.php';*/
-    include 'upload.php';
+    include 'testAnnonce.php';
 
-    return $app['twig']->render('formulaireAnnonce.html.twig', formulairecategory());
+    $dataAnnonce = ["categories" => generereCatAni()];
+
+    if(!empty($errors)){
+      $dataAnnonce['errors'] = $errors;
+    }
+
+    if (isset($render) && $render == 1) {
+      return $app['twig']->render('congrulationAnnonce.html.twig',array());
+    }
+
+    else{
+      return $app['twig']->render('formulaireAnnonce.html.twig', $dataAnnonce);
+    }
 })
 ->bind('formulaireAnnonce')
 ->method('GET|POST')
@@ -236,13 +248,11 @@ $app->get('/AproposDeNous', function () use ($app) {
 ;
 //----------------------------------------------------------------------------------------------------
 $app->get('/annonces', function () use ($app) {
-    $category = formulairecategory();
+    $category = generereCatAni();
     $region = regionList();
     $alerte = [
-        'category' => $category['category'],
-        'val' => $category['val'],
+        'categories' => $category,
         'regions' => $region['regions'],
-        'reg' => $region['reg'] 
     ];
 
 
