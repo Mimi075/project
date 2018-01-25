@@ -1,5 +1,15 @@
 <?php
 
+/*
+*Ce script est définit en deux grande parti.
+*La première partie est celle qui permet de tester si il n'y a pas d'erreur dans les inputs ou les fichiers reçu.
+*La deuxième partie est celle est éxécuté a condition qu'il n'y est aucune erreur dans la première partie.
+*Elle permet d'enregistrer les données reçu par le formulaire avec doctrine dans la base de donnée.
+*/
+
+//-----------------------------------------------------------------------------------------------------
+//Première partie : Les tests
+
     //Test si $_POST n'est pas vide
     if (!empty($_POST)){
         //si il est pas vide, on rentre les données de $_POST dans le tableaux $post
@@ -7,10 +17,10 @@
             $post[$key] = $value;
         }
         
-        //On déclare le tableaux des erreurs
+        //On déclare le tableaux ou seront contenue les erreurs
         $errors = array();
 
-        //Différent test pour voir si il y'a des erreur. Si il y'a une erreur, elle se rajoute dans le tableaux errors
+        //Différent test pour voir si il y'a des erreur. Si il y'a une erreur, elle se rajoute dans le tableaux $errors
 
         //Test si le titre de l'annonce contient bien 3 caractère
         if(strlen($post['title']) < 3){
@@ -32,16 +42,30 @@
             $errors[] = 'Vous devez indiquer un prix!';
         }
 
-        //Test si il y'a une ou des photo(s)
-        if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["name"] ){
+        //Instance de la variable qui permettra de définir si il y'a un ou des fichier(s) contenue dans $_FILES
+        $testFile = false;
 
+        //Test si il y'a un ou des fichier(s) dans $_FILES
+        for ($i=0; $i < 5; $i++) { 
+            
+            $j = $_FILES["fileToUpload"]["name"][$i];
+            if ($j != "") {
+                $testFile = true;
+            } 
+        }
+
+        //Test si il y'a une ou des photo(s) grace a la variable défini précédemment
+        if ($testFile){
+            //Parcour du tableaux $_FILES["fileToUpload"]["name"]
             foreach ($_FILES["fileToUpload"]["name"] as $key => $value) {
+                //Test si $_FILES["fileToUpload"]["name"] n'est pas vide
                 if ($_FILES["fileToUpload"]["name"][$key] != "") {
 
+                    //Récupération de l'extension du fichier
                     $imageFileType = strtolower(pathinfo(basename($_FILES["fileToUpload"]["name"][$key]),PATHINFO_EXTENSION));
-                    // test si le fichier est bien une image
-                    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"][$key]);
 
+                    //Test si le fichier est bien une image
+                    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"][$key]);
                     if($check == false) {
                         $errors[] = "Le fichier n'est pas une image.<br>";
                     }
@@ -66,74 +90,95 @@
             }
 
         }
+
+//-----------------------------------------------------------------------------------------------------
+//Deuxième partie : L'enregistrement
         
         //Si il y'a 0 erreur, on lance la procédure pour enregistrer dans la base de données
         if(count($errors) == 0){
-            //récupération de l'email de l'utilisateur actuel
+            //Récupération de l'email de l'utilisateur actuel
             $email = $app['session']->get('user')['email'];
-            //requete doctrine pour récupérer l'objet de l'eleveur actuel
-            $repository = $app['em']->getRepository(Entity\Eleveur::class);
-            $email = $repository->findOneBy(['email' => $email]);
 
-            //requete doctrine pour récupérer la catégorie choisi
+            //Requete doctrine pour récupérer l'objet de l'eleveur actuel
+            $repository = $app['em']->getRepository(Entity\Farmer::class);
+            $farmer = $repository->findOneBy(['email' => $email]);
+
+            //Requete doctrine pour récupérer la catégorie choisi
             $repository = $app['em']->getRepository(Entity\Animal::class);
             $animal = $repository->findOneBy(['name' => $post['animal']]);
 
-            //création de d'un objet annonce pour doctrine
-            $annonce = new Entity\Annonce();
-            //atribution
-            $annonce->setFarmer($email);
-            $annonce->setAnimal($animal);
-            $annonce->setTitle($post['title']);
-            $annonce->setContainer($post['textAnnonce']);
-            $annonce->setPrice($post['price']);
-            $annonce->setDateDeCreation(new \DateTime());
-            $app['em']->persist($annonce);
+            //Procédure d'enregistrement avec doctrine doctrine dans base de données
+            $ad = new Entity\Ad();
+            $ad->setFarmer($farmer);
+            $ad->setAnimal($animal);
+            $ad->setTitle($post['title']);
+            $ad->setContainer($post['textAnnonce']);
+            $ad->setPrice($post['price']);
+            $ad->setCreationDate(new \DateTime());
+            $app['em']->persist($ad);
             $app['em']->flush();
             
 
             //Test si il y'a une ou des photo(s)
-            if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["name"] ){
-                //Récupération de l'id précédament créer
-                $id = $annonce->getId();
+            if ($testFile){
+                //Récupération de l'id de l'annonce précédemment créer
+                $id = $ad->getId();
 
-                //Création du lien du dossier de reception
+                //Création du lien du dossier de l'utilisateur
                 $target_dir = "img/". $app['session']->get('user')['email'] . "/";
 
-                //test si le lien existe, si il existe pas la creation ce fait
+                //Test si le lien existe, si il existe pas la creation ce fait
                 if (!file_exists($target_dir)) {
                     mkdir($target_dir, 0700);
                 }
 
+                //Création du lien du dossier de reception final 
                 $target_dir = $target_dir . $id .'/';
+                //Création du dossier de reception final 
+                mkdir($target_dir, 0700);
 
-                if (!file_exists($target_dir)) {
-                    mkdir($target_dir, 0700);
-                }
+                //Parcour du tableaux $_FILES["fileToUpload"]["name"]
                 foreach ($_FILES["fileToUpload"]["name"] as $key => $value) {
+                    //Test si $_FILES["fileToUpload"]["name"] n'est pas vide
                     if ($_FILES["fileToUpload"]["name"][$key] != "") {
 
-                        //creation du lien complet de la cible
+                        //Creation du lien complet de la cible
                         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$key]);
 
-                        //récupération de l'extension du fichier
+                        //Récupération de l'extension du fichier
                         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-                        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$key], $target_file)) {
-                            rename($target_file, $target_dir . $key .'.'. $imageFileType);
+                        //Envoi du fichier dans le lien définit dans $target_file
+                        move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$key], $target_file);
+                        
+                        //Renomme les fichier dans l'ordre d'arrivée
+                        rename($target_file, $target_dir . $key .'.'. $imageFileType);
 
-                            $picture = new Entity\Photo();
-                            $picture->setAd($annonce);
-                            $picture->setUrl($target_dir . $key .'.'. $imageFileType);
-                            if ($key == 0) {$picture->setBool(1);}
-                            else {$picture->setBool(0);}
-                            $app['em']->persist($picture);
-                            $app['em']->flush();
-                            /*echo "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$key]). " a bien été télécharger.<br>";*/
-                        }
+                        //Procédure d'enregistrement avec doctrine doctrine dans base de données
+                        $picture = new Entity\Photo();
+                        $picture->setAd($ad);
+                        $picture->setUrl($target_dir . $key .'.'. $imageFileType);
+                        //Test si c'est la première image uploader pour définir qui sera afficher
+                        //dans la liste des annonces
+                        if ($key == 0) {$picture->setBool(1);}
+                        else {$picture->setBool(0);}
+                        $app['em']->persist($picture);
+                        $app['em']->flush();
+                        /*echo "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$key]). " a bien été télécharger.<br>";*/
+                        
                     }
                 }
             }
-            $render = 1;
+            //si il n'y a pas de photo, on stock le lien de l'image noFoto.jpg dans la base de données
+            else{
+                $picture = new Entity\Photo();
+                $picture->setAd($ad);
+                $picture->setUrl('img/noFoto.png');
+                $picture->setBool(1);
+                $app['em']->persist($picture);
+                $app['em']->flush();
+            }
+            //variable qui permet de définir la page qui sera rendu avec twig
+            $render = true;
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-function generereCatAni(){
+function animalCategoryCreation(){
 
     $cat = array(
             'Animaux de compagnie' => array (

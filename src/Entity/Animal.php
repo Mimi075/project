@@ -19,16 +19,16 @@ class Animal
     private $name;
 
     /**
-     * Eleveur linked to this Annonce
+     * Eleveur linked to this Ad
      *
-     * @OneToMany(targetEntity="Entity\Annonce", mappedBy="category")
+     * @OneToMany(targetEntity="Entity\Ad", mappedBy="category")
      */
     private $ad;
 
     /**
-     * Animal linked to this SousCategorie
+     * Animal linked to this SubCategory
      *
-     * @ManyToOne(targetEntity="Entity\SousCategorie", inversedBy="animal")
+     * @ManyToOne(targetEntity="Entity\SubCategory", inversedBy="animal")
      */
     private $subCategory;
  

@@ -1,4 +1,5 @@
 <?php
+if (isset($post['zip']) && $post['zip'] != '') {
 $subject = $post['zip'];
 $pattern = '^[0-9]{5}$';
 "^0[1-79]([. -]?[0-9]{2}){4}$";
@@ -155,5 +156,6 @@ if ($j == 1) {
 }
 else{
     $errors[] = 'Le code postal est invalide';
+}
 }
 ?>
