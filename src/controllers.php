@@ -263,10 +263,7 @@ $app->get('/AproposDeNous', function () use ($app) {
 $app->get('/annonces', function () use ($app) {
     $category = generereCatAni();
     $region = regionList();
-    $alerte = [
-        'categories' => $category,
-        'regions' => $region['regions'],
-    ];
+    
 
     if (isset($_GET['reg']) && $_GET['reg'] != "") {
       $reg = $_GET['reg'];
@@ -276,7 +273,7 @@ $app->get('/annonces', function () use ($app) {
     }
 
     $qb = $app['em']->createQueryBuilder('a');
-    $qb->select('a.title', 'a.price', 'ani.name', 'p.url')
+    $qb->select('a.title', 'a.price', 'ani.name', 'p.url', 'a.container', 'e.region')
               ->from(Entity\Annonce::class, 'a' )
               ->innerJoin(Entity\Eleveur::class, 'e', Join::WITH, 'e.id = a.farmer')
               ->leftJoin(Entity\Photo::class, 'p', Join::WITH, 'a.id = p.ad')
@@ -288,9 +285,15 @@ $app->get('/annonces', function () use ($app) {
     $query = $qb->getQuery();
 
 echo $query->getDQL(), "\n";
+$query = $query->getResult(Doctrine\ORM\Query::HYDRATE_ARRAY);
 echo "<pre>";
-var_dump($query->getResult(Doctrine\ORM\Query::HYDRATE_ARRAY));
+var_dump($query);
 echo "</pre>";
+$alerte = [
+        'categories' => $category,
+        'regions' => $region['regions'],
+        'querys' => $query,
+    ];
     return $app['twig']->render('annonces.html.twig', $alerte);
 })
 ->bind('annonces')
