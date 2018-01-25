@@ -18,6 +18,11 @@ class Photo
      */
     private $url;
 
+    /**
+     * @Column(type="boolean")
+     */
+    private $bool;
+
      /**
      * Eleveur linked to this Annonce
      *
@@ -38,6 +43,16 @@ class Photo
     public function setUrl($url)
     {
         $this->url = $url;
+    }
+
+    public function getBool()
+    {
+        return $this->bool;
+    }
+
+    public function setBool($bool)
+    {
+        $this->bool = $bool;
     }
 
     public function getAd()

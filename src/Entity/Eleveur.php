@@ -57,6 +57,11 @@ class Eleveur
     /**
      * @Column(type="string")
      */
+    private $phone;
+
+    /**
+     * @Column(type="string")
+     */
     private $siren;
 
     /**
@@ -165,6 +170,16 @@ class Eleveur
     public function setRegion($region)
     {
         $this->region = $region;
+    }
+
+     public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
     }
 
     public function getSiren()
