@@ -273,7 +273,7 @@ $app->get('/annonces', function () use ($app) {
     }
 
     $qb = $app['em']->createQueryBuilder('a');
-    $qb->select('a.title', 'a.price', 'ani.name', 'p.url', 'a.container', 'e.region')
+    $qb->select('a.title', 'a.price', 'ani.name', 'p.url', 'a.container', 'e.region', 'a.id')
               ->from(Entity\Annonce::class, 'a' )
               ->innerJoin(Entity\Eleveur::class, 'e', Join::WITH, 'e.id = a.farmer')
               ->leftJoin(Entity\Photo::class, 'p', Join::WITH, 'a.id = p.ad')
@@ -300,7 +300,28 @@ $alerte = [
 ;
 //----------------------------------------------------------------------------------------------------
 $app->get('/annonceDetail', function () use ($app) {
-    return $app['twig']->render('annonceDetail.html.twig');
+
+    $qb = $app['em']->createQueryBuilder('a');
+    $qb->select('a.title', 'a.price', 'ani.name', 'p.url', 'a.container', 'e.region', 'a.id', 'e.city', 'e.zip', 'e.phone')
+              ->from(Entity\Annonce::class, 'a' )
+              ->innerJoin(Entity\Eleveur::class, 'e', Join::WITH, 'e.id = a.farmer')
+              ->leftJoin(Entity\Photo::class, 'p', Join::WITH, 'a.id = p.ad')
+              ->innerJoin(Entity\Animal::class, 'ani', Join::WITH, 'ani.id = a.animal')
+              ->andwhere('a.id = :id')
+              ->setParameter('id', $_GET['id']);
+
+    $query = $qb->getQuery();
+
+echo $query->getDQL(), "\n";
+$query = $query->getResult(Doctrine\ORM\Query::HYDRATE_ARRAY);
+echo "<pre>";
+var_dump($query);
+echo "</pre>";
+$alerte = [
+        'querys' => $query,
+    ];
+
+    return $app['twig']->render('annonceDetail.html.twig', $alerte);
 })
 ->bind('annonceDetail')
 ;
