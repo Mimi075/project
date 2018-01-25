@@ -30,20 +30,24 @@
 				</select>
 		<input class="bouton_search" type="submit" value="Lancer la recherche" />
 	</form>
-	<div class="container miniAnnonce">
-		<div>
-			<a class="row" href="/annonceDetail">
-				<div class="col-3">
-					<img class="item_image" src="img/loup.jpg" alt="loup"/>
-				</div>
-				<div class="col-9"> 
-            		<h5>Vends loup volant (très rare)</h5>
-            		<p>Oiseaux-canins</p>
-	            	<p>Basse-Normandie</p> 
-	            	<p>prix : 25000 €</p>
-            	</div>
-			</a>									
-		</div>				
+	{% for category_key, category_value in categories %}
+		<div class="container miniAnnonce">
+			<div>
+				<a class="row" href="/annonceDetail">
+					<div class="col-3">
+						<img class="item_image" src="img/loup.jpg" alt="loup"/>
+					</div>
+					<div class="col-9"> 
+            			<h5>Vends loup volant (très rare)</h5>
+            			<p>Oiseaux-canins</p>
+	            		<p>Basse-Normandie</p> 
+	            		<p>prix : 25000 €</p>
+            		</div>
+				</a>									
+			</div>	
+		</div>
+	{% endfor %}	
+
 
 	</div>
 	<div class="container miniAnnonce">
