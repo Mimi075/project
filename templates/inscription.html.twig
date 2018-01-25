@@ -58,12 +58,6 @@
               </div>
 
               <div class="col-md-3 mb-3">
-                <label for="validationCustom04">N° de Téléphone</label>
-                <input type="text" class="form-control" id="validationCustom04" placeholder="Votre N° de Téléphone" name="phone" required>
-               </div>             
-            </div>
-
-              <div class="col-md-3 mb-3">
                 <label for="validationCustom04">N° de Siren</label>
                 <input type="text" class="form-control" id="validationCustom04" placeholder="Votre N° de Siren" name="siren" required>
                </div>             
@@ -85,5 +79,13 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+          
+function (){
+  $.ajax({
+    url: 'https://data.opendatasoft.com/api/records/1.0/search/?dataset=sirene%40public&q=\'814798245\'&facet=libtefen'
+  }).done();
+}
+    </script>
   {% endblock %}     
 
