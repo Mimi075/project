@@ -30,23 +30,24 @@
 				</select>
 		<input class="bouton_search" type="submit" value="Lancer la recherche" />
 	</form>
-	
+	{% for query_key, query_val in querys %}
+		
 		<div class="container miniAnnonce">
 			<div>
 				<a class="row" href="/annonceDetail">
 					<div class="col-3">
-						<img class="item_image" src="img/loup.jpg" alt="loup"/>
+						<img class="item_image" src="{{ asset(query_val.url) }}" alt="loup"/>
 					</div>
 					<div class="col-9"> 
-            			<h5>Vends loup volant (très rare)</h5>
-            			<p>Oiseaux-canins</p>
-	            		<p>Basse-Normandie</p> 
-	            		<p>prix : 25000 €</p>
+            			<h5>{{ query_val.title }}</h5>
+            			<p>{{ query_val.name }}</p>
+	            		<p>{{ query_val.region }}</p> 
+	            		<p>{{ query_val.price }} €</p>
             		</div>
 				</a>									
 			</div>	
 		</div>
-		
+	{% endfor %}	
 
 
 	</div>
