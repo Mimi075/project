@@ -110,7 +110,6 @@
                 if (!file_exists($target_dir)) {
                     mkdir($target_dir, 0700);
                 }
-
                 foreach ($_FILES["fileToUpload"]["name"] as $key => $value) {
                     if ($_FILES["fileToUpload"]["name"][$key] != "") {
 
@@ -126,6 +125,8 @@
                             $picture = new Entity\Photo();
                             $picture->setAd($annonce);
                             $picture->setUrl($target_dir . $key .'.'. $imageFileType);
+                            if ($key == 0) {$picture->setBool(1);}
+                            else {$picture->setBool(0);}
                             $app['em']->persist($picture);
                             $app['em']->flush();
                             /*echo "Le fichier ". basename( $_FILES["fileToUpload"]["name"][$key]). " a bien été télécharger.<br>";*/

@@ -5,6 +5,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Doctrine\ORM\Query\Expr\Join;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
 
@@ -85,6 +86,10 @@ $app->match('/inscription', function () use ($app) {
         if(empty($post['city'])){
             $errors[] = 'La ville ne peut être vide';
         }
+
+         if(strlen($post['phone']) != 10 ){
+            $errors[] = 'Le n° de téléphone doit comporter 10 chiffres';
+        }
         
         if(strlen($post['siren']) != 9 ){
             $errors[] = 'Le n° siren doit comporter 9 chiffres';
@@ -116,6 +121,7 @@ $app->match('/inscription', function () use ($app) {
             $eleveur->setAdress($post['adress']);
             $eleveur->setZip($post['zip']);
             $eleveur->setCity($post['city']);
+            $eleveur->setPhone($post['phone']);
             $eleveur->setSiren($post['siren']);
             $eleveur->setRegion($region);
             $eleveur->setDateDinscription(new \DateTime());
@@ -262,31 +268,29 @@ $app->get('/annonces', function () use ($app) {
         'regions' => $region['regions'],
     ];
 
-    /*if (!empty($_GET)) {
-        echo "<pre>";
-        var_dump($_GET);
-        echo "</pre>";
+    if (isset($_GET['reg']) && $_GET['reg'] != "") {
+      $reg = $_GET['reg'];
+    }
+    else {
+      $reg = 'test';
+    }
 
-        echo "<pre>";
-        echo 'reg :' . $_GET['reg'] ;
-        echo "</pre>";
-        $repository = $app['em']->getRepository(Entity\Eleveur::class);
-        $queryRegion = $repository->findBy(['region' => $_GET['reg']]);
+    $qb = $app['em']->createQueryBuilder('a');
+    $qb->select('a.title', 'a.price', 'ani.name', 'p.url')
+              ->from(Entity\Annonce::class, 'a' )
+              ->innerJoin(Entity\Eleveur::class, 'e', Join::WITH, 'e.id = a.farmer')
+              ->leftJoin(Entity\Photo::class, 'p', Join::WITH, 'a.id = p.ad')
+              ->innerJoin(Entity\Animal::class, 'ani', Join::WITH, 'ani.id = a.animal')
+              ->andwhere('e.region = :reg')
+              ->andwhere('p.bool = 1')
+              ->setParameter('reg', $reg);
 
-        foreach ($queryRegion as $key => $value) {
-            $repository = $app['em']->getRepository(Entity\Annonce::class);
-            $queryAnnonce = $repository->findBy(['farmer' => $value]);
-            $tabAnnonce[] = [
-                "title" => $queryAnnonce[0]->getTitle(),
-                "container" => $queryAnnonce[0]->getContainer(),
-                "date" => $queryAnnonce[0]->getDateDeCreation()
-            ];
-            echo "<pre>";
-            var_dump($tabAnnonce);
-            echo "</pre>";
-        }
-    }*/
+    $query = $qb->getQuery();
 
+echo $query->getDQL(), "\n";
+echo "<pre>";
+var_dump($query->getResult(Doctrine\ORM\Query::HYDRATE_ARRAY));
+echo "</pre>";
     return $app['twig']->render('annonces.html.twig', $alerte);
 })
 ->bind('annonces')
