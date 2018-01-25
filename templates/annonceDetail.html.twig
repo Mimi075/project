@@ -55,7 +55,8 @@
 				<div class="interstitial hidden" id="adview_interstitial">
 					<div class="container mincont">
 						<p class="mbl">Contactez le vendeur pour plus d'informations :</p>
-						<button id="buttonTel" data-href="">Voir le numéro</button><br>
+						<input type="button" id="buttonTel" value="voir le numero"><br>
+						<p id="num">06.20.34.26.58</p>
 						<a id="email" rel="nofollow" href="#">Envoyer un email</a>
 					</div>
 				</div>
@@ -81,4 +82,12 @@
 		<U><p class="property semibold">Description :</p></U>
 		<p class="value" itemprop="description">Bonjour,<br>Je vend un loup d'une extrème rareté, très bien élevé, canet de vaccination à jour. Prévoir 5 kg chair humaine par jour, bras, jambe, cervelle, ce que vous voulez.<br><br>Premier contact par email ou SMS<br><br>Prix 25000Euros<br>Merci, cordialement.</p>
 	</div>
+	<script type="text/javascript">
+		$(function(){
+        		$("#num").hide();
+    		});
+		$("#buttonTel").click(function(){
+					    $("#num").show();
+					});
+	</script>
 {% endblock %}
