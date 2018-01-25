@@ -17,15 +17,19 @@ $app->get('/', function () use ($app) {
 ->bind('homepage')
 ;
 //----------------------------------------------------------------------------------------------------
-$app->match('/login', function (Request $request) use ($app) {
+$app->match('/login', function (Request $request) use ($app) {   
 
     if (!empty($_POST)) {
         $username = $request->get('connectEmail');
-        $password = $request->get('connectPassword');
+        $mdp = $request->get('connectPassword');
         $repository = $app['em']->getRepository(Entity\Eleveur::class);
-        $query = $repository->findOneBy(['email' => $username]);
+        $query = $repository->findOneBy(['email' => $username]);                  
+        $repository = $app['em']->getRepository(Entity\Eleveur::class);
+        $query = $repository->findOneBy(['email' => $username]);       
+        
 
-        if ($query != null && $query->getPassword() === $password) {
+        if ($query != null && password_verify($mdp, $query->getPassword())) {
+              
             $app['session']->set('user', array('firstname' => $query->getFirstName(), 
                                                 'lastname' => $query->getLastName(),
                                                 'email' => $query->getEmail(),
@@ -106,7 +110,9 @@ $app->match('/inscription', function () use ($app) {
             $eleveur->setLastName($post['lastname']);
             $eleveur->setFirstName($post['firstname']);
             $eleveur->setEmail($post['email']);
-            $eleveur->setPassword($post['password']);
+            $mdp = $post['password'];
+            $hash_mdp = password_hash($mdp, PASSWORD_DEFAULT);
+            $eleveur->setPassword($hash_mdp);
             $eleveur->setAdress($post['adress']);
             $eleveur->setZip($post['zip']);
             $eleveur->setCity($post['city']);
@@ -123,6 +129,7 @@ $app->match('/inscription', function () use ($app) {
                    ];
         }
     }
+   
 
     return $app['twig']->render('inscription.html.twig', $dataInscription);
 })
