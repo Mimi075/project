@@ -284,11 +284,11 @@ $app->get('/annonces', function () use ($app) {
 
     $query = $qb->getQuery();
 
-echo $query->getDQL(), "\n";
+/*echo $query->getDQL(), "\n";*/
 $query = $query->getResult(Doctrine\ORM\Query::HYDRATE_ARRAY);
-echo "<pre>";
+/*echo "<pre>";
 var_dump($query);
-echo "</pre>";
+echo "</pre>";*/
 $alerte = [
         'categories' => $category,
         'regions' => $region['regions'],
@@ -312,11 +312,11 @@ $app->get('/annonceDetail', function () use ($app) {
 
     $query = $qb->getQuery();
 
-echo $query->getDQL(), "\n";
+/*echo $query->getDQL(), "\n";*/
 $query = $query->getResult(Doctrine\ORM\Query::HYDRATE_ARRAY);
-echo "<pre>";
+/*echo "<pre>";
 var_dump($query);
-echo "</pre>";
+echo "</pre>";*/
 $alerte = [
         'querys' => $query,
     ];
