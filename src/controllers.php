@@ -340,7 +340,7 @@ $app->get('/annonces', function () use ($app) {
     ->leftJoin(Entity\Photo::class, 'p', Join::WITH, 'a.id = p.ad')
     ->innerJoin(Entity\Animal::class, 'ani', Join::WITH, 'ani.id = a.animal')
     ->andwhere('p.bool = 1')
-    ->orderBy('a.price', 'ASC')
+    ->orderBy('a.creationDate', 'DESC')
   ;
   //Test si $reg n'est pas égal 'default'
   if ($reg != 'default') {
@@ -371,7 +371,7 @@ $app->get('/annonceDetail', function () use ($app) {
 
   //Préparation de la requete pour récupérer les annonces
   $qb = $app['em']->createQueryBuilder('a');
-  $qb->select('a.title', 'a.price', 'ani.name', 'p.url', 'a.container', 'f.region', 'a.id', 'f.city', 'f.zip', 'f.phone')
+  $qb->select('a.title', 'a.price', 'ani.name', 'p.url', 'a.container', 'f.region', 'a.id', 'f.city', 'f.zip', 'f.phone', 'a.creationDate')
     ->from(Entity\Ad::class, 'a' )
     ->innerJoin(Entity\Farmer::class, 'f', Join::WITH, 'f.id = a.farmer')
     ->leftJoin(Entity\Photo::class, 'p', Join::WITH, 'a.id = p.ad')
@@ -386,9 +386,18 @@ $app->get('/annonceDetail', function () use ($app) {
   //Stock le résultat de la requete dans un tableau
   $query = $query->getResult(Doctrine\ORM\Query::HYDRATE_ARRAY);
 
-  //Tableau pour envoi a twig
+
+
+  $date = $query[0]["creationDate"];
+
+  $day = $date->format('d-m-Y');
+  $hour = $date->format('H:i');
+
+   //Tableau pour envoi a twig
   $dataAdDetail = [
     'querys' => $query,
+    'day' => $day,
+    'hour' => $hour    
   ];
 
   return $app['twig']->render('annonceDetail.html.twig', $dataAdDetail);
