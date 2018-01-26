@@ -71,7 +71,7 @@
                     }
 
                     // Test la taille du fichier
-                    if ($_FILES["fileToUpload"]["size"][$key] > 500000) {
+                    if ($_FILES["fileToUpload"]["size"][$key] > 50000000) {
                         $errors[] = "Désolé, votre fichier est trop volumineux.<br>";
                     }
 
