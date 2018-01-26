@@ -1,14 +1,9 @@
 #pied {
     text-align: center;
     overflow: auto;
-    border: solid 2px black;
-    width: 100%;
-    margin: left 0%;
-	padding:auto;
-	text-align:center;
+	 text-align:center;
     border: 2px solid black;
     color:white; 
-     
      animation: colorchange 15s; /* animation-name followed by duration in seconds*/
          /* you could also use milliseconds (ms) or something like 2.5s */
      -webkit-animation: colorchange 15s; /* Chrome and Safari */

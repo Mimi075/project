@@ -36,3 +36,6 @@ body {
   height: auto; 
   margin: auto;
 }
+.row {
+  margin-bottom: 47px;
+}
