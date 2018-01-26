@@ -59,7 +59,7 @@
 
               <div class="col-md-3 mb-3">
                 <label for="validationCustom04">N° de Siren</label>
-                <input type="text" class="form-control" placeholder="Votre N° de Siren" name="siren" required>
+                <input type="text" id="sirenNumber" class="form-control" placeholder="Votre N° de Siren" name="siren" required>
                </div>             
             </div>
 
@@ -79,13 +79,21 @@
         </div>
       </div>
     </div>
+   {# <input type="button" value="ttttttttt" onclick="sirenControl();"> #}
     <script type="text/javascript">
-          
-function(){
-  $.ajax({
-    url: 'https://data.opendatasoft.com/api/records/1.0/search/?dataset=sirene%40public&q=\'814798245\'&facet=libtefen'
-  }).done();
-}
+
+      function sirenControl(){
+        $.ajax({
+          url: 'https://data.opendatasoft.com/api/records/1.0/search/?dataset=sirene%40public&q='+document.getElementById('sirenNumber').value+'&facet=libtefen',
+          apikey:"376696232cf85575761b12f151771584a8fb113b0e8c86a58ddef2dd",
+                  method: 'get'
+        }).done(function(verif){
+          console.log(verif.records["0"].fields.nom);
+          console.log(verif.records["0"].fields.siren);
+          console.log(verif.records["0"].fields.libapen);
+        });
+      }
+
     </script>
   {% endblock %}     
 
