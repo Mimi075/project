@@ -8,7 +8,7 @@
 		<input type="hidden" name="tri" value=""/>
 		<input type="text" class="input_recherche" name="keywords" placeholder="Tapez votre recherche" value="" />
 		<select id="dep" name="reg" class="select_recherche">
-			<option selected>La région</option>
+			<option value="default" selected>Toute la France</option>
 			{% for region in regions|keys %}
 				<option value="{{ region }}">{{ region }}</option>
 			{% endfor %}
@@ -34,7 +34,7 @@
 		
 		<div class="container miniAnnonce">
 			<div>
-				<a class="row" href="/annonceDetail">
+				<a class="row" href="/annonceDetail?id={{ query_val.id }}">
 					<div class="col-3">
 						<img class="item_image" src="{{ asset(query_val.url) }}" alt="loup"/>
 					</div>
@@ -48,22 +48,4 @@
 			</div>	
 		</div>
 	{% endfor %}	
-
-
-	</div>
-	<div class="container miniAnnonce">
-		<div>
-			<a class="row" href="#">
-				<div class="col-3">
-					<img class="item_image" src="img/loup.jpg" alt="loup"/>
-				</div>
-				<div class="col-9"> 
-            		<h5>Vends loup volant (très rare)</h5>
-            		<p>Oiseaux-canins</p>
-	            	<p>Basse-Normandie</p> 
-	            	<p>prix : 25000 €</p>
-            	</div>
-			</a>									
-		</div>		
-	</div>
 {% endblock %}

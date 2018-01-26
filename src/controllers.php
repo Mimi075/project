@@ -13,35 +13,33 @@ include '../web/function.php';
 //----------------------------------------------------------------------------------------------------
 $app->get('/', function () use ($app) {
     
-    return $app['twig']->render('index.html.twig', regionList());
+  return $app['twig']->render('index.html.twig', regionList());
 })
 ->bind('homepage')
 ;
 //----------------------------------------------------------------------------------------------------
 $app->match('/login', function (Request $request) use ($app) {   
 
-    if (!empty($_POST)) {
-        $username = $request->get('connectEmail');
-        $mdp = $request->get('connectPassword');
-        $repository = $app['em']->getRepository(Entity\Eleveur::class);
-        $query = $repository->findOneBy(['email' => $username]);                  
-        $repository = $app['em']->getRepository(Entity\Eleveur::class);
-        $query = $repository->findOneBy(['email' => $username]);       
-        
+  if (!empty($_POST)) {
+    $username = $request->get('connectEmail');
+    $mdp = $request->get('connectPassword');
+    $repository = $app['em']->getRepository(Entity\Farmer::class);
+    $query = $repository->findOneBy(['email' => $username]);                  
+    $repository = $app['em']->getRepository(Entity\Farmer::class);
+    $query = $repository->findOneBy(['email' => $username]);       
 
-        if ($query != null && password_verify($mdp, $query->getPassword())) {
-              
-            $app['session']->set('user', array('firstname' => $query->getFirstName(), 
-                                                'lastname' => $query->getLastName(),
-                                                'email' => $query->getEmail(),
-                                                'id' => $query->getId()
-                                                ));
-            $app['global.userName'] = "Bienvenue " . $app['session']->get('user')['firstname'] . ' ' . $app['session']->get('user')['lastname'] ;
-            return $app['twig']->render('congrulation.html.twig',array());
-        }
+    if ($query != null && password_verify($mdp, $query->getPassword())) {
+      $app['session']->set('user', array('firstname' => $query->getFirstName(), 
+        'lastname' => $query->getLastName(),
+        'email' => $query->getEmail(),
+        'id' => $query->getId()
+      ));
+      $app['global.userName'] = "Bienvenue " . $app['session']->get('user')['firstname'] . ' ' . $app['session']->get('user')['lastname'] ;
+      return $app['twig']->render('congrulation.html.twig',array());
     }
+  }
 
-    return $app['twig']->render('login.html.twig',array());
+  return $app['twig']->render('login.html.twig',array());
 })
 ->bind('login')
 ->method('GET|POST')
@@ -111,21 +109,21 @@ $app->match('/inscription', function () use ($app) {
         
         if(count($errors) == 0){
             // errors = 0 = insertion user
-            $eleveur = new Entity\Eleveur();
-            $eleveur->setLastName($post['lastname']);
-            $eleveur->setFirstName($post['firstname']);
-            $eleveur->setEmail($post['email']);
+            $farmer = new Entity\Farmer();
+            $farmer->setLastName($post['lastname']);
+            $farmer->setFirstName($post['firstname']);
+            $farmer->setEmail($post['email']);
             $mdp = $post['password'];
             $hash_mdp = password_hash($mdp, PASSWORD_DEFAULT);
-            $eleveur->setPassword($hash_mdp);
-            $eleveur->setAdress($post['adress']);
-            $eleveur->setZip($post['zip']);
-            $eleveur->setCity($post['city']);
-            $eleveur->setPhone($post['phone']);
-            $eleveur->setSiren($post['siren']);
-            $eleveur->setRegion($region);
-            $eleveur->setDateDinscription(new \DateTime());
-            $app['em']->persist($eleveur);
+            $farmer->setPassword($hash_mdp);
+            $farmer->setAdress($post['adress']);
+            $farmer->setZip($post['zip']);
+            $farmer->setCity($post['city']);
+            $farmer->setPhone($post['phone']);
+            $farmer->setSiren($post['siren']);
+            $farmer->setRegion($region);
+            $farmer->setRegistrationDate(new \DateTime());
+            $app['em']->persist($farmer);
             $app['em']->flush();
         }
 
@@ -233,21 +231,21 @@ $app->match('/formulaireContact', function () use ($app) {
 ;
 //----------------------------------------------------------------------------------------------------
 $app->match('/formulaireAnnonce', function () use ($app) {
-    include 'testAnnonce.php';
+  include 'testAnnonce.php';
 
-    $dataAnnonce = ["categories" => generereCatAni()];
+  $dataAnnonce = ["categories" => animalCategoryCreation()];
 
-    if(!empty($errors)){
-      $dataAnnonce['errors'] = $errors;
-    }
+  if(!empty($errors)){
+    $dataAnnonce['errors'] = $errors;
+  }
 
-    if (isset($render) && $render == 1) {
-      return $app['twig']->render('congrulationAnnonce.html.twig',array());
-    }
+  if (isset($render) && $render) {
+    return $app['twig']->render('congrulationAnnonce.html.twig',array());
+  }
 
-    else{
-      return $app['twig']->render('formulaireAnnonce.html.twig', $dataAnnonce);
-    }
+  else{
+    return $app['twig']->render('formulaireAnnonce.html.twig', $dataAnnonce);
+  }
 })
 ->bind('formulaireAnnonce')
 ->method('GET|POST')
@@ -261,7 +259,7 @@ $app->get('/AproposDeNous', function () use ($app) {
 ;
 //----------------------------------------------------------------------------------------------------
 $app->get('/annonces', function () use ($app) {
-    $category = generereCatAni();
+    $category = animalCategoryCreation();
     $region = regionList();
     
 
@@ -269,38 +267,76 @@ $app->get('/annonces', function () use ($app) {
       $reg = $_GET['reg'];
     }
     else {
-      $reg = 'test';
+      $reg = 'default';
+    }
+    if (isset($_GET['t'])) {
+      # code...
     }
 
+    /*switch (variable) {
+      case 'value':
+        # code...
+        break;
+      
+      default:
+        # code...
+        break;
+    }*/
+
     $qb = $app['em']->createQueryBuilder('a');
-    $qb->select('a.title', 'a.price', 'ani.name', 'p.url', 'a.container', 'e.region')
-              ->from(Entity\Annonce::class, 'a' )
-              ->innerJoin(Entity\Eleveur::class, 'e', Join::WITH, 'e.id = a.farmer')
+    $qb->select('a.title', 'a.price', 'ani.name', 'p.url', 'a.container', 'f.region', 'a.id')
+              ->from(Entity\Ad::class, 'a' )
+              ->innerJoin(Entity\Farmer::class, 'f', Join::WITH, 'f.id = a.farmer')
               ->leftJoin(Entity\Photo::class, 'p', Join::WITH, 'a.id = p.ad')
               ->innerJoin(Entity\Animal::class, 'ani', Join::WITH, 'ani.id = a.animal')
-              ->andwhere('e.region = :reg')
               ->andwhere('p.bool = 1')
-              ->setParameter('reg', $reg);
+              ->orderBy('a.price', 'ASC')
+              ;
+    if ($reg != 'default') {
+       $qb->andwhere('f.region = :reg')->setParameter('reg', $reg);
+    }
+   
 
     $query = $qb->getQuery();
 
-echo $query->getDQL(), "\n";
+/*echo $query->getDQL(), "\n";*/
 $query = $query->getResult(Doctrine\ORM\Query::HYDRATE_ARRAY);
-echo "<pre>";
+/*echo "<pre>";
 var_dump($query);
-echo "</pre>";
-$alerte = [
+echo "</pre>";*/
+$dataAd = [
         'categories' => $category,
         'regions' => $region['regions'],
         'querys' => $query,
     ];
-    return $app['twig']->render('annonces.html.twig', $alerte);
+    return $app['twig']->render('annonces.html.twig', $dataAd);
 })
 ->bind('annonces')
 ;
 //----------------------------------------------------------------------------------------------------
 $app->get('/annonceDetail', function () use ($app) {
-    return $app['twig']->render('annonceDetail.html.twig');
+
+    $qb = $app['em']->createQueryBuilder('a');
+    $qb->select('a.title', 'a.price', 'ani.name', 'p.url', 'a.container', 'f.region', 'a.id', 'f.city', 'f.zip', 'f.phone')
+              ->from(Entity\Ad::class, 'a' )
+              ->innerJoin(Entity\Farmer::class, 'f', Join::WITH, 'f.id = a.farmer')
+              ->leftJoin(Entity\Photo::class, 'p', Join::WITH, 'a.id = p.ad')
+              ->innerJoin(Entity\Animal::class, 'ani', Join::WITH, 'ani.id = a.animal')
+              ->andwhere('a.id = :id')
+              ->setParameter('id', $_GET['id']);
+
+    $query = $qb->getQuery();
+
+/*echo $query->getDQL(), "\n";*/
+$query = $query->getResult(Doctrine\ORM\Query::HYDRATE_ARRAY);
+/*echo "<pre>";
+var_dump($query);
+echo "</pre>";*/
+$dataAdDetail = [
+        'querys' => $query,
+    ];
+
+    return $app['twig']->render('annonceDetail.html.twig', $dataAdDetail);
 })
 ->bind('annonceDetail')
 ;

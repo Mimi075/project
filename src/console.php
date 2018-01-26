@@ -139,12 +139,12 @@ $console
 
     	foreach ($cat as $keyCat => $valCat) {
         
-    		$repository = $app['em']->getRepository(Entity\Categorie::class);
+    		$repository = $app['em']->getRepository(Entity\Category::class);
     		$query = $repository->findOneBy(['name' => $keyCat]);
     		/*echo $query->getId();*/
 
     		if($query === null){
-      			$category = new Entity\Categorie();
+      			$category = new Entity\Category();
       			$category->setName($keyCat);
       			$app['em']->persist($category);
       			$app['em']->flush();
@@ -153,14 +153,14 @@ $console
         
     		foreach ($cat[$keyCat] as $keySubCat => $valSubCat) {
           
-      			$repository = $app['em']->getRepository(Entity\SousCategorie::class);
+      			$repository = $app['em']->getRepository(Entity\SubCategory::class);
       			$query = $repository->findOneBy(['name' => $keySubCat]);
 
       		if($query === null){
-        		$repository = $app['em']->getRepository(Entity\Categorie::class);
+        		$repository = $app['em']->getRepository(Entity\Category::class);
         		$query = $repository->findOneBy(['name' => $keyCat]);
 
-        		$subCategory = new Entity\SousCategorie();
+        		$subCategory = new Entity\SubCategory();
         		$subCategory->setName($keySubCat);
         		$subCategory->setCategory($query);
         		$app['em']->persist($subCategory);
@@ -174,7 +174,7 @@ $console
         		$query = $repository->findOneBy(['name' => $valAni]);
 
         		if($query === null){
-          			$repository = $app['em']->getRepository(Entity\SousCategorie::class);
+          			$repository = $app['em']->getRepository(Entity\SubCategory::class);
           			$query = $repository->findOneBy(['name' => $keySubCat]);
           			/*$query = $query->getId();*/
 

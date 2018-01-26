@@ -24,9 +24,9 @@ class Photo
     private $bool;
 
      /**
-     * Eleveur linked to this Annonce
+     * Eleveur linked to this Ad
      *
-     * @ManyToOne(targetEntity="Entity\Annonce", inversedBy="picture")
+     * @ManyToOne(targetEntity="Entity\Ad", inversedBy="picture")
      */
     private $ad;
 
