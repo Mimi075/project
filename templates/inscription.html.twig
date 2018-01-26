@@ -15,85 +15,83 @@
       <div class="col-sm-3"></div>
 
       <div class="col-sm-6">
-          <h1 id="inscrit">Inscription</h1><br>
-          <form id="needs-validation" novalidate method="post" action="{{ path('inscription') }}">
-            <div class="form-row">
-              <div class="col-md-4 mb-3">
-                <label for="validationCustom01">Prénom</label>
-                <input type="text" class="form-control" name="firstname" placeholder="Votre prénom" required>
-              </div>
-
-              <div class="col-md-4 mb-3">
-                <label for="validationCustom02">Nom</label>
-                <input type="text" class="form-control" name="lastname" placeholder="Votre nom" required>
-              </div>
-
-              <div class="col-md-4 mb-3">
-                <label for="validationCustomUsername">Adresse Mail</label>
-                <div class="input-group">                  
-                  <input type="text" class="form-control" name="email" placeholder="Votre adresse email" aria-describedby="inputGroupPrepend" required>
-                </div>                
-              </div>
+        <h1 id="inscrit">Inscription</h1><br>
+        <form id="needs-validation" novalidate method="post" action="{{ path('inscription') }}">
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="validationCustom01">Prénom</label>
+              <input type="text" class="form-control" name="firstname" placeholder="Votre prénom" required>
             </div>
-            <div class="form-row">
-              <div class="col-md-6 mb-6">
+
+            <div class="col-md-4 mb-3">
+              <label for="validationCustom02">Nom</label>
+              <input type="text" class="form-control" name="lastname" placeholder="Votre nom" required>
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label for="validationCustomUsername">Adresse Mail</label>
+              <div class="input-group">                  
+                <input type="text" class="form-control" name="email" placeholder="Votre adresse email" aria-describedby="inputGroupPrepend" required>
+              </div>                
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 mb-6">
               <label for="formGroupExampleInput">Adresse postale</label>
               <input type="text" class="form-control" name="adress" placeholder="Votre adresse">
             </div>
-              <div class="col-md-6 mb-6">
+            <div class="col-md-6 mb-6">
               <label for="validationCustom04">N° de Téléphone</label>
               <input type="text" class="form-control" placeholder="Votre N° de Téléphone" name="phone" required>
             </div>
           </div>
 
-            <div class="form-row">
-              <div class="col-md-6 mb-3">
-                <label for="validationCustom03">Ville</label>
-                <input type="text" class="form-control" name="city" placeholder="Votre ville" required>
-              </div>
-
-              <div class="col-md-3 mb-3">
-                <label for="validationCustom05">Code postal</label>
-                <input type="text" class="form-control" placeholder="Votre code postal" name="zip" required>
-              </div>
-
-              <div class="col-md-3 mb-3">
-                <label for="validationCustom04">N° de Siren</label>
-                <input type="text" id="sirenNumber" class="form-control" placeholder="Votre N° de Siren" name="siren" required>
-               </div>             
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="validationCustom03">Ville</label>
+              <input type="text" class="form-control" name="city" placeholder="Votre ville" required>
             </div>
 
-            <div class="form-row">
-              <div class="col-md-6 mb-6">
-                <label for="exampleInputPassword1">Mot de passe</label>
-                <input type="password" class="form-control" name="password" placeholder="Entrez un mot de passe">
-              </div>
+            <div class="col-md-3 mb-3">
+              <label for="validationCustom05">Code postal</label>
+              <input type="text" class="form-control" placeholder="Votre code postal" name="zip" required>
+            </div>
 
-              <div class="col-md-6 mb-6">
-                <label for="exampleInputPassword1">Confirmez votre mot de passe</label>
-                <input type="password" class="form-control" name="confPassword" placeholder="Veuillez Confirmer">
-              </div>
-            </div><br>             
-              <button class="btn btn-success" type="submit">Envoyer</button>   
-          </form>          
-        </div>
+            <div class="col-md-3 mb-3">
+              <label for="validationCustom04">N° de Siren</label>
+              <input type="text" id="sirenNumber" class="form-control" placeholder="Votre N° de Siren" name="siren" required>
+            </div>             
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-6 mb-6">
+              <label for="exampleInputPassword1">Mot de passe</label>
+              <input type="password" class="form-control" name="password" placeholder="Entrez un mot de passe">
+            </div>
+
+            <div class="col-md-6 mb-6">
+              <label for="exampleInputPassword1">Confirmez votre mot de passe</label>
+              <input type="password" class="form-control" name="confPassword" placeholder="Veuillez Confirmer">
+            </div>
+          </div><br>             
+          <button class="btn btn-success" type="submit">Envoyer</button>   
+        </form>          
       </div>
     </div>
-   {# <input type="button" value="ttttttttt" onclick="sirenControl();"> #}
-    <script type="text/javascript">
+  </div>
+  {# <input type="button" value="ttttttttt" onclick="sirenControl();"> #}
+  <script type="text/javascript">
 
-      function sirenControl(){
-        $.ajax({
-          url: 'https://data.opendatasoft.com/api/records/1.0/search/?apikey=376696232cf85575761b12f151771584a8fb113b0e8c86a58ddef2dd&dataset=sirene%40public&q='+document.getElementById('sirenNumber').value+'&facet=libtefen',
-          
-                  method: 'get'
-        }).done(function(verif){
-          console.log(verif.records["0"].fields.nom);
-          console.log(verif.records["0"].fields.siren);
-          console.log(verif.records["0"].fields.libapen);
-        });
-      }
-
-    </script>
-  {% endblock %}     
+    function sirenControl(){
+      $.ajax({
+        url: 'https://data.opendatasoft.com/api/records/1.0/search/?apikey=376696232cf85575761b12f151771584a8fb113b0e8c86a58ddef2dd&dataset=sirene%40public&q='+document.getElementById('sirenNumber').value+'&facet=libtefen',
+          method: 'get'
+      }).done(function(verif){
+        console.log(verif.records["0"].fields.nom);
+        console.log(verif.records["0"].fields.siren);
+        console.log(verif.records["0"].fields.libapen);
+      });
+    }
+  </script>
+{% endblock %}     
 
