@@ -84,8 +84,8 @@
 
       function sirenControl(){
         $.ajax({
-          url: 'https://data.opendatasoft.com/api/records/1.0/search/?dataset=sirene%40public&q='+document.getElementById('sirenNumber').value+'&facet=libtefen',
-          apikey:"376696232cf85575761b12f151771584a8fb113b0e8c86a58ddef2dd",
+          url: 'https://data.opendatasoft.com/api/records/1.0/search/?apikey=376696232cf85575761b12f151771584a8fb113b0e8c86a58ddef2dd&dataset=sirene%40public&q='+document.getElementById('sirenNumber').value+'&facet=libtefen',
+          
                   method: 'get'
         }).done(function(verif){
           console.log(verif.records["0"].fields.nom);
