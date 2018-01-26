@@ -308,6 +308,9 @@ $app->get('/annonces', function () use ($app) {
   $category = animalCategoryCreation();
   $region = regionList();
   
+  echo "<pre>";
+  var_dump($_GET);
+  echo "</pre>";
   //Test si $_GET['reg'] existe et si $_GET['reg'] n'est pas égal a ""(vide)
   if (isset($_GET['reg']) && $_GET['reg'] != "") {
     $reg = $_GET['reg'];
@@ -318,10 +321,13 @@ $app->get('/annonces', function () use ($app) {
     $reg = 'default';
   }
 
-  if (isset($_GET['t'])) {
-    # code...
+  if (isset($_GET['keywords']) && $_GET['keywords']!= "") {
+    $keywords = $_GET['keywords'];
   }
 
+  else{
+    $keywords = '';
+  }
   /*switch (variable) {
     case 'value':
       # code...
@@ -386,10 +392,8 @@ $app->get('/annonceDetail', function () use ($app) {
   //Stock le résultat de la requete dans un tableau
   $query = $query->getResult(Doctrine\ORM\Query::HYDRATE_ARRAY);
 
-
-
+  //
   $date = $query[0]["creationDate"];
-
   $day = $date->format('d-m-Y');
   $hour = $date->format('H:i');
 
