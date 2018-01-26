@@ -3,7 +3,7 @@ html, body {
   font-family: 'Open Sans', sans-serif;
 }
 #bottom{
-        padding-top: 5%;
+        padding-top: 4.5%;
 }
 
 a {
@@ -20,7 +20,7 @@ body {
 	overflow-x: hidden;
 	background-color: #E1E4E6;
 	color: #fff;
-}
+  }
 
 #inscrit {
 	text-align: center;
@@ -37,5 +37,5 @@ body {
   margin: auto;
 }
 .row {
-  margin-bottom: 47px;
+  margin-bottom: 7%;
 }
