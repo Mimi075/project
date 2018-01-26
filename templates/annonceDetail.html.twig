@@ -3,19 +3,17 @@
 {% block css %}
 	<link href="../css/alerte.css" media="screen" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="../css/annonces.css">
-
 {% endblock %}
+
 {% block body %}
 	<div id="annonces">
-		<h3 class="no-border" itemprop="name">
-		{{ querys[0]['title'] }}
-		</h3>
+		<h3 class="no-border" itemprop="name">{{ querys[0]['title'] }}</h3>
 		<div class="row">
 			<div class="col-6">
 				<div id="demo" class="carousel slide" data-ride="carousel">
 					<!-- Indicators -->
 					<ul class="carousel-indicators">
-					{% set foo = 0 %}
+						{% set foo = 0 %}
 						{% for query_key, query_val in querys %}
 							{% if foo == 0 %}
 								<li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -42,7 +40,7 @@
 								</div>
 							{% endif %}
 							{% set foo = foo + 1 %}
-							{% endfor %}
+						{% endfor %}
 					</div>
 					
 					<!-- Left and right controls -->
@@ -71,30 +69,28 @@
 		<p class="line line_pro">Mise en ligne le 23 janvier à 15:00</p>
 		<div class="line">
 			<h2 class="item_price clearfix" itemprop="price" content="450">
-			<span class="property">Prix :</span>
-			<meta itemprop="priceCurrency" content="EUR">
-			<span class="value">{{ querys[0]['price'] }}</span>
+				<span class="property">Prix :</span>
+				<meta itemprop="priceCurrency" content="EUR">
+				<span class="value">{{ querys[0]['price'] }}</span>
 			</h2>
 		</div>
 		<h2 class="clearfix">
-		<span class="property">
-			<span class="fl">Ville :</span>
-		</span>
-		<span class="value" itemprop="address">{{ querys[0]['city'] }} ({{ querys[0]['zip'] }})
-		</span>
+			<span class="property">
+				<span class="fl">Ville :</span>
+			</span>
+			<span class="value" itemprop="address">{{ querys[0]['city'] }} ({{ querys[0]['zip'] }})
+			</span>
 		</h2>
 		<U><p class="property semibold">Description :</p></U>
-		<pre>
 			<b><p class="value" itemprop="description">
 			{{ querys[0]['container'] }}</p></b>
-		</pre>
 	</div>
 	<script type="text/javascript">
 		$(function(){
-        		$("#num").hide();
-    		});
+        	$("#num").hide();
+    	});
 		$("#buttonTel").click(function(){
-					    $("#num").show();
-					});
+			$("#num").show();
+		});
 	</script>
 {% endblock %}
