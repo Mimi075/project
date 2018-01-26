@@ -10,25 +10,29 @@
 		<input type="text" class="input_recherche" name="keywords" placeholder="Tapez votre recherche" value="" />
 		<select id="dep" name="reg" class="select_recherche">
 			<option value="default" selected>Toute la France</option>
+
 			{% for region in regions|keys %}
 				<option value="{{ region }}">{{ region }}</option>
 			{% endfor %}
+
 		</select>
 		<input type="text" class="input_recherche" name="zip_code" placeholder="Code postal (ex:61000)" value="" />
+
 		<select id="opt" name="cat" class="select_recherche">
-					<option selected>Choisir...</option>
-					{% for category_key, category_value in categories %}
-						<optgroup label="{{ category_key }}">
-						{% for subcategory_key, subcategory_value in category_value %}
-							<optgroup label="---{{ subcategory_key }}---">
-								{% for animal in subcategory_value %}
-									<option value="{{ animal }}">{{ animal }}</option>
-								{% endfor %}
-							</optgroup>
-						{% endfor %}
+			<option selected>Choisir...</option>
+			{% for category_key, category_value in categories %}
+				<optgroup label="{{ category_key }}">
+					{% for subcategory_key, subcategory_value in category_value %}
+						<optgroup label="---{{ subcategory_key }}---">
+							{% for animal in subcategory_value %}
+								<option value="{{ animal }}">{{ animal }}</option>
+							{% endfor %}
 						</optgroup>
 					{% endfor %}
-				</select>
+				</optgroup>
+			{% endfor %}
+		</select>
+
 		<input class="bouton_search" type="submit" value="Lancer la recherche" />
 	</form>
 	{% for query_key, query_val in querys %}
@@ -39,6 +43,7 @@
 					<div class="col-3">
 						<img class="item_image" src="{{ asset(query_val.url) }}" alt="loup"/>
 					</div>
+					
 					<div class="col-9"> 
             			<h5>{{ query_val.title }}</h5>
             			<p>{{ query_val.name }}</p>

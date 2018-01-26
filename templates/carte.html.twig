@@ -8,9 +8,6 @@
 		<ul id="regions_list">
 			{% for region in regions|keys %}
 				<li><a href="{{ path('annonces') }}?tri=&keywords=&reg={{ region }}&zip_code=&cat=Choisir...">{{ region }}</a></li>											
-				{# {% for departement in region %}
-							<li><a href="Petites-annonces--{{ departement }}.htm">{{ departement }}</a></li>
-						{% endfor %} #}
 			{% endfor %}
 		</ul>
 	</div>
