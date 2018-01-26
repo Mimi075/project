@@ -20,58 +20,58 @@
             <div class="form-row">
               <div class="col-md-4 mb-3">
                 <label for="validationCustom01">Prénom</label>
-                <input type="text" class="form-control" name="firstname" id="validationCustom01" placeholder="Votre prénom" required>
+                <input type="text" class="form-control" name="firstname" placeholder="Votre prénom" required>
               </div>
 
               <div class="col-md-4 mb-3">
                 <label for="validationCustom02">Nom</label>
-                <input type="text" class="form-control" name="lastname" id="validationCustom02" placeholder="Votre nom" required>
+                <input type="text" class="form-control" name="lastname" placeholder="Votre nom" required>
               </div>
 
               <div class="col-md-4 mb-3">
                 <label for="validationCustomUsername">Adresse Mail</label>
                 <div class="input-group">                  
-                  <input type="text" class="form-control" name="email" id="validationCustomUsername" placeholder="Votre adresse email" aria-describedby="inputGroupPrepend" required>
+                  <input type="text" class="form-control" name="email" placeholder="Votre adresse email" aria-describedby="inputGroupPrepend" required>
                 </div>                
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-6 mb-6">
               <label for="formGroupExampleInput">Adresse postale</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" name="adress" placeholder="Votre adresse">
+              <input type="text" class="form-control" name="adress" placeholder="Votre adresse">
             </div>
               <div class="col-md-6 mb-6">
               <label for="validationCustom04">N° de Téléphone</label>
-              <input type="text" class="form-control" id="validationCustom04" placeholder="Votre N° de Téléphone" name="phone" required>
+              <input type="text" class="form-control" placeholder="Votre N° de Téléphone" name="phone" required>
             </div>
           </div>
 
             <div class="form-row">
               <div class="col-md-6 mb-3">
                 <label for="validationCustom03">Ville</label>
-                <input type="text" class="form-control" id="validationCustom03" name="city" placeholder="Votre ville" required>
+                <input type="text" class="form-control" name="city" placeholder="Votre ville" required>
               </div>
 
               <div class="col-md-3 mb-3">
                 <label for="validationCustom05">Code postal</label>
-                <input type="text" class="form-control" id="validationCustom05" placeholder="Votre code postal" name="zip" required>
+                <input type="text" class="form-control" placeholder="Votre code postal" name="zip" required>
               </div>
 
               <div class="col-md-3 mb-3">
                 <label for="validationCustom04">N° de Siren</label>
-                <input type="text" class="form-control" id="validationCustom04" placeholder="Votre N° de Siren" name="siren" required>
+                <input type="text" class="form-control" placeholder="Votre N° de Siren" name="siren" required>
                </div>             
             </div>
 
             <div class="form-row">
               <div class="col-md-6 mb-6">
                 <label for="exampleInputPassword1">Mot de passe</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Entrez un mot de passe">
+                <input type="password" class="form-control" name="password" placeholder="Entrez un mot de passe">
               </div>
 
               <div class="col-md-6 mb-6">
                 <label for="exampleInputPassword1">Confirmez votre mot de passe</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="confPassword" placeholder="Veuillez Confirmer">
+                <input type="password" class="form-control" name="confPassword" placeholder="Veuillez Confirmer">
               </div>
             </div><br>             
               <button class="btn btn-success" type="submit">Envoyer</button>   
@@ -81,7 +81,7 @@
     </div>
     <script type="text/javascript">
           
-function (){
+function(){
   $.ajax({
     url: 'https://data.opendatasoft.com/api/records/1.0/search/?dataset=sirene%40public&q=\'814798245\'&facet=libtefen'
   }).done();
