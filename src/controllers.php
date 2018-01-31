@@ -308,9 +308,6 @@ $app->get('/annonces', function () use ($app) {
   $category = animalCategoryCreation();
   $region = regionList();
   
-  echo "<pre>";
-  var_dump($_GET);
-  echo "</pre>";
   //Test si $_GET['reg'] existe et si $_GET['reg'] n'est pas égal a ""(vide)
   if (isset($_GET['reg']) && $_GET['reg'] != "") {
     $reg = $_GET['reg'];
@@ -352,6 +349,11 @@ $app->get('/annonces', function () use ($app) {
   if ($reg != 'default') {
     //Rajoute une condition dans la requete
     $qb->andwhere('f.region = :reg')->setParameter('reg', $reg);
+  }
+
+  if ($keywords != '') {
+    //Rajoute une condition dans la requete
+    $qb->andwhere('a.title LIKE :keywords')->setParameter('keywords', '%'.$keywords.'%');
   }
 
   //Récupère la requete complete sous forme SQL
