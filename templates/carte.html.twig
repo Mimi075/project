@@ -1,15 +1,16 @@
-<div class="row">
-	<div class="col-2 col-sm-2"></div>
-	<div class="col-4 col-sm-4 container">
-		<div id="francemap" style="width: 500px; height: 500px;"></div>
-	</div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-2 col-sm-0 col-xs-0"></div>
+		<div class="col-lg-4 col-sm-8 col-xs-8">
+			<div id="francemap" style="width: 100%; height: 500px;"></div>
+		</div>
 
-	<div class="col-4 col-sm-4 container">
-		<ul id="regions_list">
-			{% for region in regions|keys %}
-				<li><a href="{{ path('annonces') }}?tri=&amp;keywords=&amp;reg={{ region }}&amp;zip_code=&amp;cat=Choisir...">{{ region }}</a></li>										
-			{% endfor %}
-		</ul>
+		<div class="col-lg-4 col-sm-4 col-xs-4">
+			<ul id="regions_list">
+				{% for region in regions|keys %}
+					<li><a href="{{ path('annonces') }}?tri=&amp;keywords=&amp;reg={{ region }}&amp;zip_code=&amp;cat=Choisir...">{{ region }}</a></li>										
+				{% endfor %}
+			</ul>
+		</div>
 	</div>
 </div>
-

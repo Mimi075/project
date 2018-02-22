@@ -3,6 +3,17 @@
 	#regions_list
 	{
 		margin: 0 2% 0 0;
+		color: #002423;
+		text-align: center;
+	}
+}
+@media (max-width: 767px)
+{
+	#regions_list
+	{
+		margin: auto;
+		color: #002423;
+		text-align: center;
 	}
 }
 
