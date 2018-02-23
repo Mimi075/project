@@ -40,11 +40,16 @@ text-decoration: none;
 	margin-left: 10px;
 }
 
+.hr {
+  width: 100%; 
+  border-top: 2px solid #FFF;
+}
+
 .perso {
  
 	margin: left 0%;
 	padding:auto;
-	text-align:center;
+	/*text-align:center;*/
     border: 2px solid black;
     color:white; 
      

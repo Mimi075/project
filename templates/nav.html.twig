@@ -19,26 +19,16 @@
         <a class="nav-link" href="{{ path('AproposDeNous') }}">A propos de nous</a>
       </li>
     </ul>
+    <hr class="hr">
 		{{ userName }}
 			
 		{% if userName == '' %}	
-			<form class="form-inline my-2 my-lg-0" method="post"  action="{{ path('inscription') }}">
-				<button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Inscription</button>
-			</form>
-
-			<form class="form-inline my-2 my-lg-0" method="get"  action="{{ path('login') }}">
-				<button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Connexion professionnels</button>
-			</form>
+				<a class="btn btn-outline-dark my-2 my-sm-0" href="{{ path('inscription') }}">Inscription</a>
+				<a class="btn btn-outline-dark my-2 my-sm-0" href="{{ path('login') }}">Connexion professionnels</a>
 		{% endif %}
 		{% if userName != '' %}	
-
-			<form class="form-inline my-2 my-lg-0" method="post"  action="{{ path('formulaireAnnonce') }}">
-				<button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Ajouter annonce</button>
-			</form>
-
-			<form class="form-inline my-2 my-lg-0" method="post"  action="{{ path('logout') }}">
-				<button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Déconnexion</button>
-			</form>
+				<br><a class="btn btn-outline-dark my-2 my-sm-0" href="{{ path('formulaireAnnonce') }}">Ajouter annonce</a>
+				<a class="btn btn-outline-dark my-2 my-sm-0" href="{{ path('logout') }}">Déconnexion</a>
 		{% endif %}
 
   </div>
