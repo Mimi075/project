@@ -42,3 +42,7 @@ h1 {
 	border-radius: 15px;
 	border:2px solid #002423;
 }
+.confirm{
+    text-align: center;
+    color: white;
+}
