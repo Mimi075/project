@@ -3,8 +3,21 @@
 {% endblock %}
 
 <footer>
-	<div id="pied">©Le Bon Eleveur|Tous droits réservés|<a href="{{ path('formulaireContact') }}">Nous contacter</a><a href="{{ path('formulaireContact') }}">|Mention légales|</a>
-		
-		
+	<div id="pied">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-0 col-xs-0"></div>
+				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+					<table class="tableFooter">
+						<tr>
+							<td class="tdFooter">&#9122;©2018 Le Bon Eleveur Tous droits réservés</td>
+							<td class="tdFooter"><a href="{{ path('formulaireContact') }}">&#9122;Nous contacter</a></td>
+							<td class="tdFooter"><a href="{{ path('formulaireContact') }}">&#9122;Mention légales&#9122;</a></td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-0 col-xs-0"></div>
+			</div>
+		</div>
 	</div>
 </footer>
