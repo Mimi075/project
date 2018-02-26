@@ -3,10 +3,7 @@ html, body {
   font-family: 'Open Sans', sans-serif;
   height: 100%;
 }
-#bottom{
-        padding-top: 4.5%;
-        position: relative;
-}
+
 
 a {
   color: inherit;

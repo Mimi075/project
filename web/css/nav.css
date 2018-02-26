@@ -1,8 +1,4 @@
-.navbar, .navbar-expand-lg, .navbar-light {
-	position: fixed;
-	width: 100%;
-	z-index: 20000;
-}
+
 
 button {
 	margin-left: 5%;
