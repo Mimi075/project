@@ -35,16 +35,12 @@
 .tableFooter {
   text-align: center;
 }
-.tdFooter {
-  margin-left: 2%;
-  margin-right: 2%;
-}
 
-@media (max-width: 991px) {
+/*@media (max-width: 991px) {
   #pied {
     height: 10vh;
   }
-}
+}*/
 
 .footerMarge{
   margin-bottom: 0;
