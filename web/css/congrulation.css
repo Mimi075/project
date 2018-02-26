@@ -1,12 +1,7 @@
 body {
 	text-align: center;
 }
-.row {
-	margin-top: 5%;
-}
+
 #pied {
 	margin-top: 300px !important;
-}
-footer {
-  bottom: 0;
 }
