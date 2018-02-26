@@ -12,9 +12,6 @@ button:hover {
 	color: #fff;
 	border: 2px solid #002423;
 }
-.row {
-	margin-top: 5%;
-}
-#pied {
-	margin-top: 14.2% !important;
+footer {
+  bottom: 0;
 }

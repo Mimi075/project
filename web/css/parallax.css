@@ -21,7 +21,7 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+  /*position: relative;*/
 }
 
 .bgimg1 {
@@ -80,6 +80,6 @@ p {
   text-align: center;
 }
 
-#bottom {
+/*#bottom {
     padding-top: 3%;
-}
+}*/

@@ -7,3 +7,6 @@ body {
 #pied {
 	margin-top: 300px !important;
 }
+footer {
+  bottom: 0;
+}

@@ -15,6 +15,9 @@ b {
 .miniAnnonce {
 	background-color: #8C8C8C;
 }
+footer {
+  bottom: 0;
+}
 
 /*---------------------------------------------------------------------*/
 /*ANNONCE DETAIL*/

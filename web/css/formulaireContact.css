@@ -1,6 +1,9 @@
 body {
 	color: #002423;
 }
+footer {
+  bottom: 0;
+}
 #Identification {
 border:solid 1px black;
 text-align: center;

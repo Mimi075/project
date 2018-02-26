@@ -62,3 +62,6 @@
 ul {
 	list-style: none;
 }
+footer {
+  bottom: 0;
+}

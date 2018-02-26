@@ -1,9 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
 html, body {
   font-family: 'Open Sans', sans-serif;
+  height: 100%;
 }
 #bottom{
         padding-top: 4.5%;
+        position: relative;
 }
 
 a {
@@ -19,6 +21,7 @@ a:hover, a:focus {
 body {	
 	overflow-x: hidden;
 	background-color: #E1E4E6;
+
   }
 
 #inscrit {
@@ -35,9 +38,9 @@ body {
   height: auto; 
   margin: auto;
 }
-.row {
+/*.row {
   margin-bottom: 7%;
-}
+}*/
 
 .footerMarge{
   margin-bottom: 0;

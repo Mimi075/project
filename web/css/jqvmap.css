@@ -8,6 +8,9 @@
  *
  * Fork Me @ https://github.com/manifestinteractive/jqvmap
  */
+ footer {
+  bottom: 0;
+}
 .jqvmap-label
 {
 	position: absolute;
