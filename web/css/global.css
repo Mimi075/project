@@ -38,3 +38,7 @@ body {
 .row {
   margin-bottom: 7%;
 }
+
+.footerMarge{
+  margin-bottom: 0;
+}
