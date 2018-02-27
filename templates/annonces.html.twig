@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+	{# bar de recherche______________________________________________ #}
 	<form method="get" id="menu_recherche" action="#">
 		<input type="hidden" name="tri" value=""/>
 		<input type="text" class="input_recherche" name="keywords" placeholder="Tapez votre recherche" value="" />
@@ -35,6 +36,8 @@
 
 		<input class="bouton_search" type="submit" value="Lancer la recherche" />
 	</form>
+{# fin _______________________________________________________________ #}
+
 	<div class="container-fluid ">
 		<div class="row">
 	{% for query_key, query_val in querys %}
