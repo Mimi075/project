@@ -92,43 +92,24 @@
   test = 0;
 
   lastname = $('#lastname').val();
-  lastname = lastname.length;
-
   firstname = $('#firstname').val();
-  firstname = firstname.length;
-
   email = $('#email').val();
-  email = email.length;
-
   adress = $('#adress').val();
-  adress = adress.length;
-
   phone = $('#phone').val();
-  phone = phone.length;
-
   city = $('#city').val();
-  city = city.length;
-
   zip = $('#zip').val();
-  zip = zip.length;
-
   siren = $('#siren').val();
-  siren = siren.length;
-
   password = $('#password').val();
-  password = password.length;
-
   confPassword = $('#confPassword').val();
-  confPassword = confPassword.length;
 
-  if (lastname < 3) {
+  if (lastname.length < 3) {
     $('#lastname').attr('placeholder', 'Le nom doit comporter au moins 3 caractères!');
     $('#lastname').addClass('error');
     test = 1;
     console.log('lastname');
   }
 
-  if (firstname < 3) {
+  if (firstname.length < 3) {
     $('#firstname').attr('placeholder', 'Le prénom doit comporter au moins 3 caractères!');
     $('#firstname').addClass('error');
     test = 1;
@@ -142,14 +123,14 @@
     console.log('email');
   }
 
-  if (adress < 3) {
+  if (adress.length < 3) {
     $('#adress').attr('placeholder', "L'adresse doit comporter au moins 3 caractères!");
     $('#adress').addClass('error');
     test = 1;
     console.log('adress');
   }
 
-  if (phone != 10) {
+  if (phone.length != 10) {
     $('#phone').attr('placeholder', 'Le n° de téléphone doit comporter 10 chiffres!');
     $('#phone').addClass('error');
     test = 1;
@@ -163,21 +144,21 @@
     console.log('city');
   }
 
-  if (zip != 5) {
+  if (zip.length != 5) {
     $('#zip').attr('placeholder', 'Le code postale doit comporter 5 chiffres');
     $('#zip').addClass('error');
     test = 1;
     console.log('zip');
   }
 
-  if (siren != 9) {
+  if (siren.length != 9) {
     $('#siren').attr('placeholder', 'Le n° siren doit comporter 9 chiffres');
     $('#siren').addClass('error');
     test = 1;
     console.log('siren');
   }
 
-  if (password < 6) {
+  if (password.length < 6) {
     $('#password').attr('placeholder', 'Le mot de passe doit comporter au moins 6 caractères');
     $('#password').addClass('error');
     test = 1;
@@ -191,12 +172,46 @@
     console.log('confPassword');
   }
   if (nameVerif != null) {
+    var testFirstname = 1;
+    var testLastname = 1;
     nameVerif.forEach(function(element) {
-      if (element == $('#firstname').val()) {
-        console.log(element);
+      if (element == firstname.toUpperCase()) {
+        testFirstname = 0;
+      }
+      if (element == lastname.toUpperCase()) {
+        testLastname = 0;
       }
     });
+    if (testLastname == 1) {
+       test = 1;
+       console.log('testLastname');
+    }
+    if (testFirstname == 1) {
+      test = 1;
+      console.log('testFirstname');
+    }
   }
+  else{
+    test = 1;
+    console.log('nameVerif');
+  }
+if (libVérif != null) {
+  var testLib = 1;
+  libVérif.forEach(function(element) {
+    if (element == "Élevage") {
+      testLib = 0;
+    }
+  });
+  if (testLib == 1) {
+    test = 1;
+    console.log('testLib');
+  }
+}
+else{
+  test = 1;
+  console.log('libVérif');
+}
+
   if (test != 0) {
     return false;
   }
@@ -204,8 +219,6 @@
   else {
     return true;
   }
-
-
 }
 
 var nameVerif;
