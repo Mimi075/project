@@ -43,13 +43,11 @@
 				<a href="/annonceDetail?id={{ query_val.id }}">
 					<div>
 						<img class="item_image" src="{{ asset(query_val.url) }}" alt="loup"/>
-					</div>
-					
-					<div> 
+
             			<h5>{{ query_val.title }}</h5>
-            			<p>{{ query_val.name }}</p>
-	            		<p>{{ query_val.region }}</p> 
-	            		<p>{{ query_val.price }} €</p>
+            			<p>{{ query_val.name }}<br>
+	            		{{ query_val.region }}<br>
+	            		{{ query_val.price }} €</p>
             		</div>
 				</a>									
 			</div>	
