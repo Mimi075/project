@@ -45,7 +45,11 @@
     height: 20vh;
   }
 }
-
+@media (max-width: 340px) {
+  #pied {
+    height: 30vh;
+  }
+}
 .footerMarge{
   margin-bottom: 0;
 }
