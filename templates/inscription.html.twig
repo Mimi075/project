@@ -125,60 +125,70 @@
     $('#lastname').attr('placeholder', 'Le nom doit comporter au moins 3 caractères!');
     $('#lastname').addClass('error');
     test = 1;
+    console.log('lastname');
   }
 
   if (firstname < 3) {
     $('#firstname').attr('placeholder', 'Le prénom doit comporter au moins 3 caractères!');
     $('#firstname').addClass('error');
     test = 1;
+    console.log('firstname');
   }
 
   if ($('#email').val() == '') {
     $('#email').attr('placeholder', "L'email ne doit pas être vide!");
     $('#email').addClass('error');
     test = 1;
+    console.log('email');
   }
 
   if (adress < 3) {
     $('#adress').attr('placeholder', "L'adresse doit comporter au moins 3 caractères!");
     $('#adress').addClass('error');
     test = 1;
+    console.log('adress');
   }
 
   if (phone != 10) {
     $('#phone').attr('placeholder', 'Le n° de téléphone doit comporter 10 chiffres!');
     $('#phone').addClass('error');
     test = 1;
+    console.log('phone');
   }
 
   if ($('#city').val() == '') {
     $('#city').attr('placeholder', 'La ville ne peut être vide!');
     $('#city').addClass('error');
     test = 1;
+    console.log('city');
   }
 
   if (zip != 5) {
     $('#zip').attr('placeholder', 'Le code postale doit comporter 5 chiffres');
     $('#zip').addClass('error');
     test = 1;
+    console.log('zip');
   }
 
   if (siren != 9) {
     $('#siren').attr('placeholder', 'Le n° siren doit comporter 9 chiffres');
     $('#siren').addClass('error');
     test = 1;
+    console.log('siren');
   }
 
-  if (password <= 6) {
+  if (password < 6) {
     $('#password').attr('placeholder', 'Le mot de passe doit comporter au moins 6 caractères');
     $('#password').addClass('error');
     test = 1;
+    console.log('password');
   }
 
   if ($('#confPassword').val() != $('#password').val()) {
     $('#confPassword').attr('placeholder', 'Les mot de passe ne sont pas identique');
     $('#confPassword').addClass('error');
     test = 1;
+    console.log('confPassword');
   }
   if (nameVerif != null) {
     nameVerif.forEach(function(element) {
