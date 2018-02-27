@@ -10,7 +10,7 @@
 		<h3 class="no-border" itemprop="name">{{ querys[0]['title'] }}</h3>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-lg-6">
+				<div class="col-lg-6 col-md-6 col-sm-12">
 					<div id="demo" class="carousel slide" data-ride="carousel">
 						<!-- Indicators -->
 						<ul class="carousel-indicators">
@@ -32,15 +32,15 @@
 						<div class="carousel-inner">
 							{% set foo = 0 %}
 							{% for query_key, query_val in querys %}
-								{% if foo == 0 %}
+								{% if foo == 0 %}	
 									<div class="carousel-item active">
-										<img src="{{ asset(query_val.url) }}" alt="loup1">
+										<img src="{{ asset(query_val.url) }}" alt="photo{{ foo }}">
 									</div>
 								{% endif %}
 
 								{% if foo != 0 %}
 									<div class="carousel-item">
-										<img src="{{ asset(query_val.url) }}" alt="loup2">
+										<img src="{{ asset(query_val.url) }}" alt="photo{{ foo }}">
 									</div>
 								{% endif %}
 
@@ -59,13 +59,15 @@
 					</div>
 					<p class="item_photo">{{ foo }} photos disponibles</p>
 				</div>
-				<div class="col-lg-6">
+				<div class="col-lg-6 col-md-6 col-sm-12">
 					<div class="interstitial hidden" id="adview_interstitial">
-						<div class="container mincont">
-							<p class="mbl">Contactez le vendeur pour plus d'informations :</p>
-							<input type="button" id="buttonTel" value="voir le numero"><br>
-							<p id="num">{{ querys[0]['phone'] }}</p>
-							<a id="email" rel="nofollow" href="#">Envoyer un email</a>
+						<div class="container-fluid fluid mincont">
+							<div class"col-lg-12 col-md-12 col-sm-12">
+								<p class="mbl">Contactez le vendeur pour plus d'informations :</p>
+								<input type="button" id="buttonTel" value="voir le numero"><br>
+								<p id="num">{{ querys[0]['phone'] }}</p>
+								<a id="email" rel="nofollow" href="#">Envoyer un email</a>
+							</div>
 						</div>
 					</div>
 				</div>

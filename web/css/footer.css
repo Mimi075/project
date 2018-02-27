@@ -45,6 +45,11 @@
     height: 20vh;
   }
 }
+@media (max-width: 526px) {
+  #pied {
+    height: 25vh;
+  }
+}
 @media (max-width: 340px) {
   #pied {
     height: 30vh;
