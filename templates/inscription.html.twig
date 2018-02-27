@@ -16,62 +16,64 @@
 
       <div class="col-sm-6">
         <h1 id="inscrit">Inscription</h1><br>
-        <form id="needs-validation" novalidate method="post" action="{{ path('inscription') }}">
+        <form id="needs-validation" novalidate method="post" onsubmit ="return testInscription();return false;">
           <div class="form-row">
             <div class="col-md-4 mb-3">
               <label for="validationCustom01">Prénom</label>
-              <input type="text" class="form-control" name="firstname" placeholder="Votre prénom" required>
+              <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Votre prénom" required>
             </div>
 
             <div class="col-md-4 mb-3">
               <label for="validationCustom02">Nom</label>
-              <input type="text" class="form-control" name="lastname" placeholder="Votre nom" required>
+              <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Votre nom" required>
             </div>
 
             <div class="col-md-4 mb-3">
               <label for="validationCustomUsername">Adresse Mail</label>
               <div class="input-group">                  
-                <input type="text" class="form-control" name="email" placeholder="Votre adresse email" aria-describedby="inputGroupPrepend" required>
+                <input type="text" class="form-control" name="email" id="email" placeholder="Votre adresse email" aria-describedby="inputGroupPrepend" required>
               </div>                
             </div>
           </div>
           <div class="form-row">
             <div class="col-md-6 mb-6">
               <label for="formGroupExampleInput">Adresse postale</label>
-              <input type="text" class="form-control" name="adress" placeholder="Votre adresse">
+              <input type="text" class="form-control" name="adress" id="adress" placeholder="Votre adresse">
             </div>
             <div class="col-md-6 mb-6">
               <label for="validationCustom04">N° de Téléphone</label>
-              <input type="text" class="form-control" placeholder="Votre N° de Téléphone" name="phone" required>
+              <input type="text" class="form-control" placeholder="Votre N° de Téléphone" name="phone"
+              id="phone" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="validationCustom03">Ville</label>
-              <input type="text" class="form-control" name="city" placeholder="Votre ville" required>
+              <input type="text" class="form-control" name="city" id="city" placeholder="Votre ville" required>
             </div>
 
             <div class="col-md-3 mb-3">
               <label for="validationCustom05">Code postal</label>
-              <input type="text" class="form-control" placeholder="Votre code postal" name="zip" required>
+              <input type="text" class="form-control" placeholder="Votre code postal" name="zip"
+              id="zip" required>
             </div>
 
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">N° de Siren</label>
-              <input type="text" id="sirenNumber" class="form-control" placeholder="Votre N° de Siren" name="siren" required>
+              <input type="text" class="form-control" placeholder="Votre N° de Siren" name="siren" id="siren" required>
             </div>             
           </div>
 
           <div class="form-row">
             <div class="col-md-6 mb-6">
               <label for="exampleInputPassword1">Mot de passe</label>
-              <input type="password" class="form-control" name="password" placeholder="Entrez un mot de passe">
+              <input type="password" class="form-control" name="password" id="password" placeholder="Entrez un mot de passe">
             </div>
 
             <div class="col-md-6 mb-6">
               <label for="exampleInputPassword1">Confirmez votre mot de passe</label>
-              <input type="password" class="form-control" name="confPassword" placeholder="Veuillez Confirmer">
+              <input type="password" class="form-control" name="confPassword" id="confPassword" placeholder="Veuillez Confirmer">
             </div>
           </div><br>             
           <button class="btn btn-success" type="submit">Envoyer</button>   
@@ -79,19 +81,144 @@
       </div>
     </div>
   </div>
-  {# <input type="button" value="ttttttttt" onclick="sirenControl();"> #}
+<input type="button" value="ttttttttt" onclick="sirenControl();">
+<input type="button" value="sssssss" onclick="test2();">
   <script type="text/javascript">
 
-    function sirenControl(){
-      $.ajax({
-        url: 'https://data.opendatasoft.com/api/records/1.0/search/?apikey=376696232cf85575761b12f151771584a8fb113b0e8c86a58ddef2dd&dataset=sirene%40public&q='+document.getElementById('sirenNumber').value+'&facet=libtefen',
-          method: 'get'
-      }).done(function(verif){
-        console.log(verif.records["0"].fields.nom);
-        console.log(verif.records["0"].fields.siren);
-        console.log(verif.records["0"].fields.libapen);
-      });
-    }
+  $('#siren').blur(function() {sirenControl();});
+
+  function testInscription(){
+
+  test = 0;
+
+  lastname = $('#lastname').val();
+  lastname = lastname.length;
+
+  firstname = $('#firstname').val();
+  firstname = firstname.length;
+
+  email = $('#email').val();
+  email = email.length;
+
+  adress = $('#adress').val();
+  adress = adress.length;
+
+  phone = $('#phone').val();
+  phone = phone.length;
+
+  city = $('#city').val();
+  city = city.length;
+
+  zip = $('#zip').val();
+  zip = zip.length;
+
+  siren = $('#siren').val();
+  siren = siren.length;
+
+  password = $('#password').val();
+  password = password.length;
+
+  confPassword = $('#confPassword').val();
+  confPassword = confPassword.length;
+
+  if (lastname < 3) {
+    $('#lastname').attr('placeholder', 'Le nom doit comporter au moins 3 caractères!');
+    $('#lastname').addClass('error');
+    test = 1;
+  }
+
+  if (firstname < 3) {
+    $('#firstname').attr('placeholder', 'Le prénom doit comporter au moins 3 caractères!');
+    $('#firstname').addClass('error');
+    test = 1;
+  }
+
+  if ($('#email').val() == '') {
+    $('#email').attr('placeholder', "L'email ne doit pas être vide!");
+    $('#email').addClass('error');
+    test = 1;
+  }
+
+  if (adress < 3) {
+    $('#adress').attr('placeholder', "L'adresse doit comporter au moins 3 caractères!");
+    $('#adress').addClass('error');
+    test = 1;
+  }
+
+  if (phone != 10) {
+    $('#phone').attr('placeholder', 'Le n° de téléphone doit comporter 10 chiffres!');
+    $('#phone').addClass('error');
+    test = 1;
+  }
+
+  if ($('#city').val() == '') {
+    $('#city').attr('placeholder', 'La ville ne peut être vide!');
+    $('#city').addClass('error');
+    test = 1;
+  }
+
+  if (zip != 5) {
+    $('#zip').attr('placeholder', 'Le code postale doit comporter 5 chiffres');
+    $('#zip').addClass('error');
+    test = 1;
+  }
+
+  if (siren != 9) {
+    $('#siren').attr('placeholder', 'Le n° siren doit comporter 9 chiffres');
+    $('#siren').addClass('error');
+    test = 1;
+  }
+
+  if (password <= 6) {
+    $('#password').attr('placeholder', 'Le mot de passe doit comporter au moins 6 caractères');
+    $('#password').addClass('error');
+    test = 1;
+  }
+
+  if ($('#confPassword').val() != $('#password').val()) {
+    $('#confPassword').attr('placeholder', 'Les mot de passe ne sont pas identique');
+    $('#confPassword').addClass('error');
+    test = 1;
+  }
+  if (nameVerif != null) {
+    nameVerif.forEach(function(element) {
+      if (element == $('#firstname').val()) {
+        console.log(element);
+      }
+    });
+  }
+  if (test != 0) {
+    return false;
+  }
+  
+  else {
+    return true;
+  }
+
+
+}
+
+var nameVerif;
+var sirenVerif;
+var libVérif;
+function sirenControl(){
+
+  $.ajax({
+    url: 'https://data.opendatasoft.com/api/records/1.0/search/?apikey=376696232cf85575761b12f151771584a8fb113b0e8c86a58ddef2dd&dataset=sirene%40public&q='+document.getElementById('siren').value+'&facet=libtefen',
+    method: 'get'
+  }).done(function(verif){
+    nameVerif = verif.records["0"].fields.l1_declaree;
+    libVérif = verif.records["0"].fields.libapen;
+    nameVerif = nameVerif.split(" ");
+    libVérif = libVérif.split(" "); 
+  });
+}
+
+function test2(){
+    console.log(nameVerif);
+    console.log(libVérif);
+
+  }
   </script>
 {% endblock %}     
 
