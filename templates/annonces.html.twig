@@ -35,16 +35,17 @@
 
 		<input class="bouton_search" type="submit" value="Lancer la recherche" />
 	</form>
+	<div class="container-fluid ">
+		<div class="row">
 	{% for query_key, query_val in querys %}
-		
-		<div class="container miniAnnonce">
-			<div>
-				<a class="row" href="/annonceDetail?id={{ query_val.id }}">
-					<div class="col-3">
+
+			<div class="col-lg-4 col-md-4 col-sm-12 miniAnnonce">
+				<a href="/annonceDetail?id={{ query_val.id }}">
+					<div>
 						<img class="item_image" src="{{ asset(query_val.url) }}" alt="loup"/>
 					</div>
 					
-					<div class="col-9"> 
+					<div> 
             			<h5>{{ query_val.title }}</h5>
             			<p>{{ query_val.name }}</p>
 	            		<p>{{ query_val.region }}</p> 
@@ -52,6 +53,8 @@
             		</div>
 				</a>									
 			</div>	
+			
+	{% endfor %}
 		</div>
-	{% endfor %}	
+	</div>	
 {% endblock %}

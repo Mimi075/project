@@ -16,6 +16,8 @@ b {
 	background-color: #8C8C8C;
 	margin-bottom: 4px;
 	margin-top: 4px;
+	border: solid black 2px;
+	margin: 1%;
 }
 
 /*---------------------------------------------------------------------*/
