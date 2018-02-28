@@ -4,6 +4,11 @@
 {% endblock %}
 
 {% block body %}
+
+	{% if userName is empty %} 
+		<h1>vous devez être connecté pour accéder à cette page</h1>
+	{% else %}
+	     
 	<div id="formAnn">
 
 		{% if errors is defined  %}
@@ -128,5 +133,5 @@
 		});
 
 	</script>
-	
+	{% endif %}
 {% endblock %}

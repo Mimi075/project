@@ -14,7 +14,6 @@ include '../web/function.php';
 //Page d'accueil
 //----------------------------------------------------------------------------------------------------
 $app->get('/', function () use ($app) {
-    
   return $app['twig']->render('index.html.twig', regionList());
 })
 ->bind('homepage')
@@ -319,15 +318,6 @@ $app->get('/annonces', function () use ($app) {
   else{
     $keywords = '';
   }
-  /*switch (variable) {
-    case 'value':
-      # code...
-    break;
-      
-    default:
-      # code...
-    break;
-  }*/
 
   //Préparation de la requete pour récupérer les annonces
   $qb = $app['em']->createQueryBuilder('a');
